@@ -1,0 +1,12 @@
+@use "./base/variables";
+@use "./base/base";
+@use "./base/mixins";
+
+// components
+@use "./components/typography";
+@use "./components/layout";
+@use "./components/header";
+@use "./components/footer";
+
+//pages
+@use "./pages/home";

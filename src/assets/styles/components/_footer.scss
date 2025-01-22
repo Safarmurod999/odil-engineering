@@ -1,0 +1,34 @@
+@use "../base/mixins" as mixin;
+
+.footer {
+  padding: 50px 0;
+  background-color: var(--text-color);
+  * {
+    color: var(--text-light-color);
+  }
+  .container {
+    @include mixin.flex-row(flex-start, space-between, 20px);
+  }
+
+  &__left {
+    a {
+      display: block;
+      margin-top: 30px;
+      font-size: 14px;
+      text-decoration: underline;
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+  .social-links {
+    margin-top: 20px;
+    @include mixin.flex-row(center, flex-start, 10px);
+    svg {
+      font-size: 25px;
+      &:hover {
+        fill: var(--primary-color);
+      }
+    }
+  }
+}

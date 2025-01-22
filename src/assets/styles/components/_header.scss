@@ -1,0 +1,49 @@
+@use "../base/mixins" as mixin;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 50;
+  .container {
+    @include mixin.flex-col(space-between, center);
+  }
+  &__top {
+    @include mixin.flex-row(center, space-between, 20px);
+    padding: 10px 0;
+  }
+  &__contacts {
+    @include mixin.flex-col(flex-start, center);
+    padding-left: 10px;
+    border-left: 5px solid var(--primary-color);
+    a{
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+        color: var(--primary-color);
+    }  
+}
+  &__bottom {
+    border-block: 1px solid var(--lightgray);
+  }
+  &__menu {
+    padding: 15px 0;
+    @include mixin.flex-row(center, flex-start, 20px);
+    &-item {
+      a {
+        text-transform: uppercase;
+        color: var(--text-color);
+
+        &:hover {
+          color: var(--primary-color);
+        }
+      }
+      &.active {
+        a {
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+}

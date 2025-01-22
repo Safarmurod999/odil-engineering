@@ -1,0 +1,115 @@
+@use "../base/mixins" as mixin;
+.main {
+  position: relative;
+  padding-bottom: 50px;
+  &__video {
+    margin-top: -100px;
+  }
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--bg-color-2);
+  }
+  h1 {
+    font-size: 50px;
+    line-height: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  p {
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+  }
+}
+.categories {
+  padding: 20px 0 50px;
+  .h3 {
+    width: 220px;
+    margin: 20px auto 40px;
+    padding: 5px 0;
+    border-bottom: 3px solid var(--primary-color);
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem 1rem;
+  }
+  &__item {
+    @include mixin.flex-col(flex-start, center);
+    box-shadow: 4px 4px -3px rgba(0, 0, 0, 0.5);
+    &-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      img {
+        width: 100%;
+        transition: 0.3s ease all;
+      }
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+    &-content {
+      padding: 0 15px 20px;
+      background-color: var(--white);
+    }
+    .h4 {
+      text-transform: capitalize;
+      text-align: left;
+      margin-bottom: 15px;
+    }
+    p {
+      margin-bottom: 20px;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-light-color);
+    }
+    a {
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+      color: #fff;
+      background-color: var(--primary-color);
+      border-radius: 4px;
+      &:hover {
+        opacity: 0.8;
+        svg {
+          transition: 0.3s;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+.contact {
+  padding: 50px 0;
+  background-color: var(--white);
+  p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .h4 {
+    text-align: left;
+    max-width: 450px;
+    font-weight: 400;
+    text-transform: none;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    text-align: right;
+    color: var(--primary-color);
+  }
+}
