@@ -1,4 +1,4 @@
-import lentochnaya from "../assets/images/main/lentochnaya.jpg";
+import lentochnaya from "../assets/images/main/lentochnaya.png";
 import manyline from "../assets/images/main/manyline.jpg";
 import sborka from "../assets/images/main/sborka.jpg";
 

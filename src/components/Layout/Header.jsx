@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import logo from "../../assets/icons/logo.svg"
+import { RiMenu3Fill } from "react-icons/ri";
+import { RiCloseLargeFill } from "react-icons/ri";
 
 const navLinks = [
     {
@@ -41,8 +43,8 @@ const navLinks = [
 ]
 const Header = () => {
     const route = useLocation();
-    console.log(route.pathname);
 
+    const [toggleNav, setToggleNav] = useState(false);
     return (
         <nav className='navbar'>
             <div className="container">
@@ -57,12 +59,19 @@ const Header = () => {
                         <a href="tel:8 800 500-83-24"> 90 500-83-24 (бесплатно)</a>
                         <a href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
                     </div>
+                    <button className="navbar__toggle" onClick={() => setToggleNav(!toggleNav)}>
+
+                        {
+                            toggleNav ? <RiCloseLargeFill /> : <RiMenu3Fill />
+                        }
+
+                    </button>
                 </div>
 
             </div>
-            <div className="navbar__bottom">
+            <div className={`navbar__bottom ${toggleNav ? 'active' : ''}`}>
                 <div className="container">
-                    <ul className="navbar__menu">
+                    <ul className={`navbar__menu`}>
                         {
                             navLinks.map((item) => {
                                 return (
@@ -73,6 +82,11 @@ const Header = () => {
                             })
                         }
                     </ul>
+                    <div className="navbar__contacts navbar__bottom-contacts">
+                        <a href="tel:8 495 150 55 27"> 95 150 55 27 (Ташкент)</a>
+                        <a href="tel:8 800 500-83-24"> 90 500-83-24 (бесплатно)</a>
+                        <a href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
+                    </div>
                 </div>
             </div>
         </nav>
