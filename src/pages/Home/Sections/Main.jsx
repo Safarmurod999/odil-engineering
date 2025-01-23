@@ -2,7 +2,7 @@ import React from 'react'
 import intro from "../../../assets/videos/intro.mp4";
 const Main = () => {
     return (
-        <section className='main'>
+        <section className='main' data-aos="fade-up">
             <div className="container">
                 <video autoPlay={true} preload='auto' loop={true} muted={true} playsInline={true} className="main__video">
                     <source src={intro} type="video/mp4" />

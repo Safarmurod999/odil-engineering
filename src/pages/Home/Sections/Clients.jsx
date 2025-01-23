@@ -21,7 +21,8 @@ const Clients = () => {
         >
           {
             clientsArray.map(client =>
-              <SwiperSlide key={client.id} className='clients__slide' title={client.title}>
+              <SwiperSlide key={client.id} className='clients__slide' title={client.title}
+              >
                 <div className="clients__item">
                   <img src={client.image} alt={client.name} />
                 </div>

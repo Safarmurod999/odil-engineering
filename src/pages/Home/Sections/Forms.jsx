@@ -4,7 +4,7 @@ const Forms = () => {
   return (
     <section className="forms">
       <div className="container">
-        <form className="forms__form">
+        <form className="forms__form" data-aos="zoom-in">
           <h2 className="forms__title">Остались вопросы?</h2>
           <div className="forms__row">
             <input type="text" className='forms__input' placeholder='Как Вас зовут?' />

@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer__left">
+        <div className="footer__left" data-aos="zoom-out">
           <p> &copy; Odil Engineering  2015-2025</p>
           <p>OOO «Odil Engineering»</p>
 
@@ -17,11 +17,11 @@ const Footer = () => {
             Правила копирования и цитирования
           </Link>
         </div>
-        <div className="footer__mid">
+        <div className="footer__mid" data-aos="zoom-out">
           Uzbekistan, TASHKENT, UCHTEPA area, <br /> CHILANZAR-26 massif, 36
         </div>
 
-        <div className="footer__right">
+        <div className="footer__right" data-aos="zoom-out">
           <p><a href="tel:+998712000000">Телефон: +998 71 200 00 00</a></p>
           <p>Email:
             <Link to="mailto:info@odil-engineering.uz">

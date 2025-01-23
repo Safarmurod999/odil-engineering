@@ -10,7 +10,7 @@ const Categories = () => {
                     {
                         categoriesArray.map((category, index) => {
                             return (
-                                <li key={index} className="categories__item">
+                                <li key={index} className="categories__item" data-aos="fade-up">
                                     <div className="categories__item-image">
                                         <img src={category.image} alt={category.title} />
                                     </div>
