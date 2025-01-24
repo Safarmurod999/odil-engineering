@@ -1,5 +1,5 @@
 import React from 'react'
-import { Main, Categories, Contact, Forms, Clients } from './Sections/index'
+import { Main, Categories, Contact, Clients } from './Sections/index'
 const Home = () => {
   return (
     <>
@@ -7,7 +7,6 @@ const Home = () => {
       <Categories />
       <Contact />
       <Clients />
-      <Forms />
     </>
   )
 }
