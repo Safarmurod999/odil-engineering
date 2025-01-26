@@ -5,7 +5,7 @@ const Categories = () => {
     return (
         <section className='categories'>
             <div className="container">
-                <div className="h3">Категории</div>
+                <div className="h3 title">Категории</div>
                 <ul className="categories__list">
                     {
                         categoriesArray.map((category, index) => {

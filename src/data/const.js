@@ -9,7 +9,7 @@ import mtc from "../assets/images/main/mtc.png";
 import morton from "../assets/images/main/morton.png";
 import mars from "../assets/images/main/mars.png";
 import gazprom from "../assets/images/main/gazprom.png";
-
+import ntv from "../assets/images/main/ntv.png";
 export const categoriesArray = [
   {
     id: 0,
@@ -96,6 +96,11 @@ export const clientsArray = [
     id: 6,
     title: "Gazprom",
     image: gazprom,
+  },
+  {
+    id: 7,
+    title: "NTV",
+    image: ntv,
   },
 ];
 

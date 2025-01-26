@@ -9,7 +9,7 @@ const Clients = () => {
   return (
     <section className="clients">
       <div className="container">
-        <div className="h3">
+        <div className="h3 title">
           Клиенты
         </div>
 

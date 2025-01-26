@@ -1,0 +1,27 @@
+.service {
+  padding: 80px 0;
+  @media screen and (max-width: 768px) {
+    padding: 40px 0;
+  }
+  .title {
+    max-width: 200px;
+  }
+  p,
+  li {
+    color: var(--text-color);
+  }
+  ul {
+    list-style: disc;
+    list-style-position: inside;
+  }
+  &__list {
+    display: flex;
+    margin: 40px 0;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+    .h5 {
+      text-align: left;
+    }
+  }
+}

@@ -7,7 +7,7 @@ const Testimonials = () => {
     return (
         <section className="testimonials">
             <div className="container">
-                <div className="testimonials__title">
+                <div className="testimonials__title title">
                     Отзывы клиентов
                 </div>
                 <Swiper modules={[Navigation]}

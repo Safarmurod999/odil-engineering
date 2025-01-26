@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import logo from "../../assets/icons/logo.svg"
 import { RiMenu3Fill } from "react-icons/ri";
@@ -45,6 +45,10 @@ const Header = () => {
     const route = useLocation();
 
     const [toggleNav, setToggleNav] = useState(false);
+    useEffect(() => {
+        setToggleNav(false)
+    }, [route])
+
     return (
         <nav className='navbar'>
             <div className="container">

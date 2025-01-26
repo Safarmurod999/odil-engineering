@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router";
-import { Home, About, NotFound } from "../pages/index";
+import { Home, About, NotFound, Clients, Service } from "../pages/index";
 import { Layout } from "../components/Layout/index"
 import ProtectedRoute from "./ProtectedRoute";
 const landingRoutes = [
@@ -13,6 +13,16 @@ const landingRoutes = [
     path: "/about",
     component: About,
   },
+  {
+    id: 2,
+    path: "/clients",
+    component: Clients
+  },
+  {
+    id: 3,
+    path: "/services",
+    component: Service
+  }
 ];
 
 const adminRoutes = [

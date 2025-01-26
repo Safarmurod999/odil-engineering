@@ -209,3 +209,17 @@
     line-height: 22px;
   }
 }
+
+.title {
+  max-width: 320px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding:10px 20px !important;
+  margin: 0 auto;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text-color);
+  border-bottom: 3px solid var(--primary-color);
+}
