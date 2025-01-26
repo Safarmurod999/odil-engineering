@@ -45,12 +45,31 @@ const Header = () => {
     const route = useLocation();
 
     const [toggleNav, setToggleNav] = useState(false);
+    const [show, setShow] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
     useEffect(() => {
         setToggleNav(false)
     }, [route])
-
+    const controlNavbar = () => {
+        if (typeof window !== "undefined") {
+          if (window.scrollY > 70) {
+            setShow(false);
+          } else {
+            setShow(true);
+          }
+          setLastScrollY(window.scrollY);
+        }
+      };
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            window.addEventListener("scroll", controlNavbar);
+            return () => {
+                window.removeEventListener("scroll", controlNavbar);
+            };
+        }
+    }, [lastScrollY]);
     return (
-        <nav className='navbar'>
+        <nav className={`navbar ${!show ? 'shrink' : ''}`} >
             <div className="container">
                 <div className="navbar__top">
                     <div className="navbar__logo">

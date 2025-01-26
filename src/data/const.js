@@ -149,3 +149,48 @@ export const testimonialsArray = [
     text: `Обратился к нам в компанию, где мы уже давно работаем. Мы очень довольны результатом и делами, которые они выполняют.`,
   },
 ];
+
+export const projectsArray = [
+  {
+    id: 0,
+    title: "Подъемники для мезонина для WB",
+    video: "https://www.youtube.com/embed/DZHSEeFiXiY?si=BW6WLkK9MICgVyhf",
+    description:
+      "Спроектированы и запущены три пары подъемников с конвейерами для перемещения палет.",
+  },
+  {
+    id: 1,
+    title: "Линия транспортировки паллет на склад",
+    video: "https://www.youtube.com/embed/DZHSEeFiXiY?si=BW6WLkK9MICgVyhf",
+    description:
+      "Спроектированы и запущены три пары подъемников с конвейерами для перемещения палет.",
+  },
+  {
+    id: 2,
+    title: "Подъем и транспортировка паллет на складе",
+    video: "https://www.youtube.com/embed/DZHSEeFiXiY?si=BW6WLkK9MICgVyhf",
+    description:
+      "Спроектированы и запущены три пары подъемников с конвейерами для перемещения палет.",
+  },
+  {
+    id: 3,
+    title: "Конвейер для буртовки зерна",
+    video: "https://www.youtube.com/embed/DZHSEeFiXiY?si=BW6WLkK9MICgVyhf",
+    description:
+      "Спроектированы и запущены три пары подъемников с конвейерами для перемещения палет.",
+  },
+  {
+    id: 4,
+    title: "Сборочный конвейер для электронного оборудования",
+    video: "https://www.youtube.com/embed/DZHSEeFiXiY?si=BW6WLkK9MICgVyhf",
+    description:
+      "Спроектированы и запущены три пары подъемников с конвейерами для перемещения палет.",
+  },
+  {
+    id: 5,
+    title: "Алюминиевый подъемник",
+    video: "https://www.youtube.com/embed/DZHSEeFiXiY?si=BW6WLkK9MICgVyhf",
+    description:
+      "Спроектированы и запущены три пары подъемников с конвейерами для перемещения палет.",
+  },
+];
