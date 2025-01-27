@@ -11,3 +11,5 @@ export { default as Service } from "./Service/Service";
 export { default as Projects } from "./Projects/Projects";
 
 export { default as ProjectInner } from "./Projects/ProjectInner";
+
+export { default as Contacts } from "./Contacts/Contacts";

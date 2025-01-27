@@ -1,8 +1,9 @@
 import React from 'react'
 import { projectsArray } from '../../../data/const'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 const Main = () => {
+    const navigate = useNavigate();
     return (
         <section className="projects">
             <div className="container">
@@ -20,7 +21,9 @@ const Main = () => {
                 <ul className="projects__list">
                     {
                         projectsArray.map((item) => (
-                            <li className='projects__item' key={item.id} data-aos="fade-up">
+                            <li className='projects__item' key={item.id} data-aos="fade-up"
+                            //  onClick={() => navigate(`/projects/${item.id}`)}
+                            >
                                 <div className='projects__video'>
                                     <iframe width="560" height="315"
                                         src={item.video}
@@ -31,12 +34,15 @@ const Main = () => {
                                     </iframe>
                                 </div>
                                 <div className="projects__content">
-                                    <Link to={`/projects/${item.id}`} className="h6">
+                                    <div className="h6">
                                         {item.title}
-                                    </Link>
+                                    </div>
                                     <p>
                                         {item.description}
                                     </p>
+                                    <Link to={`/projects/${item.id}`} className="projects__link">
+                                        Подробнее
+                                    </Link>
                                 </div>
                             </li>
                         ))

@@ -68,14 +68,12 @@
 
     &-item {
       a {
+        font-size: 14px;
         text-transform: uppercase;
         color: var(--text-color);
-
+        font-weight: 500;
         &:hover {
           color: var(--primary-color);
-        }
-        @media screen and (max-width: 992px) {
-          font-size: 14px;
         }
         @media screen and (max-width: 768px) {
           font-size: 12px;

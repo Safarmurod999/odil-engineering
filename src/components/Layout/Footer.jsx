@@ -1,13 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link, useLocation } from 'react-router'
 import { FaYoutube } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
+  const { pathname } = useLocation();
+
   return (
     <>
-      <section className="forms">
+      <section className="forms" style={{ display: pathname == "/contacts" ? "none" : "" }}>
         <div className="container">
           <form className="forms__form" data-aos="zoom-in">
             <h2 className="forms__title title">Остались вопросы?</h2>

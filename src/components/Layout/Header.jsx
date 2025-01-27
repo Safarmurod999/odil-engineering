@@ -30,11 +30,11 @@ const navLinks = [
         title: 'Проекты',
         to: '/projects'
     },
-    {
-        id: 5,
-        title: 'Поставщикам',
-        to: '/suppliers'
-    },
+    // {
+    //     id: 5,
+    //     title: 'Поставщикам',
+    //     to: '/suppliers'
+    // },
     {
         id: 6,
         title: 'Контакты',
