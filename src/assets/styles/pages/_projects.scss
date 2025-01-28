@@ -26,10 +26,15 @@
     padding: 20px;
     @include mixin.flex-row(stretch, space-between, 20px);
     background-color: var(--white);
+    border: 1px solid var(--lightgray);
+    cursor: pointer;
+    transition: 0.3s ease all;
+    &:hover {
+      border-color: var(--primary-color);
+    }
     @media screen and (max-width: 1280px) {
       flex-direction: column;
     }
-    cursor: pointer;
     .h6 {
       text-align: left;
       margin-top: 0;

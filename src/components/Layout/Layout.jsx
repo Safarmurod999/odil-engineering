@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { useLocation } from "react-router";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { ThemeProvider } from "next-themes";
 
 
 const Layout = ({ children }) => {
@@ -16,9 +17,11 @@ const Layout = ({ children }) => {
     }, [])
     return (
         <main>
-            <Header />
-            {children}
-            <Footer />
+            <ThemeProvider>
+                <Header />
+                {children}
+                <Footer />
+            </ThemeProvider>
         </main>
     )
 }

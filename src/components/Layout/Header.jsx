@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router'
 import logo from "../../assets/icons/logo.svg"
 import { RiMenu3Fill } from "react-icons/ri";
 import { RiCloseLargeFill } from "react-icons/ri";
+import ThemeSwitcher from './ThemeSwitcher';
 
 const navLinks = [
     {
@@ -52,14 +53,14 @@ const Header = () => {
     }, [route])
     const controlNavbar = () => {
         if (typeof window !== "undefined") {
-          if (window.scrollY > 70) {
-            setShow(false);
-          } else {
-            setShow(true);
-          }
-          setLastScrollY(window.scrollY);
+            if (window.scrollY > 70 && toggleNav === false) {
+                setShow(false);
+            } else {
+                setShow(true);
+            }
+            setLastScrollY(window.scrollY);
         }
-      };
+    };
     useEffect(() => {
         if (typeof window !== "undefined") {
             window.addEventListener("scroll", controlNavbar);
@@ -77,18 +78,22 @@ const Header = () => {
                             <img src={logo} alt="Logo" />
                         </Link>
                     </div>
-                    <div className="navbar__contacts">
-                        <a href="tel:8 495 150 55 27"> 95 150 55 27 (Ташкент)</a>
-                        <a href="tel:8 800 500-83-24"> 90 500-83-24 (бесплатно)</a>
-                        <a href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
+
+                    <div className='navbar__btns'>
+                        <ThemeSwitcher />
+                        <div className="navbar__contacts">
+                            <a href="tel:8 495 150 55 27"> 95 150 55 27 (Ташкент)</a>
+                            <a href="tel:8 800 500-83-24"> 90 500-83-24 (бесплатно)</a>
+                            <a href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
+                        </div>
+                        <button className="navbar__toggle" onClick={() => setToggleNav(!toggleNav)}>
+
+                            {
+                                toggleNav ? <RiCloseLargeFill /> : <RiMenu3Fill />
+                            }
+
+                        </button>
                     </div>
-                    <button className="navbar__toggle" onClick={() => setToggleNav(!toggleNav)}>
-
-                        {
-                            toggleNav ? <RiCloseLargeFill /> : <RiMenu3Fill />
-                        }
-
-                    </button>
                 </div>
 
             </div>
@@ -105,6 +110,7 @@ const Header = () => {
                             })
                         }
                     </ul>
+
                     <div className="navbar__contacts navbar__bottom-contacts">
                         <a href="tel:8 495 150 55 27"> 95 150 55 27 (Ташкент)</a>
                         <a href="tel:8 800 500-83-24"> 90 500-83-24 (бесплатно)</a>
