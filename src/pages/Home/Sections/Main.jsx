@@ -1,6 +1,8 @@
 import React from 'react'
 import intro from "../../../assets/videos/intro.mp4";
+import { useTranslation } from 'react-i18next';
 const Main = () => {
+    const { t } = useTranslation();
     return (
         <section className='main' data-aos="fade-up">
             <div className="container">
@@ -10,8 +12,8 @@ const Main = () => {
                 </video>
 
                 <div className="main__content">
-                    <h1>ОБОРУДОВАНИЕ ДЛЯ АВТОМАТИЗАЦИИ СКЛАДА И ПРОИЗВОДСТВА</h1>
-                    <p>Больше 20 лет мы проектируем и производим конвейерное оборудование. Гарантия 2 года и срок производства от 5 дней.</p>
+                    <h1>{t('main_title')}</h1>
+                    <p>{t('main_text')}</p>
                 </div>
             </div>
         </section>

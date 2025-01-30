@@ -1,13 +1,15 @@
+import { useTranslation } from "react-i18next";
 import { categoriesArray } from "../../../data/const";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const Categories = () => {
+    const { t } = useTranslation()
     return (
         <section className='categories'>
             <div className="container">
                 <div className="h3 title">
                     <span>
-                        Категории
+                        {t('categories')}
                     </span>
                 </div>
                 <ul className="categories__list">
@@ -24,7 +26,7 @@ const Categories = () => {
                                             {category.description}
                                         </p>
 
-                                        <a href={`/catalog/${category.link}`}>Подробнее <FaArrowRightLong />
+                                        <a href={`/catalog/${category.link}`}>{t('more')} <FaArrowRightLong />
                                         </a>
                                     </div>
 

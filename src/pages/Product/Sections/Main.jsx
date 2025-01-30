@@ -8,7 +8,9 @@ import main from "../../../assets/images/products/conveyer-cornered/image.png";
 import view_1 from "../../../assets/images/products/conveyer-cornered/4k/view-1.png";
 import view_2 from "../../../assets/images/products/conveyer-cornered/4k/view-2.png";
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 const Main = () => {
+    const { t } = useTranslation();
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const product = {
         id: 0,
@@ -137,7 +139,7 @@ const Main = () => {
                     </div>
                     <div className="product__description">
                         <div className="product__description-title">
-                            <span>Описание</span>
+                            <span>{t('description')}</span>
                         </div>
                         <div className="product__description-text">
                             <p>{product.description}</p>
@@ -145,7 +147,7 @@ const Main = () => {
                     </div>
                     <div className="product__description">
                         <div className="product__description-title">
-                            <span>О нас</span>
+                            <span>{t('about')}</span>
                         </div>
                         <div className="product__description-text">
                             <p>
@@ -169,7 +171,7 @@ const Main = () => {
                     </div>
                     <div className="product__description">
                         <div className="product__description-title">
-                            <span>Монтаж и сервис</span>
+                            <span>{t('service')}</span>
                         </div>
                         <div className="product__description-text services">
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="96.438px" height="97.685px" viewBox="0 0 96.438 97.685" enableBackground="new 0 0 96.438 97.685" xmlSpace="preserve">
@@ -213,7 +215,7 @@ const Main = () => {
                     <div className="product__order">
                         <div className="product__order-title">
                             <span>
-                                Как заказать конвейер?
+                                {t('order')}
                             </span>
                         </div>
                         <div className="product__order-list">
@@ -229,11 +231,10 @@ const Main = () => {
                                     </svg>
                                 </div>
                                 <div className="h6">
-                                    Форма заказа
+                                    {t('contact_form')}
                                 </div>
                                 <a href='/contacts'>
-                                    Свяжитесь с менеджером,
-                                    заполнив форму
+                                    {t('contact_managers')}
                                 </a>
                             </div>
                             <div className='product__order-item'>
@@ -261,11 +262,11 @@ const Main = () => {
                                     </svg>
                                 </div>
                                 <div className="h6">
-                                    Позвоните нам
+                                    {t('call_us')}
                                 </div>
                                 <div>
-                                    <a href="tel:8 495 150 55 27"> 95 150 55 27 (Ташкент)</a> <br />
-                                    <a href="tel:8 800 500-83-24"> 90 500-83-24 (бесплатно)</a>
+                                    <a href="tel:8 495 150 55 27"> +99895 150 55 27</a> <br />
+                                    <a href="tel:8 800 500-83-24"> +99890 500-83-24</a>
                                 </div>
                             </div>
                             <div className="product__order-item">
@@ -278,7 +279,7 @@ const Main = () => {
                                     </svg>
                                 </div>
                                 <div className="h6">
-                                    Напишите нам
+                                    {t('write_us')}
                                 </div>
                                 <a href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
                             </div>
@@ -288,7 +289,7 @@ const Main = () => {
                 <div className="product__right">
                     <div className="product__media">
                         <div className="product__media-title">
-                            <span>Видео</span>
+                            <span>{t('media')}</span>
                         </div>
                         <div className="product__media-list">
                             {

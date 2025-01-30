@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router'
 import notfound from '../../assets/videos/notfound.gif'
+import { useTranslation } from 'react-i18next';
 const NotFound = () => {
   let route = useLocation();
-
+  const {t} = useTranslation()
   return (
     <section className="not-found">
       <div className="container">
@@ -12,19 +13,19 @@ const NotFound = () => {
         </div>
         <img src={notfound} alt="animation" />
         <div className="h1">
-          Такой страницы не существует.
+          
         </div>
         {route.pathname.startsWith("/dashboard") ? (
           <Link
             to={"/admin"}
           >
-            Главная страница
+            {t('main_page')}
           </Link>
         ) : (
           <Link
             to={"/"}
           >
-            Главная страница
+            {t('main_page')}
           </Link>
         )}
       </div>

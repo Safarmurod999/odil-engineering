@@ -4,14 +4,16 @@ import { clientsArray } from "../../../data/const";
 import { Navigation } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation";
+import { useTranslation } from 'react-i18next';
 
 const Clients = () => {
+  const { t } = useTranslation()
   return (
     <section className="clients">
       <div className="container">
         <div className="h3 title">
           <span>
-            Клиенты
+            {t('clients')}
           </span>
         </div>
         <Swiper modules={[Navigation]}

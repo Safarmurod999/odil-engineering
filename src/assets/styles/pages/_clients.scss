@@ -3,6 +3,11 @@
   @media screen and (max-width: 768px) {
     padding: 40px 0;
   }
+  &__title{
+    span{
+      margin-bottom: 0;
+    }
+  }
   &__text {
     max-width: 750px;
     margin: 0 auto;

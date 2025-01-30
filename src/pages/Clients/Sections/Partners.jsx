@@ -1,21 +1,19 @@
 import React from 'react'
 import { clientsArray } from '../../../data/const'
+import { useTranslation } from 'react-i18next'
 
 const Partners = () => {
+    const { t } = useTranslation()
     return (
         <section className="clients">
             <div className="container" data-aos="fade-up">
                 <div className="clients__title title">
                     <span>
-                        Наши клиенты
+                        {t('clients')}
                     </span>
                 </div>
                 <p className='clients__text' data-aos="fade-up">
-                    Нашей компанией реализовано более двух тысяч различных проектов для
-                    различных заказчиков  — больших и маленьких. Мы работаем над любыми
-                    заказами с одинаковым усердием. <br />
-                    На этой странице вы можете
-                    увидеть логотипы некоторых наших клиентов.
+                    {t('clients_text')}
                 </p>
                 <ul className='clients__list'>
                     {

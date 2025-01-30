@@ -55,7 +55,8 @@
     &-slide {
       padding: 10px;
       width: 50px !important;
-      display: flex;
+      height: 50px !important;
+      display: flex !important;
       align-items: center;
       justify-content: center;
       background-color: var(--white);

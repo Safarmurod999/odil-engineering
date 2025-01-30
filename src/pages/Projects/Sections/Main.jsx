@@ -1,22 +1,21 @@
 import React from 'react'
 import { projectsArray } from '../../../data/const'
 import { Link, useNavigate } from 'react-router'
+import { useTranslation } from 'react-i18next';
 
 const Main = () => {
     const navigate = useNavigate();
+    const { t } = useTranslation()
     return (
         <section className="projects">
             <div className="container">
                 <h2 className="projects__title title">
-                    Проекты
+                    <span>
+                        {t('projects_title')}
+                    </span>
                 </h2>
                 <p className='projects__text'>
-                    Нашей компанией реализовано более двух тысяч различных проектов
-                    — больших и маленьких, автоматизированных линий с интеграцией
-                    в систему заказчика и небольших конвейеров. Мы работаем над
-                    любыми заказами с одинаковым усердием.
-                    <br />
-                    На этой странице вы можете увидеть видео некоторых проектов.
+                    {t('projects_text')}
                 </p>
                 <ul className="projects__list">
                     {

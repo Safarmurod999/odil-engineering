@@ -42,12 +42,13 @@ const navLinks = [
         to: '/contacts'
     }
 ]
-const Header = () => {
+const Header = ({ lang, setLang }) => {
     const route = useLocation();
 
     const [toggleNav, setToggleNav] = useState(false);
     const [show, setShow] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [activeLang, setActiveLang] = useState(false);
     useEffect(() => {
         setToggleNav(false)
     }, [route])
@@ -78,9 +79,16 @@ const Header = () => {
                             <img src={logo} alt="Logo" />
                         </Link>
                     </div>
-
                     <div className='navbar__btns'>
                         <ThemeSwitcher />
+                        <div className="navbar__lang">
+                            <button className='navbar__lang-btn' onClick={() => setActiveLang(true)}>{lang}</button>
+                            <div className={`navbar__lang-list ${activeLang ? 'active' : ''}`}>
+                                <div onClick={() => { setLang('ru');localStorage.setItem('lang',JSON.stringify('ru')); setActiveLang(false) }}>ru</div>
+                                <div onClick={() => { setLang('uz');localStorage.setItem('lang',JSON.stringify('uz')); setActiveLang(false) }}>uz</div>
+                                <div onClick={() => { setLang('en');localStorage.setItem('lang',JSON.stringify('en')); setActiveLang(false) }}>en</div>
+                            </div>
+                        </div>
                         <div className="navbar__contacts">
                             <a href="tel:8 495 150 55 27"> 95 150 55 27 (Ташкент)</a>
                             <a href="tel:8 800 500-83-24"> 90 500-83-24 (бесплатно)</a>

@@ -3,10 +3,11 @@ import { Link, useLocation } from 'react-router'
 import { FaYoutube } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
   const { pathname } = useLocation();
-
+  const { t } = useTranslation();
   return (
     <>
       <section className="forms" style={{ display: pathname == "/contacts" ? "none" : "" }}>
@@ -14,16 +15,16 @@ const Footer = () => {
           <form className="forms__form" data-aos="zoom-in">
             <h2 className="forms__title title">
               <span>
-                Остались вопросы?
+                {t('questions')}
               </span>
             </h2>
             <div className="forms__row">
-              <input type="text" className='forms__input' placeholder='Как Вас зовут?' />
-              <input type="email" className='forms__input' placeholder='Ваша почта' />
-              <input type="tel" className='forms__input' placeholder='Ваш телефон' />
+              <input type="text" className='forms__input' placeholder={t('your_name')} />
+              <input type="email" className='forms__input' placeholder={t('your_email')} />
+              <input type="tel" className='forms__input' placeholder={t('your_phone')} />
             </div>
-            <textarea className='forms__textarea' placeholder='Ваше сообщение'></textarea>
-            <button type='submit' className='forms__btn'>Отправить</button>
+            <textarea className='forms__textarea' placeholder={t('your_message')}></textarea>
+            <button type='submit' className='forms__btn'>{t('send')}</button>
           </form>
         </div>
       </section>
@@ -34,16 +35,15 @@ const Footer = () => {
             <p>OOO «Odil Engineering»</p>
 
             <Link to="/pravilo">
-              Политика конфиденциальности <br />
-              Правила копирования и цитирования
+              {t('politics')}
             </Link>
           </div>
           <div className="footer__mid" data-aos="zoom-out">
-            Uzbekistan, TASHKENT, UCHTEPA area, <br /> CHILANZAR-26 massif, 36
+            {t('our_address')}
           </div>
 
           <div className="footer__right" data-aos="zoom-out">
-            <p><a href="tel:+998712000000">Телефон: +998 71 200 00 00</a></p>
+            <p><a href="tel:+998712000000">{t('our_phone')} +998 71 200 00 00</a></p>
             <p>Email:
               <Link to="mailto:info@odil-engineering.uz">
                 info@odil-engineering.uz

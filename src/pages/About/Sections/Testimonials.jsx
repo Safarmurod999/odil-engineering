@@ -2,14 +2,16 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { testimonialsArray } from '../../../data/const'
 import { Navigation } from 'swiper/modules'
+import { useTranslation } from 'react-i18next'
 
 const Testimonials = () => {
+    const { t } = useTranslation()
     return (
         <section className="testimonials">
             <div className="container">
                 <div className="testimonials__title title">
                     <span>
-                        Отзывы клиентов
+                        {t('feedbacks')}
                     </span>
                 </div>
                 <Swiper modules={[Navigation]}
