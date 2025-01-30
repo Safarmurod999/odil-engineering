@@ -6,7 +6,9 @@ const Partners = () => {
         <section className="clients">
             <div className="container" data-aos="fade-up">
                 <div className="clients__title title">
-                    Наши клиенты
+                    <span>
+                        Наши клиенты
+                    </span>
                 </div>
                 <p className='clients__text' data-aos="fade-up">
                     Нашей компанией реализовано более двух тысяч различных проектов для

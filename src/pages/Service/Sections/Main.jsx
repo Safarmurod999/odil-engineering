@@ -5,7 +5,9 @@ const Main = () => {
         <section className="service">
             <div className="container">
                 <div className="title">
-                    Сервис
+                    <span>
+                        Сервис
+                    </span>
                 </div>
                 <div className="h5" data-aos="zoom-out">Почему вам нужен сервис?</div>
                 <p data-aos="zoom-out">

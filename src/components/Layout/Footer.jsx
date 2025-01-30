@@ -12,7 +12,11 @@ const Footer = () => {
       <section className="forms" style={{ display: pathname == "/contacts" ? "none" : "" }}>
         <div className="container">
           <form className="forms__form" data-aos="zoom-in">
-            <h2 className="forms__title title">Остались вопросы?</h2>
+            <h2 className="forms__title title">
+              <span>
+                Остались вопросы?
+              </span>
+            </h2>
             <div className="forms__row">
               <input type="text" className='forms__input' placeholder='Как Вас зовут?' />
               <input type="email" className='forms__input' placeholder='Ваша почта' />

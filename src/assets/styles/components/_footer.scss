@@ -55,14 +55,14 @@
   &__title {
     font-size: 28px;
     text-align: center;
-    color: #fff;
-    padding: 5px 0;
-    border-bottom: 3px solid var(--primary-color);
-    @media screen and (max-width: 768px) {
-      font-size: 24px;
-    }
-    @media screen and (max-width: 450px) {
-      font-size: 20px;
+    span {
+      color: #fff;
+      @media screen and (max-width: 768px) {
+        font-size: 24px;
+      }
+      @media screen and (max-width: 450px) {
+        font-size: 20px;
+      }
     }
   }
   &__row {
@@ -78,10 +78,13 @@
   &__textarea {
     padding: 15px 10px;
     width: 100%;
-    border: none;
+    border: 1px solid #5d5d5d;
     background-color: #333333;
     outline: none;
     color: #fff;
+    &:focus {
+      border: 1px solid var(--primary-color);
+    }
   }
   &__textarea {
     resize: vertical;

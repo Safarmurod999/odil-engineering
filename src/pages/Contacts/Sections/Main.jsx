@@ -3,7 +3,9 @@ const Main = () => {
     return (
         <section className="contacts">
             <div className="h3 title">
-                Контакты
+                <span>
+                    Контакты
+                </span>
             </div>
             <div className="container">
                 <div className='contacts__main'>
@@ -56,7 +58,8 @@ const Main = () => {
                         </div>
                     </div>
                     <div className='contacts__map'>
-                        <iframe src="https://yandex.uz/map-widget/v1/?display-text=odil%20engineering&from=api-maps&ll=69.178291%2C41.272867&mode=search&oid=27873495022&ol=biz&origin=jsapi_2_1_79&sll=69.178291%2C41.272867&sspn=0.031972%2C0.015023&text=odil%20engineering&z=15"
+                        <iframe
+                            src="https://yandex.uz/map-widget/v1/?display-text=odil%20engineering&from=api-maps&ll=69.178291%2C41.272867&mode=search&oid=27873495022&ol=biz&origin=jsapi_2_1_79&sll=69.178291%2C41.272867&sspn=0.031972%2C0.015023&text=odil%20engineering&z=15"
                             width="560"
                             height="400"
                             allowFullScreen>

@@ -80,12 +80,7 @@
 
 .categories {
   padding: 20px 0 50px;
-  .h3 {
-    width: 220px;
-    margin: 20px auto 40px;
-    padding: 5px 0;
-    border-bottom: 3px solid var(--primary-color);
-  }
+
   &__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -100,6 +95,7 @@
   &__item {
     @include mixin.flex-col(flex-start, center);
     box-shadow: 4px 4px -3px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
     &-image {
       width: 100%;
       display: flex;
@@ -129,7 +125,7 @@
     }
     &-content {
       padding: 0 15px 20px;
-      background-color: var(--white);
+      background-color: var(--secondary-bg-color);
     }
     .h4 {
       text-transform: capitalize;
@@ -165,7 +161,7 @@
 
 .contact {
   padding: 50px 0;
-  background-color: var(--white);
+  background-color: var(--secondary-bg-color);
   p {
     font-size: 18px;
     margin-bottom: 20px;

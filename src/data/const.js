@@ -17,7 +17,7 @@ export const categoriesArray = [
     description:
       "Прямые, поворотные, наклонные, межэтажные, рифленые, сетчатые, телескопические, передвижные, для различных грузов",
     image: lentochnaya,
-    link: "/lentochnaya-konveyer",
+    link: "lentochnaya-konveyer",
   },
   {
     id: 1,
@@ -25,7 +25,7 @@ export const categoriesArray = [
     description:
       "Прямые, поворотные, наклонные, межэтажные, рифленые, сетчатые, телескопические, передвижные, для различных грузов",
     image: manyline,
-    link: "/lentochnaya-konveyer",
+    link: "rolikovie-konveyer",
   },
   {
     id: 2,
@@ -33,8 +33,8 @@ export const categoriesArray = [
     description:
       "Прямые, поворотные, наклонные, межэтажные, рифленые, сетчатые, телескопические, передвижные, для различных грузов",
     image: sborka,
-    link: "/lentochnaya-konveyer",
-  }
+    link: "sborochnie-konveyer",
+  },
 ];
 
 export const clientsArray = [
@@ -170,3 +170,4 @@ export const projectsArray = [
       "Спроектированы и запущены три пары подъемников с конвейерами для перемещения палет.",
   },
 ];
+

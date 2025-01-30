@@ -6,18 +6,16 @@
 }
 
 .testimonials {
-  border-block: 1px solid var(--text-light-color);
+  border-block: 1px solid var(--lightgray);
   .container {
     position: relative;
     padding: 80px 15px 120px;
 
-    border-inline: 1px solid var(--text-light-color);
+    border-inline: 1px solid var(--lightgray);
     @media screen and (max-width: 768px) {
       padding: 40px 15px 80px;
-    }
-  }
-  &__title {
-    max-width: 320px;
+      border-inline: none;
+    } 
   }
   &__item {
     p {

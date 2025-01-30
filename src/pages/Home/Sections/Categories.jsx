@@ -5,7 +5,11 @@ const Categories = () => {
     return (
         <section className='categories'>
             <div className="container">
-                <div className="h3 title">Категории</div>
+                <div className="h3 title">
+                    <span>
+                        Категории
+                    </span>
+                </div>
                 <ul className="categories__list">
                     {
                         categoriesArray.map((category, index) => {
@@ -20,7 +24,7 @@ const Categories = () => {
                                             {category.description}
                                         </p>
 
-                                        <a href={`/category/${category.id}`}>Подробнее <FaArrowRightLong />
+                                        <a href={`/catalog/${category.link}`}>Подробнее <FaArrowRightLong />
                                         </a>
                                     </div>
 

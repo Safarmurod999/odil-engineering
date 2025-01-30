@@ -8,7 +8,9 @@ const Testimonials = () => {
         <section className="testimonials">
             <div className="container">
                 <div className="testimonials__title title">
-                    Отзывы клиентов
+                    <span>
+                        Отзывы клиентов
+                    </span>
                 </div>
                 <Swiper modules={[Navigation]}
                     navigation={true}

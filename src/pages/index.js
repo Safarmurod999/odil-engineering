@@ -13,3 +13,7 @@ export { default as Projects } from "./Projects/Projects";
 export { default as ProjectInner } from "./Projects/ProjectInner";
 
 export { default as Contacts } from "./Contacts/Contacts";
+
+export { default as Catalog } from "./Catalog/Catalog";
+
+export { default as Product } from "./Product/Product";

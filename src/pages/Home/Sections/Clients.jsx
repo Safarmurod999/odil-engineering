@@ -10,9 +10,10 @@ const Clients = () => {
     <section className="clients">
       <div className="container">
         <div className="h3 title">
-          Клиенты
+          <span>
+            Клиенты
+          </span>
         </div>
-
         <Swiper modules={[Navigation]}
           className={'clients__wrapper'}
           spaceBetween={30}

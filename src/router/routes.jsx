@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router";
-import { Home, About, NotFound, Clients, Service, Projects, ProjectInner, Contacts } from "../pages/index";
+import { Home, About, NotFound, Clients, Service, Projects, ProjectInner, Contacts, Catalog, Product } from "../pages/index";
 import { Layout } from "../components/Layout/index"
 import ProtectedRoute from "./ProtectedRoute";
 const landingRoutes = [
@@ -37,6 +37,16 @@ const landingRoutes = [
     id: 6,
     path: "/contacts",
     component: Contacts
+  },
+  {
+    id: 7,
+    path: "/catalog/:title",
+    component: Catalog
+  },
+  {
+    id: 8,
+    path: "/catalog/:title/:name",
+    component: Product
   }
 ];
 
