@@ -10,6 +10,9 @@ import morton from "../assets/images/main/morton.png";
 import mars from "../assets/images/main/mars.png";
 import gazprom from "../assets/images/main/gazprom.png";
 import ntv from "../assets/images/main/ntv.png";
+
+export const BASE_URL = "https://api.safarmurod.uz/api";
+
 export const categoriesArray = [
   {
     id: 0,
@@ -170,4 +173,3 @@ export const projectsArray = [
       "Спроектированы и запущены три пары подъемников с конвейерами для перемещения палет.",
   },
 ];
-

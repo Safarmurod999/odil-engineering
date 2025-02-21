@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router";
-import { Home, About, NotFound, Clients, Service, Projects, ProjectInner, Contacts, Catalog, Product } from "../pages/index";
+import { Home, About, NotFound, Clients, Service, Projects, ProjectInner, Contacts, Catalog, Product, Login } from "../pages/index";
 import { Layout } from "../components/Layout/index"
 import ProtectedRoute from "./ProtectedRoute";
 const landingRoutes = [
@@ -67,24 +67,31 @@ const RouterApp = () => {
 
   return (
     <>
-      {/* {route.pathname == "/login" ? (
-        <Routes>
-          <Route path={"/login"} element={<Login />} />
-        </Routes>
-      ) : route.pathname == "/register" ? (
-        <Routes>
-          <Route path={"/register"} element={<Register />} />
-        </Routes>
-      ) : */}
-      {
-        // !route.pathname.startsWith("/dashboard") ? (
-        <Routes>
-          {landingRoutes.map((route, index) => {
+      <Routes>
+        {landingRoutes.map((route, index) => {
+          const RouteComponent = route.component;
+          return (
+            <Route
+              key={index}
+              index={route.path == "/"}
+              path={route.path}
+              element={
+                <Layout>
+                  <RouteComponent />
+                </Layout>
+              }
+            />
+          );
+        })}
+        <Route
+          element={<ProtectedRoute />}
+        >
+          {adminRoutes.map((route, index) => {
             const RouteComponent = route.component;
             return (
               <Route
                 key={index}
-                index={route.path == "/"}
+                index={route.path == "/admin" && true}
                 path={route.path}
                 element={
                   <Layout>
@@ -94,33 +101,11 @@ const RouterApp = () => {
               />
             );
           })}
+        </Route>
+        <Route path={"/auth/login"} element={<Login />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        // ) : (
-        //   <Routes>
-        //     <Route
-        //       element={<ProtectedRoute />}
-        //     >
-        //       {adminRoutes.map((route, index) => {
-        //         const RouteComponent = route.component;
-        //         return (
-        //           <Route
-        //             key={index}
-        //             index={route.path == "/dashboard" && true}
-        //             path={route.path}
-        //             element={
-        //               <Layout>
-        //                 <RouteComponent />
-        //               </Layout>
-        //             }
-        //           />
-        //         );
-        //       })}
-        //     </Route>
-        //   </Routes>
-        // )
-      }
     </>
   );
 };

@@ -17,3 +17,5 @@ export { default as Contacts } from "./Contacts/Contacts";
 export { default as Catalog } from "./Catalog/Catalog";
 
 export { default as Product } from "./Product/Product";
+
+export { default as Login } from "./Auth/Login";
