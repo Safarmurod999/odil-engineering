@@ -19,3 +19,7 @@ export { default as Catalog } from "./Catalog/Catalog";
 export { default as Product } from "./Product/Product";
 
 export { default as Login } from "./Auth/Login";
+
+export { default as Users } from "./Admin/Users/Users";
+export { default as AddUsers } from "./Admin/Users/create/AddUsers";
+export { default as EditUsers } from "./Admin/Users/edit/EditUsers";

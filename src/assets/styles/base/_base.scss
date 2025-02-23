@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -51,7 +51,7 @@ main {
 ul {
   list-style-type: none;
 }
-a{
+a {
   outline: none !important;
   text-decoration: none;
   color: inherit;
@@ -170,7 +170,7 @@ html {
   -webkit-box-sizing: border-box;
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
-  scrollbar-color: #2f4765 transparent;
+  scrollbar-color: #0073ff transparent;
 }
 // html ::-webkit-scrollbar {
 //   width: 4px;
@@ -188,4 +188,18 @@ html {
 ::before {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
+}
+.image-wrapper {
+  margin-inline: auto;
+  max-width: 400px !important;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 100%;
+    height: 225px;
+    object-fit: contain;
+  }
 }

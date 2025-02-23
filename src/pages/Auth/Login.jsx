@@ -1,37 +1,10 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router";
-import { BASE_URL } from "../../data/const";
-
+import { get } from "lodash";
+import { useConnect } from "./connect";
 import logo from "../../assets/icons/logo.svg";
 
 const Page = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const { values, handleChange, handleBlur, handleSubmit } = useConnect();
 
-    try {
-      const response = await fetch(`${BASE_URL}/signin`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ user_name: username, password }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-
-        navigate("/admin");
-      } else {
-        alert("Invalid credentials");
-      }
-    } catch (err) {
-      console.error("Login error:", err);
-    }
-  };
   return (
     <div className={"sign-in"}>
       <div className="sign-in-container sm:mx-auto sm:w-full sm:max-w-sm">
@@ -53,12 +26,13 @@ const Page = () => {
               </label>
               <input
                 id="username"
-                name="username"
+                name="user_name"
                 type="text"
-                value={username}
+                value={get(values, "user_name", "")}
                 required
                 className={"sign-in__form__input-group__input"}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
             </div>
 
@@ -80,8 +54,9 @@ const Page = () => {
                 type="password"
                 required
                 className={"sign-in__form__input-group__input"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={get(values, "password", "")}
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
             </div>
 

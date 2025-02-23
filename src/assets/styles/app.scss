@@ -4,9 +4,20 @@
 
 // components
 @use "./components/typography";
-@use "./components/layout";
-@use "./components/header";
-@use "./components/footer";
+@use "./components/button";
+@use "./components/table";
+
+@use "./components/breadcrumb";
+@use "./components/form";
+@use "./components/pagination";
+
+// layout
+@use "./layout/layout";
+@use "./layout/admin-layout";
+@use "./layout/header";
+@use "./layout/footer";
+@use "./layout/admin-navbar";
+@use "./layout/sidebar";
 
 //pages
 @use "./pages/home";

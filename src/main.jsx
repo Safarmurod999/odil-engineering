@@ -1,13 +1,22 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './assets/styles/app.scss'
 import { BrowserRouter } from 'react-router'
+import { Provider } from 'react-redux'
 import RouterApp from './router/routes.jsx'
+
 import i18n from './utils/i18n.js'
+import store from 'store/store.js'
+import { Toaster } from 'sonner'
+import './assets/styles/app.scss'
+import { injectStore } from './services/index.js'
+injectStore(store);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <RouterApp />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <RouterApp />
+        <Toaster />
+      </BrowserRouter>
+    </Provider>
   </StrictMode>,
 )
