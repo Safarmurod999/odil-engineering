@@ -23,3 +23,7 @@ export { default as Login } from "./Auth/Login";
 export { default as Users } from "./Admin/Users/Users";
 export { default as AddUsers } from "./Admin/Users/create/AddUsers";
 export { default as EditUsers } from "./Admin/Users/edit/EditUsers";
+
+export { default as Categories } from "./Admin/Categories/Categories";
+export { default as AddCategories } from "./Admin/Categories/create/AddCategories";
+export { default as EditCategories } from "./Admin/Categories/edit/EditCategories";

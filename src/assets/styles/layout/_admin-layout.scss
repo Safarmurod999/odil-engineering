@@ -5,15 +5,16 @@
   align-items: stretch;
   justify-content: space-between;
   background-color: var(--secondary-bg-color);
-
   main {
     position: absolute;
     top: 0;
     right: 0;
-    width: calc(100% - 250px);
+    width: 100%;
+    max-width: calc(100% - 250px);
+    min-height: 100vh;
     padding: 0;
     padding-top: 80px;
-    transition: all 0.3s ease;
+    background-color: var(--secondary-bg-color);
   }
   .admin-content {
     width: 100%;
@@ -23,5 +24,4 @@
 .admin-container {
   padding: 30px;
   height: 100%;
-  background-color: var(--secondary-bg-color);
 }

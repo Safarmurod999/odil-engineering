@@ -20,9 +20,9 @@
       th {
         font-weight: 600;
         color: var(--border-color);
-        background-color: var(--secondary-bg-color);
       }
       tr:hover {
+        transition: all 0.3s ease;
         background-color: var(--bg-color);
       }
       tr:last-child {
@@ -36,6 +36,7 @@
     }
   }
   .table-search {
+    margin-bottom: 20px;
     @include mixin.flex-row(items-stretch, space-between);
   }
   .table-actions {

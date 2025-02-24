@@ -1,42 +1,40 @@
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router";
-import { createUser } from "store/slices/usersSlice";
+import { createCategory } from "store/slices/categoriesSlice";
 import { toast } from "sonner";
 const useConnect = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onSubmit = (values) => {
     const formData = new FormData();
-    formData.append("user_name", values.user_name);
-    formData.append("password", values.password);
-    formData.append("first_name", values.first_name);
-    formData.append("last_name", values.last_name);
-    formData.append("email", values.email);
+    formData.append("name_uz", values.name_uz);
+    formData.append("name_ru", values.name_ru);
+    formData.append("name_en", values.name_en);
+    formData.append("link", values.link);
     formData.append("description_uz", values.description_uz);
     formData.append("description_ru", values.description_ru);
     formData.append("description_en", values.description_en);
-    formData.append("avatar", values.avatar);
-    dispatch(createUser(formData)).then(() => {
-      toast.success("User created successfully", {
+    formData.append("image", values.image);
+    dispatch(createCategory(formData)).then(() => {
+      toast.success("Category created successfully", {
         position: "bottom-right",
         duration: 2000,
       });
-      navigate("/admin/users");
+      navigate("/admin/categories");
     });
   };
 
   const { values, handleChange, setFieldValue, handleSubmit } = useFormik({
     initialValues: {
-      user_name: "",
-      password: "",
-      first_name: "",
-      last_name: "",
-      email: "",
+      name_uz: "",
+      name_ru: "",
+      name_en: "",
+      link: "",
       description_uz: "",
       description_ru: "",
       description_en: "",
-      avatar: "",
+      image: "",
     },
     onSubmit: onSubmit,
   });
@@ -52,7 +50,7 @@ const useConnect = () => {
       });
       return;
     } else {
-      setFieldValue("avatar", e.target.files[0]);
+      setFieldValue("image", e.target.files[0]);
     }
   };
   return {

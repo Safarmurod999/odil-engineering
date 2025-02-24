@@ -9,13 +9,13 @@
   overflow-y: auto;
   background-color: var(--bg-color);
   border-right: 1px solid var(--border-color);
-  transition: all 0.3s ease;
   &__logo {
     max-height: 63px;
     padding-top: 6px;
     padding-bottom: 10px;
     padding-left: 20px;
     border-bottom: 1px solid var(--border-color);
+
 
     a {
       display: inline-block;

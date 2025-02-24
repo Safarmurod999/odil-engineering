@@ -10,12 +10,12 @@ import { Link, useLocation } from "react-router";
 import logo from "assets/icons/logo.svg";
 
 const adminRoutes = [
-  {
-    id: 1,
-    name: "Dashboard",
-    path: "/admin",
-    icon: <IoIosStats />,
-  },
+  // {
+  //   id: 1,
+  //   name: "Dashboard",
+  //   path: "/admin",
+  //   icon: <IoIosStats />,
+  // },
   {
     id: 2,
     name: "Users",
@@ -28,18 +28,18 @@ const adminRoutes = [
     path: "/admin/categories",
     icon: <BiCategory />,
   },
-  {
-    id: 4,
-    name: "Leads",
-    path: "/admin/leads",
-    icon: <TbMessage2Dollar />,
-  },
-  {
-    id: 5,
-    name: "Education",
-    path: "/admin/education",
-    icon: <FaUniversity />,
-  },
+  // {
+  //   id: 4,
+  //   name: "Leads",
+  //   path: "/admin/leads",
+  //   icon: <TbMessage2Dollar />,
+  // },
+  // {
+  //   id: 5,
+  //   name: "Education",
+  //   path: "/admin/education",
+  //   icon: <FaUniversity />,
+  // },
 ];
 
 const Sidebar = ({ toggleSidebar }) => {

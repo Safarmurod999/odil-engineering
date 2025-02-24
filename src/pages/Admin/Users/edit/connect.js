@@ -34,6 +34,7 @@ const useConnect = () => {
   const { values, handleChange, setFieldValue, handleSubmit } = useFormik({
     initialValues: userData,
     onSubmit: onSubmit,
+    enableReinitialize: true,
   });
   const handleImage = (e) => {
     setFieldValue("avatar", e.target.files[0]);

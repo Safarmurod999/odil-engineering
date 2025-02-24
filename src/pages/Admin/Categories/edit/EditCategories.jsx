@@ -18,31 +18,30 @@ const Page = () => {
         handleSubmit,
         handleImage
     } = useConnect();
-    console.log(values.avatar);
-
+    
     return (
         <section className="user">
             <div className="admin-container">
-                <Breadcrumb title="Users Edit" backlink="/admin/users" />
+                <Breadcrumb title="Categories Edit" backlink="/admin/categories" />
                 <Form direction="y" width="50" onSubmit={handleSubmit}>
                     <FormRow>
                         <FormControl
                             type="text"
-                            placeholder="John Doe"
-                            label={"Username"}
-                            name="user_name"
+                            placeholder="Enter name in Uzbek"
+                            label={"Name in Uzbek"}
+                            name="name_uz"
                             onChange={handleChange}
-                            value={get(values, "user_name", "")}
+                            value={get(values, "name_uz", "")}
                             required={true}
                             width="50"
                         />
                         <FormControl
                             type="text"
-                            placeholder="*****"
-                            label={"Password"}
-                            name="password"
+                            placeholder="Enter name in Russian"
+                            label={"Name in Russian"}
+                            name="name_ru"
                             onChange={handleChange}
-                            value={get(values, "password", "")}
+                            value={get(values, "name_ru", "")}
                             required={true}
                             width="50"
                         />
@@ -50,35 +49,25 @@ const Page = () => {
                     <FormRow>
                         <FormControl
                             type="text"
-                            placeholder="John"
-                            label={"First Name"}
-                            name="first_name"
+                            placeholder="Enter name in English"
+                            label={"Name in English"}
+                            name="name_en"
                             onChange={handleChange}
-                            value={get(values, "first_name", "")}
+                            value={get(values, "name_en", "")}
                             required={true}
                             width="50"
                         />
                         <FormControl
                             type="text"
-                            placeholder="Doe"
-                            label={"Last Name"}
-                            name="last_name"
+                            placeholder="Enter link name"
+                            label={"Link name"}
+                            name="link"
                             onChange={handleChange}
-                            value={get(values, "last_name", "")}
+                            value={get(values, "link", "")}
                             required={true}
                             width="50"
                         />
                     </FormRow>
-                    <FormControl
-                        type="email"
-                        placeholder="example@gmail.com"
-                        label={"Email"}
-                        name="email"
-                        onChange={handleChange}
-                        value={get(values, "email", "")}
-                        required={true}
-                        width="full"
-                    />
                     <FormControl
                         type="text"
                         placeholder="Description in Uzbek"
@@ -109,13 +98,13 @@ const Page = () => {
                     />
                     <div className="image-preview">
                         <div className="image-wrapper">
-                            <img src={values.avatar instanceof File ? URL.createObjectURL(values.avatar) : `${BASE_URL}/${values.avatar}`} alt="User image" />
+                            <img src={values?.image instanceof File ? URL.createObjectURL(values?.image) : `${BASE_URL}/${values?.image}`} alt="Category image" />
                         </div>
                         <FormImage
                             type="text"
                             placeholder="https://example.com"
-                            label={"Avatar"}
-                            name="avatar"
+                            label={"Image"}
+                            name="image"
                             onChange={handleImage}
                             width="full"
                         />
