@@ -4,7 +4,9 @@ import {
     FormRow,
     FormBtn,
     FormControl,
-    FormImage
+    FormImage,
+    FormSelect,
+    FormMultiImage
 } from "components/ui/Form/Form";
 import { IoAddSharp } from "react-icons/io5";
 import useConnect from "./connect";
@@ -13,14 +15,19 @@ import { get } from "lodash";
 const Page = () => {
     const {
         values,
+        categories,
+        categoryOptions,
         handleChange,
         handleSubmit,
-        handleImage
+        handleImage,
+        setFieldValue
     } = useConnect();
+    console.log(values);
+
     return (
-        <section className="user">
+        <section className="product">
             <div className="admin-container">
-                <Breadcrumb title="Users Create" backlink="/admin/users" />
+                <Breadcrumb title="Products Create" backlink="/admin/products" />
                 <Form direction="y" width="50" onSubmit={handleSubmit}>
                     <FormRow>
                         <FormControl
@@ -55,13 +62,14 @@ const Page = () => {
                             required={true}
                             width="50"
                         />
-                        <FormControl
+                        <FormSelect
                             type="text"
-                            placeholder="Enter link name"
-                            label={"Link name"}
-                            name="link"
+                            placeholder="Select category"
+                            label={"Category"}
+                            name="category_id"
+                            options={categoryOptions}
                             onChange={handleChange}
-                            value={get(values, "link", "")}
+                            value={get(values, "category_id", 0)}
                             required={true}
                             width="50"
                         />
@@ -94,13 +102,23 @@ const Page = () => {
                         value={get(values, "description_en", "")}
                         width="full"
                     />
-                    
+
                     <FormImage
                         type="text"
                         placeholder="https://example.com"
                         label={"Image"}
                         name="image"
                         onChange={handleImage}
+                        // value={get(values, "avatar", "")}
+                        width="full"
+                    />
+                    <FormMultiImage
+                        type="text"
+                        placeholder="https://example.com"
+                        label={"Images"}
+                        name="images"
+                        setFieldValue={setFieldValue}
+                        values={get(values, "images", [])}
                         // value={get(values, "avatar", "")}
                         width="full"
                     />

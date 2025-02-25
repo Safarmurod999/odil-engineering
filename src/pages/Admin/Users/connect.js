@@ -19,27 +19,26 @@ const useConnect = () => {
   const pathname = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const onSubmit = (values) => {
-    if (values.user_name.trim()) {
+    if (values.search.trim()) {
       const newParams = new URLSearchParams(searchParams);
-      newParams.set("user_name", values.user_name);
+      newParams.set("search", values.search);
       setSearchParams(newParams);
-      dispatch(setFilter({ user_name: values.user_name }));
+      dispatch(setFilter({ search: values.search }));
     }
   };
   const { setFieldValue, values, handleChange, handleSubmit } = useFormik({
     initialValues: {
-      user_name: searchParams.get("user_name") ?? "",
-      password: "",
+      search: searchParams.get("search") ?? "",
     },
     onSubmit: onSubmit,
   });
 
   const handleReset = () => {
-    setFieldValue("user_name", "");
+    setFieldValue("search", "");
     const newParams = new URLSearchParams(searchParams);
-    newParams.delete("user_name");
+    newParams.delete("search");
     setSearchParams(newParams);
-    dispatch(setFilter({ user_name: "" }));
+    dispatch(setFilter({ search: "" }));
   };
   const handleDelete = (id) => {
     dispatch(deleteUser({ params: {}, id }));

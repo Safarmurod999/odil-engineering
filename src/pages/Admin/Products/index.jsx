@@ -1,36 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import useConnect from "./connect";
 import { IoAddSharp } from "react-icons/io5";
 import { MdDeleteOutline } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { Link } from "react-router";
 import Breadcrumb from "components/ui/Breadcrumb/Breadcrumb";
-import { Form, FormBtn, FormControl, FormSwitch } from "components/ui/Form/Form";
+import { FormSwitch } from "components/ui/Form/Form";
 import Pagination from "components/ui/Pagination/Pagination";
 import { get } from "lodash";
-const Categories = () => {
+const Products = () => {
     const {
-        categories,
+        products,
         navigate,
-        handleSubmit,
-        handleChange,
-        handleReset,
         handleDelete,
         handleUpdate,
-        values,
         dispatch,
         filter,
         setFilter
     } = useConnect();
     return (
-        <section className="categories">
+        <section className="products">
             <div className="admin-container">
-                <Breadcrumb title="Categories" />
+                <Breadcrumb title="Products" />
                 <div className="data-table-container">
                     <div className="table-search">
                         <div className="flex">
                             <Link
-                                to={"/admin/categories/create"}
+                                to={"/admin/products/create"}
                                 className="form-button flex items-center text-white"
                             >
                                 <IoAddSharp />
@@ -51,14 +47,14 @@ const Categories = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {categories.loading ? (
+                                {products.loading ? (
                                     <tr>
                                         <td colSpan={5}>
                                             <p className="loader"> Loading...</p>
                                         </td>
                                     </tr>
-                                ) : categories && categories.categoriesList?.data?.length ? (
-                                    categories.categoriesList.data.map((category, index) => (
+                                ) : products && products.productsList?.data?.length ? (
+                                    products.productsList.data.map((category, index) => (
                                         <tr key={category.id}>
                                             <td>{index + 1}</td>
                                             <td>{category.name_uz}</td>
@@ -73,7 +69,7 @@ const Categories = () => {
                                             </td>
                                             <td>
                                                 <div className="table-actions">
-                                                    <button onClick={() => navigate(`/admin/categories/edit/${category.id}`)}
+                                                    <button onClick={() => navigate(`/admin/products/edit/${category.id}`)}
                                                         className="action-btn"
                                                     >
                                                         <CiEdit />
@@ -99,8 +95,8 @@ const Categories = () => {
                         </table>
                     </div>
                     <Pagination
-                        currentPage={get(categories, "categoriesList.currentPage", 1)}
-                        totalPages={get(categories, "categoriesList.totalPages", 1)}
+                        currentPage={get(products, "productsList.currentPage", 1)}
+                        totalPages={get(products, "productsList.totalPages", 1)}
                         handleLimitChange={(e) => {
                             dispatch(setFilter({ limit: Number(e.target.value), page: 1 }));
                         }}
@@ -115,4 +111,4 @@ const Categories = () => {
     );
 };
 
-export default Categories;
+export default Products;

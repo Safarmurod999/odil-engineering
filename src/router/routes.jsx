@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router";
-import { Home, About, NotFound, Clients, Service, Projects, ProjectInner, Contacts, Catalog, Product, Login, Users, AddUsers, EditUsers, Categories, AddCategories, EditCategories } from "../pages/index";
+import { Home, About, NotFound, Clients, Service, Projects, ProjectInner, Contacts, Catalog, Product, Login, Users, AddUsers, EditUsers, Categories, AddCategories, EditCategories, Products, AddProducts, EditProducts } from "../pages/index";
 import { Layout } from "../components/Layout/index"
 import ProtectedRoute from "./ProtectedRoute";
 const landingRoutes = [
@@ -85,6 +85,21 @@ const adminRoutes = [
     id: 6,
     path: "/admin/categories/edit/:id",
     component: EditCategories,
+  },
+  {
+    id: 7,
+    path: "/admin/products",
+    component: Products,
+  },
+  {
+    id: 8,
+    path: "/admin/products/create",
+    component: AddProducts,
+  },
+  {
+    id: 9,
+    path: "/admin/products/edit/:id",
+    component: EditProducts,
   }
 ];
 const RouterApp = () => {

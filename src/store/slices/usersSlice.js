@@ -15,12 +15,12 @@ const initialState = {
   filter: {
     page: 1,
     limit: 10,
-    user_name: "",
+    search: "",
   },
 };
 
 export const fetchUsers = createAsyncThunk(
-  "auth/fetchUsers",
+  "users/fetchUsers",
   async (params, thunkAPI) => {
     try {
       const request = await UsersServices.UsersList(params);
@@ -35,7 +35,7 @@ export const fetchUsers = createAsyncThunk(
   }
 );
 export const fetchUserDetail = createAsyncThunk(
-  "auth/fetchUserDetail",
+  "users/fetchUserDetail",
   async (id, thunkAPI) => {
     try {
       const request = await UsersServices.UsersDetail(id);
@@ -50,7 +50,7 @@ export const fetchUserDetail = createAsyncThunk(
   }
 );
 export const createUser = createAsyncThunk(
-  "auth/createUser",
+  "users/createUser",
   async (params, thunkAPI) => {
     try {      
       const request = await UsersServices.UsersCreate(params);
@@ -65,7 +65,7 @@ export const createUser = createAsyncThunk(
   }
 );
 export const updateUser = createAsyncThunk(
-  "auth/updateUser",
+  "users/updateUser",
   async ({ params, id }, thunkAPI) => {
     try {
       console.log(params, id);
@@ -82,7 +82,7 @@ export const updateUser = createAsyncThunk(
   }
 );
 export const deleteUser = createAsyncThunk(
-  "auth/deleteUser",
+  "users/deleteUser",
   async ({ params, id }, thunkAPI) => {
     try {
       const request = await UsersServices.UsersDelete(params, id);

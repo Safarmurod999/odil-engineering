@@ -1,3 +1,6 @@
+import React, { useCallback, useState } from "react";
+import { useDropzone } from "react-dropzone";
+
 const Form = ({ children, onSubmit, direction = "x", width }) => {
   return (
     <form
@@ -115,4 +118,52 @@ const FormImage = ({ label, onChange, width, name }) => {
     </div>
   );
 };
-export { Form, FormRow, FormControl, FormSelect, FormBtn, FormSwitch, FormImage };
+const FormMultiImage = ({ setFieldValue, values }) => {
+  const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+
+  const handleImage = (acceptedFiles) => {
+    const validFiles = acceptedFiles.filter((file) => allowedTypes.includes(file.type));
+
+    if (validFiles.length !== acceptedFiles.length) {
+      toast.error("Only jpeg and png files are allowed", {
+        position: "bottom-right",
+        duration: 2000,
+      });
+      return;
+    }
+
+    setFieldValue("images", [...values, ...validFiles]);
+  };
+
+  const removeImage = (index) => {
+    const updatedImages = values.filter((_, i) => i !== index);
+    setFieldValue("images", updatedImages);
+  };
+
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: { "image/*": [] },
+    onDrop: handleImage,
+    multiple: true,
+  });
+
+  return (
+    <div className="multi-image-upload">
+      <div {...getRootProps()} className="dropzone">
+        <input {...getInputProps()} />
+        <p>Drop images here or click to upload</p>
+      </div>
+      <div className="image-preview">
+        {values.map((file, index) => (
+          <div key={index} className="image-item">
+            <img src={URL.createObjectURL(file)} alt={`Preview ${index}`} />
+            <button className="remove-btn" onClick={() => removeImage(index)}>
+              ✕
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export { Form, FormRow, FormControl, FormSelect, FormBtn, FormSwitch, FormImage, FormMultiImage };

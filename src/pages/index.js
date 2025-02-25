@@ -20,10 +20,14 @@ export { default as Product } from "./Product/Product";
 
 export { default as Login } from "./Auth/Login";
 
-export { default as Users } from "./Admin/Users/Users";
-export { default as AddUsers } from "./Admin/Users/create/AddUsers";
-export { default as EditUsers } from "./Admin/Users/edit/EditUsers";
+export { default as Users } from "./Admin/Users/index";
+export { default as AddUsers } from "./Admin/Users/create/index";
+export { default as EditUsers } from "./Admin/Users/edit/index";
 
-export { default as Categories } from "./Admin/Categories/Categories";
-export { default as AddCategories } from "./Admin/Categories/create/AddCategories";
-export { default as EditCategories } from "./Admin/Categories/edit/EditCategories";
+export { default as Categories } from "./Admin/Categories/index";
+export { default as AddCategories } from "./Admin/Categories/create/index";
+export { default as EditCategories } from "./Admin/Categories/edit/index";
+
+export { default as Products } from "./Admin/Products/index";
+export { default as AddProducts } from "./Admin/Products/create/index";
+export { default as EditProducts } from "./Admin/Products/edit/index";

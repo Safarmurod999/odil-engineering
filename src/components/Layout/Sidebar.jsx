@@ -28,12 +28,12 @@ const adminRoutes = [
     path: "/admin/categories",
     icon: <BiCategory />,
   },
-  // {
-  //   id: 4,
-  //   name: "Leads",
-  //   path: "/admin/leads",
-  //   icon: <TbMessage2Dollar />,
-  // },
+  {
+    id: 4,
+    name: "Products",
+    path: "/admin/products",
+    icon: <TbMessage2Dollar />,
+  },
   // {
   //   id: 5,
   //   name: "Education",
