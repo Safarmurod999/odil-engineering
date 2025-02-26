@@ -20,7 +20,7 @@ const useConnect = () => {
   const navigate = useNavigate();
 
   const handleDelete = (id) => {
-    dispatch(deleteProject, { params: {}, id }).then((res) => {
+    dispatch(deleteProject({ params: {}, id })).then((res) => {
       if (res.error) {
         toast.error("Ma'lumotlarni o'chirib bo'lmadi", {
           position: "bottom-right",
