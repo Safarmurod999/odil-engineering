@@ -26,13 +26,13 @@ const Page = () => {
     return (
         <section className="products">
             <div className="admin-container">
-                <Breadcrumb title="Products Edit" backlink="/admin/products" />
+                <Breadcrumb title="Mahsulotni tahrirlash" backlink="/admin/products" />
                 <Form direction="y" width="50" onSubmit={handleSubmit}>
                     <FormRow>
                         <FormControl
                             type="text"
-                            placeholder="Enter name in Uzbek"
-                            label={"Name in Uzbek"}
+                            placeholder="Nomi (O'zbekcha)"
+                            label={"Nomi (O'zbekcha)"}
                             name="name_uz"
                             onChange={handleChange}
                             value={get(values, "name_uz", "")}
@@ -41,8 +41,8 @@ const Page = () => {
                         />
                         <FormControl
                             type="text"
-                            placeholder="Enter name in Russian"
-                            label={"Name in Russian"}
+                            placeholder="Nomi (Ruscha)"
+                            label={"Nomi (Ruscha)"}
                             name="name_ru"
                             onChange={handleChange}
                             value={get(values, "name_ru", "")}
@@ -53,8 +53,8 @@ const Page = () => {
                     <FormRow>
                         <FormControl
                             type="text"
-                            placeholder="Enter name in English"
-                            label={"Name in English"}
+                            placeholder="Nomi (Inglizcha)"
+                            label={"Nomi (Inglizcha)"}
                             name="name_en"
                             onChange={handleChange}
                             value={get(values, "name_en", "")}
@@ -63,8 +63,8 @@ const Page = () => {
                         />
                         <FormSelect
                             type="text"
-                            placeholder="Select category"
-                            label={"Category"}
+                            placeholder="Kategoriya tanlash"
+                            label={"Kategoriya"}
                             name="category_id"
                             options={categoryOptions}
                             onChange={handleChange}
@@ -75,8 +75,8 @@ const Page = () => {
                     </FormRow>
                     <FormControl
                         type="text"
-                        placeholder="Description in Uzbek"
-                        label={"Description in Uzbek"}
+                        placeholder="Ta'rif (O'zbekcha)"
+                        label={"Ta'rif (O'zbekcha)"}
                         name="description_uz"
                         onChange={handleChange}
                         value={get(values, "description_uz", "")}
@@ -84,8 +84,8 @@ const Page = () => {
                     />
                     <FormControl
                         type="text"
-                        placeholder="Description in Russian"
-                        label={"Description in Russian"}
+                        placeholder="Ta'rif (Ruscha)"
+                        label={"Ta'rif (Ruscha)"}
                         name="description_ru"
                         onChange={handleChange}
                         value={get(values, "description_ru", "")}
@@ -94,8 +94,8 @@ const Page = () => {
 
                     <FormControl
                         type="text"
-                        placeholder="Description in English"
-                        label={"Description in English"}
+                        placeholder="Ta'rif (Inglizcha)"
+                        label={"Ta'rif (Inglizcha)"}
                         name="description_en"
                         onChange={handleChange}
                         value={get(values, "description_en", "")}
@@ -108,7 +108,7 @@ const Page = () => {
                         <FormImage
                             type="text"
                             placeholder="https://example.com"
-                            label={"Image"}
+                            label={"Rasm"}
                             name="image"
                             onChange={handleImage}
                             width="full"
@@ -117,7 +117,7 @@ const Page = () => {
                     <FormMultiImage
                         type="text"
                         placeholder="https://example.com"
-                        label={"Images"}
+                        label={"Rasmlar"}
                         name="images"
                         setFieldValue={setFieldValue}
                         values={get(values, "images", [])}

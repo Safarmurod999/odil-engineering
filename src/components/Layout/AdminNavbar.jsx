@@ -49,13 +49,13 @@ const AdminNavbar = ({ toggleSidebar }) => {
           >
             <ul>
               <li onClick={() => setIsOpen(false)}>
-                <Link to={"/dashboard/profile"}>Profile</Link>
+                <Link to={"/dashboard/profile"}>Profil</Link>
               </li>
               <li onClick={() => setIsOpen(false)}>
-                <Link to={"/dashboard/settings"}>Settings</Link>
+                <Link to={"/dashboard/settings"}>Sozlamalar</Link>
               </li>
               <li onClick={() => setIsOpen(false)}>
-                <Link to={"/"}>Logout</Link>
+                <Link to={"/"}>Akkauntdan chiqish</Link>
               </li>
             </ul>
           </div>

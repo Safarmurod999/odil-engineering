@@ -22,12 +22,19 @@ const useConnect = () => {
     formData.append("description_ru", values.description_ru);
     formData.append("description_en", values.description_en);
     formData.append("image", values?.image);
-    dispatch(updateCategory({ params: formData, id })).then(() => {
-      toast.success("Category created successfully", {
-        position: "bottom-right",
-        duration: 2000,
-      });
-      navigate("/admin/categories");
+    dispatch(updateCategory({ params: formData, id })).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlar to'gri kiritilganligini tekshiring'", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Kategoriya tahrirlandi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+        navigate("/admin/users");
+      }
     });
   };
 

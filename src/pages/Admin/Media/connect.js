@@ -17,20 +17,38 @@ const useConnect = () => {
   const navigate = useNavigate();
 
   const handleDelete = (id) => {
-    dispatch(deleteMedia({ params: {}, id }));
-    toast.success("Media deleted successfully", {
-      position: "bottom-right",
-      duration: 2000,
+    dispatch(deleteMedia({ params: {}, id })).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlarni o'chirib bo'lmadi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Ma'lumotlar o'chirildi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      }
     });
   };
 
   const handleUpdate = (e, id, is_active) => {
     e.preventDefault();
-    dispatch(updateMedia({ params: { is_active: !is_active }, id }));
-    toast.success("Media updated successfully", {
-      position: "bottom-right",
-      duration: 2000,
-    });
+    dispatch(updateMedia({ params: { is_active: !is_active }, id })).then(
+      (res) => {
+        if (res.error) {
+          toast.error("Ma'lumotlarni tahrirlab bo'lmadi", {
+            position: "bottom-right",
+            duration: 2000,
+          });
+        } else {
+          toast.success("Ma'lumotlar tahrirlandi", {
+            position: "bottom-right",
+            duration: 2000,
+          });
+        }
+      }
+    );
   };
 
   useEffect(() => {

@@ -20,20 +20,38 @@ const useConnect = () => {
   const navigate = useNavigate();
 
   const handleDelete = (id) => {
-    dispatch(deleteProject, { params: {}, id });
-    toast.success("Project deleted successfully", {
-      position: "bottom-right",
-      duration: 2000,
+    dispatch(deleteProject, { params: {}, id }).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlarni o'chirib bo'lmadi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Ma'lumotlar o'chirildi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      }
     });
   };
 
   const handleUpdate = (e, id, is_active) => {
     e.preventDefault();
-    dispatch(updateProject({ params: { is_active: !is_active }, id }));
-    toast.success("Project updated successfully", {
-      position: "bottom-right",
-      duration: 2000,
-    });
+    dispatch(updateProject({ params: { is_active: !is_active }, id })).then(
+      (res) => {
+        if (res.error) {
+          toast.error("Ma'lumotlarni tahrirlab bo'lmadi", {
+            position: "bottom-right",
+            duration: 2000,
+          });
+        } else {
+          toast.success("Ma'lumotlar tahrirlandi", {
+            position: "bottom-right",
+            duration: 2000,
+          });
+        }
+      }
+    );
   };
 
   useEffect(() => {

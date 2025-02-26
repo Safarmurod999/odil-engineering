@@ -20,7 +20,7 @@ const Page = () => {
     return (
         <section className="user">
             <div className="admin-container">
-                <Breadcrumb title="Users Create" backlink="/admin/users" />
+                <Breadcrumb title="Foydalanuvchi yaratish" backlink="/admin/users" />
                 <Form direction="y" width="50" onSubmit={handleSubmit}>
                     <FormRow>
                         <FormControl
@@ -36,7 +36,7 @@ const Page = () => {
                         <FormControl
                             type="text"
                             placeholder="*****"
-                            label={"Password"}
+                            label={"Parol"}
                             name="password"
                             onChange={handleChange}
                             value={get(values, "password", "")}
@@ -48,7 +48,7 @@ const Page = () => {
                         <FormControl
                             type="text"
                             placeholder="John"
-                            label={"First Name"}
+                            label={"Ism"}
                             name="first_name"
                             onChange={handleChange}
                             value={get(values, "first_name", "")}
@@ -58,7 +58,7 @@ const Page = () => {
                         <FormControl
                             type="text"
                             placeholder="Doe"
-                            label={"Last Name"}
+                            label={"Familiya"}
                             name="last_name"
                             onChange={handleChange}
                             value={get(values, "last_name", "")}
@@ -74,34 +74,6 @@ const Page = () => {
                         onChange={handleChange}
                         value={get(values, "email", "")}
                         required={true}
-                        width="full"
-                    />
-                    <FormControl
-                        type="text"
-                        placeholder="Description in Uzbek"
-                        label={"Description in Uzbek"}
-                        name="description_uz"
-                        onChange={handleChange}
-                        value={get(values, "description_uz", "")}
-                        width="full"
-                    />
-                    <FormControl
-                        type="text"
-                        placeholder="Description in Russian"
-                        label={"Description in Russian"}
-                        name="description_ru"
-                        onChange={handleChange}
-                        value={get(values, "description_ru", "")}
-                        width="full"
-                    />
-
-                    <FormControl
-                        type="text"
-                        placeholder="Description in English"
-                        label={"Description in English"}
-                        name="description_en"
-                        onChange={handleChange}
-                        value={get(values, "description_en", "")}
                         width="full"
                     />
                     <FormImage

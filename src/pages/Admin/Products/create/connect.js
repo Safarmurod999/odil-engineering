@@ -27,12 +27,19 @@ const useConnect = () => {
     values.images.forEach((image) => {
       formData.append("images", image);
     });
-    dispatch(createProduct(formData)).then(() => {
-      toast.success("Product created successfully", {
-        position: "bottom-right",
-        duration: 2000,
-      });
-      navigate("/admin/products");
+    dispatch(createProduct(formData)).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlar to'gri kiritilganligini tekshiring'", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Mahsulot yaratildi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+        navigate("/admin/products");
+      }
     });
   };
 

@@ -21,7 +21,7 @@ const Categories = () => {
     return (
         <section className="categories">
             <div className="admin-container">
-                <Breadcrumb title="Categories" />
+                <Breadcrumb title="Kategoriyalar" />
                 <div className="data-table-container">
                     <div className="table-search">
                         <div className="flex">
@@ -40,17 +40,17 @@ const Categories = () => {
                             <thead>
                                 <tr>
                                     <th>№</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
+                                    <th>Nomi</th>
+                                    <th>Ta'rif</th>
                                     <th>Status</th>
-                                    <th>Actions</th>
+                                    <th>Amallar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {categories.loading ? (
                                     <tr>
                                         <td colSpan={5}>
-                                            <p className="loader"> Loading...</p>
+                                            <p className="loader"> Yuklanmoqda...</p>
                                         </td>
                                     </tr>
                                 ) : categories && categories.categoriesList?.data?.length ? (

@@ -13,16 +13,23 @@ const useConnect = () => {
     formData.append("first_name", values.first_name);
     formData.append("last_name", values.last_name);
     formData.append("email", values.email);
-    formData.append("description_uz", values.description_uz);
-    formData.append("description_ru", values.description_ru);
-    formData.append("description_en", values.description_en);
+    // formData.append("description_uz", values.description_uz);
+    // formData.append("description_ru", values.description_ru);
+    // formData.append("description_en", values.description_en);
     formData.append("avatar", values.avatar);
-    dispatch(createUser(formData)).then(() => {
-      toast.success("User created successfully", {
-        position: "bottom-right",
-        duration: 2000,
-      });
-      navigate("/admin/users");
+    dispatch(createUser(formData)).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlar to'gri kiritilganligini tekshiring'", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Foydalanuvchi yaratildi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+        navigate("/admin/users");
+      }
     });
   };
 
@@ -33,9 +40,9 @@ const useConnect = () => {
       first_name: "",
       last_name: "",
       email: "",
-      description_uz: "",
-      description_ru: "",
-      description_en: "",
+      // description_uz: "",
+      // description_ru: "",
+      // description_en: "",
       avatar: "",
     },
     onSubmit: onSubmit,

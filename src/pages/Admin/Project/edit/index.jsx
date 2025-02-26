@@ -6,7 +6,7 @@ import {
     FormControl,
     FormSelect
 } from "components/ui/Form/Form";
-import { IoAddSharp } from "react-icons/io5";
+import { IoAddSharp, IoSave } from "react-icons/io5";
 import useConnect from "./connect";
 import { get } from "lodash";
 
@@ -14,20 +14,18 @@ const Page = () => {
     const {
         values,
         handleChange,
-        handleSubmit,
-        setFieldValue,
-        productOptions
+        handleSubmit
     } = useConnect();
     return (
-        <section className="media">
+        <section className="project">
             <div className="admin-container">
-                <Breadcrumb title="Media Create" backlink="/admin/media" />
+                <Breadcrumb title="Proyektni Tahrirlash" backlink="/admin/project" />
                 <Form direction="y" width="50" onSubmit={handleSubmit}>
                     <FormRow>
                         <FormControl
                             type="text"
-                            placeholder="Title in Uzbek"
-                            label={"Title in Uzbek"}
+                            placeholder="Sarlavha (O'zbekcha)"
+                            label={"Sarlavha (O'zbekcha)"}
                             name="title_uz"
                             onChange={handleChange}
                             value={get(values, "title_uz", "")}
@@ -36,8 +34,8 @@ const Page = () => {
                         />
                         <FormControl
                             type="text"
-                            placeholder="Title in Russian"
-                            label={"Title in Russian"}
+                            placeholder="Sarlavha (Ruscha)"
+                            label={"Sarlavha (Ruscha)"}
                             name="title_ru"
                             onChange={handleChange}
                             value={get(values, "title_ru", "")}
@@ -48,8 +46,8 @@ const Page = () => {
                     <FormRow>
                         <FormControl
                             type="text"
-                            placeholder="Title in English"
-                            label={"Title in English"}
+                            placeholder="Sarlavha (Inglizcha)"
+                            label={"Sarlavha (Inglizcha)"}
                             name="title_en"
                             onChange={handleChange}
                             value={get(values, "title_en", "")}
@@ -67,10 +65,10 @@ const Page = () => {
                             width="50"
                         />
                     </FormRow>
-                    {/* <FormControl
+                    <FormControl
                         type="text"
-                        placeholder="Description in Uzbek"
-                        label={"Description in Uzbek"}
+                        placeholder="Ta'rif (O'zbekcha)"
+                        label={"Ta'rif (O'zbekcha)"}
                         name="description_uz"
                         onChange={handleChange}
                         value={get(values, "description_uz", "")}
@@ -78,8 +76,8 @@ const Page = () => {
                     />
                     <FormControl
                         type="text"
-                        placeholder="Description in Russian"
-                        label={"Description in Russian"}
+                        placeholder="Ta'rif (Ruscha)"
+                        label={"Ta'rif (Ruscha)"}
                         name="description_ru"
                         onChange={handleChange}
                         value={get(values, "description_ru", "")}
@@ -87,25 +85,15 @@ const Page = () => {
                     />
                     <FormControl
                         type="text"
-                        placeholder="Description in English"
-                        label={"Description in English"}
+                        placeholder="Ta'rif (Inglizcha)"
+                        label={"Ta'rif (Inglizcha)"}
                         name="description_en"
                         onChange={handleChange}
                         value={get(values, "description_en", "")}
                         width="full"
-                    /> */}
-                    <FormSelect
-                        type="text"
-                        placeholder="Select product"
-                        label={"Product"}
-                        name="product_id"
-                        options={productOptions}
-                        onChange={handleChange}
-                        value={get(values, "product_id", 0)}
-                        required={true}
-                        width="50"
                     />
-                    <FormBtn text="save" icon={<IoAddSharp />} />
+
+                    <FormBtn text="save" icon={<IoSave />} />
                 </Form>
             </div>
         </section>

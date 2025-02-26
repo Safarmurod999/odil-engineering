@@ -22,12 +22,19 @@ const useConnect = () => {
     label: product.name_uz,
   }));
   const onSubmit = (values) => {
-    dispatch(updateMedia({ params: values, id })).then(() => {
-      toast.success("Media updated successfully", {
-        position: "bottom-right",
-        duration: 2000,
-      });
-      navigate("/admin/media");
+    dispatch(updateMedia({ params: values, id })).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlar to'gri kiritilganligini tekshiring'", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Media tahrirlandi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+        navigate("/admin/media");
+      }
     });
   };
 

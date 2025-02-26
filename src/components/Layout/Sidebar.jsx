@@ -18,19 +18,19 @@ const adminRoutes = [
   // },
   {
     id: 2,
-    name: "Users",
+    name: "Foydalanuvchilar",
     path: "/admin/users",
     icon: <IoPersonOutline />,
   },
   {
     id: 3,
-    name: "Categories",
+    name: "Kategoriyalar",
     path: "/admin/categories",
     icon: <BiCategory />,
   },
   {
     id: 4,
-    name: "Products",
+    name: "Mahsulotlar",
     path: "/admin/products",
     icon: <TbMessage2Dollar />,
   },
@@ -42,7 +42,7 @@ const adminRoutes = [
   },
   {
     id: 6,
-    name: "Projects",
+    name: "Proyektlar",
     path: "/admin/project",
     icon: <FaRProject />,
   }

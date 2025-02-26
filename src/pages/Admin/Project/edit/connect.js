@@ -1,49 +1,45 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import { useNavigate, useParams } from "react-router";
-import { updateMedia } from "store/slices/mediaSlice";
-import { fetchProducts } from "store/slices/productsSlice";
-import { selectProductsData } from "store/selectors/products";
-import { fetchMediaDetail } from "store/slices/mediaSlice";
-import { selectMediaData } from "store/selectors/media";
+import { updateProject } from "store/slices/projectSlice";
+import { fetchProjectDetail } from "store/slices/projectSlice";
+import { selectProjectData } from "store/selectors/project";
 import { toast } from "sonner";
 import { useEffect } from "react";
 const useConnect = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  const { mediaData } = useSelector(selectMediaData);
+  const { projectData } = useSelector(selectProjectData);
   useEffect(() => {
-    dispatch(fetchMediaDetail(id));
+    dispatch(fetchProjectDetail(id));
   }, [dispatch]);
-  const products = useSelector(selectProductsData);
-  const productOptions = products?.productsList?.data.map((product) => ({
-    value: product.id,
-    label: product.name_uz,
-  }));
+
   const onSubmit = (values) => {
-    dispatch(updateMedia({ params: values, id })).then(() => {
-      toast.success("Media updated successfully", {
-        position: "bottom-right",
-        duration: 2000,
-      });
-      navigate("/admin/media");
+    dispatch(updateProject({ params: values, id })).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlar to'gri kiritilganligini tekshiring'", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Proyekt tahrirlandi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+        navigate("/admin/project");
+      }
     });
   };
 
-  const { values, handleChange, setFieldValue, handleSubmit } = useFormik({
-    initialValues: mediaData,
+  const { values, handleChange, handleSubmit } = useFormik({
+    initialValues: projectData,
     onSubmit: onSubmit,
   });
-  useEffect(() => {
-    dispatch(fetchProducts({}));
-  }, [dispatch]);
   return {
     values,
     handleChange,
     handleSubmit,
-    setFieldValue,
-    productOptions,
   };
 };
 

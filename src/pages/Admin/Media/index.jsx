@@ -40,10 +40,10 @@ const Users = () => {
                             <thead>
                                 <tr>
                                     <th>№</th>
-                                    <th>Title</th>
+                                    <th>Sarlavha</th>
                                     <th>Link</th>
                                     <th>Status</th>
-                                    <th>Actions</th>
+                                    <th>Amallar</th>
                                 </tr>
                             </thead>
                             <tbody>

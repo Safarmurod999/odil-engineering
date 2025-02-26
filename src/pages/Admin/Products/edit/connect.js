@@ -40,14 +40,19 @@ const useConnect = () => {
         formData.append("delete_images_array", image);
       });
     }
-    dispatch(updateProduct({ params: formData, id })).then(() => {
-      toast.success("Product created successfully", {
-        position: "bottom-right",
-        duration: 2000,
-      });
-      setFieldValue("delete_images_array", []);
-      location.reload();
-      // navigate("/admin/products");
+    dispatch(updateProduct({ params: formData, id })).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlar to'gri kiritilganligini tekshiring'", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Mahsulot tahrirlandi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+        navigate("/admin/products");
+      }
     });
   };
   useEffect(() => {

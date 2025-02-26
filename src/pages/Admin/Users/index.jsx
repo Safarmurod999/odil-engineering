@@ -25,7 +25,7 @@ const Users = () => {
     return (
         <section className="users">
             <div className="admin-container">
-                <Breadcrumb title="Users" />
+                <Breadcrumb title="Foydalanuvchilar" />
                 <div className="data-table-container">
                     <div className="table-search">
                         <div className="flex">
@@ -45,16 +45,16 @@ const Users = () => {
                                 <tr>
                                     <th>№</th>
                                     <th>Username</th>
-                                    <th>Passsword</th>
+                                    <th>Parol</th>
                                     <th>Status</th>
-                                    <th>Actions</th>
+                                    <th>Amallar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {users.loading ? (
                                     <tr>
                                         <td colSpan={5}>
-                                            <p className="loader"> Loading...</p>
+                                            <p className="loader"> Yuklanmoqda...</p>
                                         </td>
                                     </tr>
                                 ) : users && users.usersList?.data?.length ? (
@@ -93,7 +93,7 @@ const Users = () => {
                                 ) : (
                                     <tr className="no-data">
                                         <td colSpan={5}>
-                                            <p className="text-center">No data found</p>
+                                            <p className="text-center">Ma'lumot topilmadi</p>
                                         </td>
                                     </tr>
                                 )}

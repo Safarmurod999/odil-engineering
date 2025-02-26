@@ -9,7 +9,7 @@ class UsersServices {
   };
   static UsersCreate = (params) => {
     console.log(params);
-    return request.post("/signup", params);
+    return request.post("/users", params);
   };
   static UsersUpdate = (params, id) => {
 

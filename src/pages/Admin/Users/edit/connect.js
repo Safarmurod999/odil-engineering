@@ -10,7 +10,8 @@ const useConnect = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { userData } = useSelector(selectUsersData);
-
+  console.log();
+  
   const onSubmit = (values) => {
     const formData = new FormData();
     formData.append("user_name", values.user_name);
@@ -18,14 +19,23 @@ const useConnect = () => {
     formData.append("first_name", values.first_name);
     formData.append("last_name", values.last_name);
     formData.append("email", values.email);
-    formData.append("description_uz", values.description_uz);
-    formData.append("description_ru", values.description_ru);
-    formData.append("description_en", values.description_en);
-    formData.append("avatar", values.avatar);
-    dispatch(updateUser({ params: formData, id }));
-    toast.success("User updated successfully", {
-      position: "bottom-right",
-      duration: 2000,
+    // formData.append("description_uz", values.description_uz);
+    // formData.append("description_ru", values.description_ru);
+    // formData.append("description_en", values.description_en);
+    formData.append("avatar", values?.avatar);
+    dispatch(updateUser({ params: formData, id })).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlar to'gri kiritilganligini tekshiring'", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Foydalanuvchi tahrirlandi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+        navigate("/admin/users");
+      }
     });
   };
   useEffect(() => {

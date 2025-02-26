@@ -17,12 +17,19 @@ const useConnect = () => {
     label: product.name_uz,
   }));
   const onSubmit = (values) => {
-    dispatch(createMedia(values)).then(() => {
-      toast.success("Media created successfully", {
-        position: "bottom-right",
-        duration: 2000,
-      });
-      navigate("/admin/media");
+    dispatch(createMedia(values)).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlar to'gri kiritilganligini tekshiring'", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Media yaratildi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+        navigate("/admin/media");
+      }
     });
   };
 

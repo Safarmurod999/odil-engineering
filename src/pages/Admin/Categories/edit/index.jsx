@@ -18,17 +18,17 @@ const Page = () => {
         handleSubmit,
         handleImage
     } = useConnect();
-    
+
     return (
         <section className="user">
             <div className="admin-container">
-                <Breadcrumb title="Categories Edit" backlink="/admin/categories" />
+                <Breadcrumb title="Kategoriyani Tahrirlash" backlink="/admin/categories" />
                 <Form direction="y" width="50" onSubmit={handleSubmit}>
                     <FormRow>
                         <FormControl
                             type="text"
-                            placeholder="Enter name in Uzbek"
-                            label={"Name in Uzbek"}
+                            placeholder="Nomni kiriting (O'zbekcha)"
+                            label={"Nom (O'zbekcha)"}
                             name="name_uz"
                             onChange={handleChange}
                             value={get(values, "name_uz", "")}
@@ -37,8 +37,8 @@ const Page = () => {
                         />
                         <FormControl
                             type="text"
-                            placeholder="Enter name in Russian"
-                            label={"Name in Russian"}
+                            placeholder="Nomni kiriting (Ruscha)"
+                            label={"Nom (Ruscha)"}
                             name="name_ru"
                             onChange={handleChange}
                             value={get(values, "name_ru", "")}
@@ -49,8 +49,8 @@ const Page = () => {
                     <FormRow>
                         <FormControl
                             type="text"
-                            placeholder="Enter name in English"
-                            label={"Name in English"}
+                            placeholder="Nomni kiriting (Inglizcha)"
+                            label={"Nom (Inglizcha)"}
                             name="name_en"
                             onChange={handleChange}
                             value={get(values, "name_en", "")}
@@ -59,8 +59,8 @@ const Page = () => {
                         />
                         <FormControl
                             type="text"
-                            placeholder="Enter link name"
-                            label={"Link name"}
+                            placeholder="Link nomi"
+                            label={"Link"}
                             name="link"
                             onChange={handleChange}
                             value={get(values, "link", "")}
@@ -70,8 +70,8 @@ const Page = () => {
                     </FormRow>
                     <FormControl
                         type="text"
-                        placeholder="Description in Uzbek"
-                        label={"Description in Uzbek"}
+                        placeholder="Ta'rif (O'zbekcha)"
+                        label={"Ta'rif (O'zbekcha)"}
                         name="description_uz"
                         onChange={handleChange}
                         value={get(values, "description_uz", "")}
@@ -79,8 +79,8 @@ const Page = () => {
                     />
                     <FormControl
                         type="text"
-                        placeholder="Description in Russian"
-                        label={"Description in Russian"}
+                        placeholder="Ta'rif (Ruscha)"
+                        label={"Ta'rif (Ruscha)"}
                         name="description_ru"
                         onChange={handleChange}
                         value={get(values, "description_ru", "")}
@@ -89,8 +89,8 @@ const Page = () => {
 
                     <FormControl
                         type="text"
-                        placeholder="Description in English"
-                        label={"Description in English"}
+                        placeholder="Ta'rif (Inglizcha)"
+                        label={"Ta'rif (Inglizcha)"}
                         name="description_en"
                         onChange={handleChange}
                         value={get(values, "description_en", "")}

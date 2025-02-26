@@ -21,7 +21,7 @@ const Users = () => {
     return (
         <section className="project">
             <div className="admin-container">
-                <Breadcrumb title="Projects" />
+                <Breadcrumb title="Proyektlar" />
                 <div className="data-table-container">
                     <div className="table-search">
                         <div className="flex">
@@ -40,17 +40,17 @@ const Users = () => {
                             <thead>
                                 <tr>
                                     <th>№</th>
-                                    <th>Title</th>
+                                    <th>Sarlavha</th>
                                     <th>Link</th>
                                     <th>Status</th>
-                                    <th>Actions</th>
+                                    <th>Amallar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {project.loading ? (
                                     <tr>
                                         <td colSpan={5}>
-                                            <p className="loader"> Loading...</p>
+                                            <p className="loader"> Yuklanmoqda...</p>
                                         </td>
                                     </tr>
                                 ) : project && project.projectList?.data?.length ? (

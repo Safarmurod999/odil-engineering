@@ -43,20 +43,38 @@ const useConnect = () => {
     dispatch(setFilter({ search: "" }));
   };
   const handleDelete = (id) => {
-    dispatch(deleteCategory({ params: {}, id }));
-    toast.success("Category deleted successfully", {
-      position: "bottom-right",
-      duration: 2000,
+    dispatch(deleteCategory({ params: {}, id })).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlarni o'chirib bo'lmadi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Ma'lumotlar o'chirildi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      }
     });
   };
 
   const handleUpdate = (e, id, is_active) => {
     e.preventDefault();
-    dispatch(updateCategory({ params: { is_active: !is_active }, id }));
-    toast.success("Category updated successfully", {
-      position: "bottom-right",
-      duration: 2000,
-    });
+    dispatch(updateCategory({ params: { is_active: !is_active }, id })).then(
+      (res) => {
+        if (res.error) {
+          toast.error("Ma'lumotlarni tahrirlab bo'lmadi", {
+            position: "bottom-right",
+            duration: 2000,
+          });
+        } else {
+          toast.success("Ma'lumotlar tahrirlandi", {
+            position: "bottom-right",
+            duration: 2000,
+          });
+        }
+      }
+    );
   };
 
   useEffect(() => {

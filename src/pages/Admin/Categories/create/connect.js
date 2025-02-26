@@ -16,12 +16,19 @@ const useConnect = () => {
     formData.append("description_ru", values.description_ru);
     formData.append("description_en", values.description_en);
     formData.append("image", values.image);
-    dispatch(createCategory(formData)).then(() => {
-      toast.success("Category created successfully", {
-        position: "bottom-right",
-        duration: 2000,
-      });
-      navigate("/admin/categories");
+    dispatch(createCategory(formData)).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlar to'gri kiritilganligini tekshiring'", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Kategoriya yaratildi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+        navigate("/admin/users");
+      }
     });
   };
 

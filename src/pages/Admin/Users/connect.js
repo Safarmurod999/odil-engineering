@@ -41,20 +41,38 @@ const useConnect = () => {
   //   dispatch(setFilter({ search: "" }));
   // };
   const handleDelete = (id) => {
-    dispatch(deleteUser({ params: {}, id }));
-    toast.success("User deleted successfully", {
-      position: "bottom-right",
-      duration: 2000,
+    dispatch(deleteUser({ params: {}, id })).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlarni o'chirib bo'lmadi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      } else {
+        toast.success("Ma'lumotlar o'chirildi", {
+          position: "bottom-right",
+          duration: 2000,
+        });
+      }
     });
   };
 
   const handleUpdate = (e, id, is_active) => {
     e.preventDefault();
-    dispatch(updateUser({ params: { is_active: !is_active }, id }));
-    toast.success("User updated successfully", {
-      position: "bottom-right",
-      duration: 2000,
-    });
+    dispatch(updateUser({ params: { is_active: !is_active }, id })).then(
+      (res) => {
+        if (res.error) {
+          toast.error("Ma'lumotlarni tahrirlab bo'lmadi", {
+            position: "bottom-right",
+            duration: 2000,
+          });
+        } else {
+          toast.success("Ma'lumotlar tahrirlandi", {
+            position: "bottom-right",
+            duration: 2000,
+          });
+        }
+      }
+    );
   };
 
   useEffect(() => {

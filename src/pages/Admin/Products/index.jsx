@@ -21,7 +21,7 @@ const Products = () => {
     return (
         <section className="products">
             <div className="admin-container">
-                <Breadcrumb title="Products" />
+                <Breadcrumb title="Mahsulotlar" />
                 <div className="data-table-container">
                     <div className="table-search">
                         <div className="flex">
@@ -40,17 +40,17 @@ const Products = () => {
                             <thead>
                                 <tr>
                                     <th>№</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
+                                    <th>Nomi</th>
+                                    <th>Ta'rif</th>
                                     <th>Status</th>
-                                    <th>Actions</th>
+                                    <th>Amallar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {products.loading ? (
                                     <tr>
                                         <td colSpan={5}>
-                                            <p className="loader"> Loading...</p>
+                                            <p className="loader"> Yuklanmoqda...</p>
                                         </td>
                                     </tr>
                                 ) : products && products.productsList?.data?.length ? (
