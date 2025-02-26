@@ -4,26 +4,47 @@ import { FaYoutube } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
+import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { createLead } from 'store/slices/leadsSlice';
+import { get } from 'lodash';
 
 const Footer = () => {
   const { pathname } = useLocation();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const onSubmit = (values) => {
+    console.log(values);
+
+    dispatch(createLead(values));
+  }
+  const { handleChange, handleSubmit, values } = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: ""
+    },
+    onSubmit
+  });
+  console.log(values);
+  
   return (
     <>
       <section className="forms" style={{ display: pathname == "/contacts" ? "none" : "" }}>
         <div className="container">
-          <form className="forms__form" data-aos="zoom-in">
+          <form className="forms__form" data-aos="zoom-in" onSubmit={handleSubmit}>
             <h2 className="forms__title title">
               <span>
                 {t('questions')}
               </span>
             </h2>
             <div className="forms__row">
-              <input type="text" className='forms__input' placeholder={t('your_name')} />
-              <input type="email" className='forms__input' placeholder={t('your_email')} />
-              <input type="tel" className='forms__input' placeholder={t('your_phone')} />
+              <input type="text" className='forms__input' name='name' value={get(values, "name", "")} onChange={handleChange} placeholder={t('your_name')} />
+              <input type="email" className='forms__input' name='email' value={get(values, "email", "")} onChange={handleChange} placeholder={t('your_email')} />
+              <input type="tel" className='forms__input' name='phone' value={get(values, "phone", "")} onChange={handleChange} placeholder={t('your_phone')} />
             </div>
-            <textarea className='forms__textarea' placeholder={t('your_message')}></textarea>
+            <textarea className='forms__textarea' name='message' value={get(values, "message", "")} onChange={handleChange} placeholder={t('your_message')}></textarea>
             <button type='submit' className='forms__btn'>{t('send')}</button>
           </form>
         </div>

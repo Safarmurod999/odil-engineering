@@ -45,6 +45,12 @@ const adminRoutes = [
     name: "Proyektlar",
     path: "/admin/project",
     icon: <FaRProject />,
+  },
+  {
+    id: 7,
+    name: "Murojaatlar",
+    path: "/admin/leads",
+    icon: <IoPersonOutline />,
   }
 ];
 

@@ -39,3 +39,6 @@ export { default as EditMedia } from "./Admin/Media/edit/index";
 export { default as Project } from "./Admin/Project/index";
 export { default as AddProject } from "./Admin/Project/create/index";
 export { default as EditProject } from "./Admin/Project/edit/index";
+
+export { default as Leads } from "./Admin/Leads/index";
+export { default as ViewLeads } from "./Admin/Leads/edit/index";
