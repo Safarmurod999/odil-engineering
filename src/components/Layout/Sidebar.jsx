@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { IoCloseSharp, IoPersonOutline } from "react-icons/io5";
 import { TbMessage2Dollar } from "react-icons/tb";
-import { FaUniversity } from "react-icons/fa";
-import { IoIosStats } from "react-icons/io";
+import { FaVideo } from "react-icons/fa";
 import { BiCategory } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router";
 import logo from "assets/icons/logo.svg";
+import { FaRProject } from "react-icons/fa6";
 
 const adminRoutes = [
   // {
@@ -34,12 +34,18 @@ const adminRoutes = [
     path: "/admin/products",
     icon: <TbMessage2Dollar />,
   },
-  // {
-  //   id: 5,
-  //   name: "Education",
-  //   path: "/admin/education",
-  //   icon: <FaUniversity />,
-  // },
+  {
+    id: 5,
+    name: "Media",
+    path: "/admin/media",
+    icon: <FaVideo />,
+  },
+  {
+    id: 6,
+    name: "Projects",
+    path: "/admin/project",
+    icon: <FaRProject />,
+  }
 ];
 
 const Sidebar = ({ toggleSidebar }) => {

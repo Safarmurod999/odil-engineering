@@ -16,30 +16,30 @@ const useConnect = () => {
   const users = useSelector(selectUsersData);
   const filter = useSelector(selectUsersFilter);
   const navigate = useNavigate();
-  const pathname = useLocation();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const onSubmit = (values) => {
-    if (values.search.trim()) {
-      const newParams = new URLSearchParams(searchParams);
-      newParams.set("search", values.search);
-      setSearchParams(newParams);
-      dispatch(setFilter({ search: values.search }));
-    }
-  };
-  const { setFieldValue, values, handleChange, handleSubmit } = useFormik({
-    initialValues: {
-      search: searchParams.get("search") ?? "",
-    },
-    onSubmit: onSubmit,
-  });
+  // const pathname = useLocation();
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const onSubmit = (values) => {
+  //   if (values.search.trim()) {
+  //     const newParams = new URLSearchParams(searchParams);
+  //     newParams.set("search", values.search);
+  //     setSearchParams(newParams);
+  //     dispatch(setFilter({ search: values.search }));
+  //   }
+  // };
+  // const { setFieldValue, values, handleChange, handleSubmit } = useFormik({
+  //   initialValues: {
+  //     search: searchParams.get("search") ?? "",
+  //   },
+  //   onSubmit: onSubmit,
+  // });
 
-  const handleReset = () => {
-    setFieldValue("search", "");
-    const newParams = new URLSearchParams(searchParams);
-    newParams.delete("search");
-    setSearchParams(newParams);
-    dispatch(setFilter({ search: "" }));
-  };
+  // const handleReset = () => {
+  //   setFieldValue("search", "");
+  //   const newParams = new URLSearchParams(searchParams);
+  //   newParams.delete("search");
+  //   setSearchParams(newParams);
+  //   dispatch(setFilter({ search: "" }));
+  // };
   const handleDelete = (id) => {
     dispatch(deleteUser({ params: {}, id }));
     toast.success("User deleted successfully", {
@@ -64,10 +64,10 @@ const useConnect = () => {
   return {
     users,
     navigate,
-    values,
-    handleChange,
-    handleSubmit,
-    handleReset,
+    // values,
+    // handleChange,
+    // handleSubmit,
+    // handleReset,
     handleDelete,
     handleUpdate,
     dispatch,

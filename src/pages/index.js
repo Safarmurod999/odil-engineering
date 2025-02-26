@@ -31,3 +31,11 @@ export { default as EditCategories } from "./Admin/Categories/edit/index";
 export { default as Products } from "./Admin/Products/index";
 export { default as AddProducts } from "./Admin/Products/create/index";
 export { default as EditProducts } from "./Admin/Products/edit/index";
+
+export { default as Media } from "./Admin/Media/index";
+export { default as AddMedia } from "./Admin/Media/create/index";
+export { default as EditMedia } from "./Admin/Media/edit/index";
+
+export { default as Project } from "./Admin/Project/index";
+export { default as AddProject } from "./Admin/Project/create/index";
+export { default as EditProject } from "./Admin/Project/edit/index";

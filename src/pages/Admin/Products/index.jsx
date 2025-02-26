@@ -17,7 +17,7 @@ const Products = () => {
         dispatch,
         filter,
         setFilter
-    } = useConnect();
+    } = useConnect();    
     return (
         <section className="products">
             <div className="admin-container">

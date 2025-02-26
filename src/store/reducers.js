@@ -4,7 +4,9 @@ import rootPersistConfig from "./persistConfig";
 import {
   authSlice,
   categoriesSlice,
+  mediaSlice,
   productsSlice,
+  projectSlice,
   usersSlice,
 } from "./slices/index";
 
@@ -13,6 +15,8 @@ const reducers = combineReducers({
   users: usersSlice,
   categories: categoriesSlice,
   products: productsSlice,
+  media: mediaSlice,
+  project: projectSlice,
 });
 
 const persistedReducers = persistReducer(rootPersistConfig, reducers);

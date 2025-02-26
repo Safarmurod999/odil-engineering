@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import { BASE_URL } from "../../../data/const";
+import { toast } from "sonner";
 
 const Form = ({ children, onSubmit, direction = "x", width }) => {
   return (
@@ -118,7 +120,7 @@ const FormImage = ({ label, onChange, width, name }) => {
     </div>
   );
 };
-const FormMultiImage = ({ setFieldValue, values }) => {
+const FormMultiImage = ({ setFieldValue, values, delete_images_array }) => {
   const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
 
   const handleImage = (acceptedFiles) => {
@@ -131,13 +133,30 @@ const FormMultiImage = ({ setFieldValue, values }) => {
       });
       return;
     }
+    if (values.length + validFiles.length > 8) {
+      toast.error("You can upload up to 8 images", {
+        position: "bottom-right",
+        duration: 2000,
+      });
+      return;
 
+    }
     setFieldValue("images", [...values, ...validFiles]);
   };
 
   const removeImage = (index) => {
     const updatedImages = values.filter((_, i) => i !== index);
     setFieldValue("images", updatedImages);
+    console.log(updatedImages);
+    console.log(values);
+    
+    console.log(values[index]);
+    
+    if ("id" in values[index]) {
+      const deleteArray = delete_images_array;
+      deleteArray.push(values[index]?.id);
+      setFieldValue("delete_images_array", deleteArray);
+    }
   };
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -153,14 +172,17 @@ const FormMultiImage = ({ setFieldValue, values }) => {
         <p>Drop images here or click to upload</p>
       </div>
       <div className="image-preview">
-        {values.map((file, index) => (
-          <div key={index} className="image-item">
-            <img src={URL.createObjectURL(file)} alt={`Preview ${index}`} />
-            <button className="remove-btn" onClick={() => removeImage(index)}>
-              ✕
-            </button>
-          </div>
-        ))}
+        {values.map((file, index) => {
+
+          return (
+            <div key={index} className="image-item">
+              <img src={file instanceof File ? URL.createObjectURL(file) : `${BASE_URL}/${file.src}`} alt={`Preview ${index}`} />
+              <button type="button" className="remove-btn" onClick={() => removeImage(index)}>
+                ✕
+              </button>
+            </div>
+          )
+        })}
       </div>
     </div>
   );

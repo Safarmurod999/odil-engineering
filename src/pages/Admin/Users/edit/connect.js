@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import { updateUser } from "store/slices/usersSlice";
-import { fetchUserDetail } from "store/slices/usersSlice";
 import { useParams } from "react-router";
+import { fetchUserDetail } from "store/slices/usersSlice";
 import { selectUsersData } from "store/selectors/users";
 import { useEffect } from "react";
 import { toast } from "sonner";

@@ -5,32 +5,28 @@ import { MdDeleteOutline } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { Link } from "react-router";
 import Breadcrumb from "components/ui/Breadcrumb/Breadcrumb";
-import { FormSwitch } from "components/ui/Form/Form";
+import { Form, FormBtn, FormControl, FormSwitch } from "components/ui/Form/Form";
 import Pagination from "components/ui/Pagination/Pagination";
 import { get } from "lodash";
 const Users = () => {
     const {
-        users,
+        project,
         navigate,
-        // handleSubmit,
-        // handleChange,
-        // handleReset,
         handleDelete,
         handleUpdate,
-        // values,
         dispatch,
         filter,
         setFilter
     } = useConnect();
     return (
-        <section className="users">
+        <section className="project">
             <div className="admin-container">
-                <Breadcrumb title="Users" />
+                <Breadcrumb title="Projects" />
                 <div className="data-table-container">
                     <div className="table-search">
                         <div className="flex">
                             <Link
-                                to={"/admin/users/create"}
+                                to={"/admin/project/create"}
                                 className="form-button flex items-center text-white"
                             >
                                 <IoAddSharp />
@@ -44,45 +40,43 @@ const Users = () => {
                             <thead>
                                 <tr>
                                     <th>№</th>
-                                    <th>Username</th>
-                                    <th>Passsword</th>
+                                    <th>Title</th>
+                                    <th>Link</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {users.loading ? (
+                                {project.loading ? (
                                     <tr>
                                         <td colSpan={5}>
                                             <p className="loader"> Loading...</p>
                                         </td>
                                     </tr>
-                                ) : users && users.usersList?.data?.length ? (
-                                    users.usersList.data.map((user, index) => (
-                                        <tr key={user.id}>
+                                ) : project && project.projectList?.data?.length ? (
+                                    project.projectList.data.map((project, index) => (
+                                        <tr key={project.id}>
                                             <td>{index + 1}</td>
-                                            <td>{user.user_name}</td>
-                                            <td>{user.password}</td>
+                                            <td>{project.title_uz}</td>
+                                            <td>{project.link}</td>
                                             <td>
                                                 <FormSwitch
                                                     onChange={(e) =>
-                                                        handleUpdate(e, user.id, user.is_active)
+                                                        handleUpdate(e, project.id, project.is_active)
                                                     }
-                                                    value={user.is_active || false}
+                                                    value={project.is_active || false}
                                                 />
                                             </td>
                                             <td>
                                                 <div className="table-actions">
-                                                    <button onClick={() => navigate(`/admin/users/edit/${user.id}`)}
+                                                    <button onClick={() => navigate(`/admin/project/edit/${project.id}`)}
                                                         className="action-btn"
                                                     >
                                                         <CiEdit />
                                                     </button>
                                                     <button
-                                                        onClick={() => handleDelete(user.id)}
+                                                        onClick={() => handleDelete(project.id)}
                                                         className="action-btn"
-                                                        disabled={users.usersList?.data?.length === 1}
-
                                                     >
                                                         <MdDeleteOutline />
                                                     </button>
@@ -101,8 +95,8 @@ const Users = () => {
                         </table>
                     </div>
                     <Pagination
-                        currentPage={get(users, "usersList.currentPage", 1)}
-                        totalPages={get(users, "usersList.totalPages", 1)}
+                        currentPage={get(project, "projectList.currentPage", 1)}
+                        totalPages={get(project, "projectList.totalPages", 1)}
                         handleLimitChange={(e) => {
                             dispatch(setFilter({ limit: Number(e.target.value), page: 1 }));
                         }}
