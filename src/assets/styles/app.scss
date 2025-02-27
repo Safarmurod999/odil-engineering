@@ -11,6 +11,9 @@
 @use "./components/form";
 @use "./components/pagination";
 
+// skeletons
+@use "./components/skeletons";
+
 // layout
 @use "./layout/layout";
 @use "./layout/admin-layout";

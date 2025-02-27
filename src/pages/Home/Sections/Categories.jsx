@@ -1,9 +1,21 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { categoriesArray } from "../../../data/const";
+import { BASE_URL } from "../../../data/const";
 import { FaArrowRightLong } from "react-icons/fa6";
-
+import { useDispatch, useSelector } from "react-redux";
+import { selectCategoriesData } from "store/selectors/categories";
+import { fetchCategories } from "store/slices/categoriesSlice";
+import { SkeletonCategory } from "components/ui/Skeletons/Skeleton";
 const Categories = () => {
-    const { t } = useTranslation()
+    const { t } = useTranslation();
+    const dispatch = useDispatch();
+    const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
+    const categories = useSelector(selectCategoriesData);
+    console.log(categories);
+
+    useEffect(() => {
+        dispatch(fetchCategories({}));
+    }, [dispatch])
     return (
         <section className='categories'>
             <div className="container">
@@ -14,26 +26,26 @@ const Categories = () => {
                 </div>
                 <ul className="categories__list">
                     {
-                        categoriesArray.map((category, index) => {
-                            return (
-                                <li key={index} className="categories__item" data-aos="fade-up">
-                                    <div className="categories__item-image">
-                                        <img src={category.image} alt={category.title} />
-                                    </div>
-                                    <div className="categories__item-content">
-                                        <h5 className="h4">{category.title}</h5>
-                                        <p>
-                                            {category.description}
-                                        </p>
+                        !categories.loading && categories?.categoriesList?.data.length ?
+                            categories?.categoriesList?.data.map((category, index) => {
+                                return (
+                                    <li key={index} className="categories__item" data-aos="fade-up">
+                                        <div className="categories__item-image">
+                                            <img src={`${BASE_URL}/${category.image}`} alt={category.title} />
+                                        </div>
+                                        <div className="categories__item-content">
+                                            <h5 className="h4">{category["name_" + lang]}</h5>
+                                            <p>
+                                                {category["description_" + lang]}
+                                            </p>
+                                            <a href={`/catalog/${category.id}`}>{t('more')} <FaArrowRightLong />
+                                            </a>
+                                        </div>
 
-                                        <a href={`/catalog/${category.link}`}>{t('more')} <FaArrowRightLong />
-                                        </a>
-                                    </div>
+                                    </li>
 
-                                </li>
-
-                            )
-                        })
+                                )
+                            }) : categories.loading ? <SkeletonCategory /> : ""
                     }
                 </ul>
             </div>

@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import 'swiper/css';
@@ -7,88 +9,36 @@ import 'swiper/css/thumbs';
 import main from "../../../assets/images/products/conveyer-cornered/image.png";
 import view_1 from "../../../assets/images/products/conveyer-cornered/4k/view-1.png";
 import view_2 from "../../../assets/images/products/conveyer-cornered/4k/view-2.png";
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCategoriesData } from "store/selectors/categories";
+import { fetchCategoriesDetail } from "store/slices/categoriesSlice";
+import { selectProductsData } from "store/selectors/products";
+import { fetchProductsDetail } from "store/slices/productsSlice";
+import { useParams } from 'react-router';
+import { BASE_URL } from '../../../data/const';
 const Main = () => {
     const { t } = useTranslation();
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    const product = {
-        id: 0,
-        title: "Конвейеры прямые разные",
-        description: `Компания КОНВЕЙЕРМАШ изготавливает более 20 моделей конвейеров подобных конвейеров. 
-        Эта конфигурация конвейера может заменить собой систему из 2–3 независимых транспортеров. Благодаря
-        одному приводу всех участков скорость движения продукта синхронизирована. Такой конвейер находит
-        свое применение в самых различных отраслях и используется для подачи продукции в технологическое
-        оборудование, отвода продукции или отходов из-под станков и прессов, перемещения груза на другой уровень.
+    const { product_id } = useParams();
+    const dispatch = useDispatch();
+    const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
+    const { productData, loading } = useSelector(selectProductsData);
+    console.log(productData);
 
-        В зависимости от особенностей технологического процесса наклонный конвейер может быть изготовлен
-        как в прямом варианте, так и с изгибами (Г-,  L- и Z-образные). Привод всех участков осуществляется
-        с помощью одного мотора-редуктора. Регулировка скорости в широком диапазоне позволяет
-        гибко настраивать производственные процессы.`,
-        image: main,
-        images: [
-            {
-                id: 1,
-                image: view_1
-            },
-            {
-                id: 2,
-                image: view_2
-            },
-            {
-                id: 3,
-                image: view_1
-            },
-            {
-                id: 4,
-                image: view_2
-            },
-            {
-                id: 5,
-                image: view_1
-            },
-            {
-                id: 6,
-                image: view_2
-            },
-            {
-                id: 7,
-                image: view_1
-            },
-            {
-                id: 8,
-                image: view_2
-            },
-            {
-                id: 9,
-                image: view_1
-            },
-            {
-                id: 10,
-                image: view_2
-            },
-        ],
-        videos: [
-            {
-                id: 0,
-                link: "https://www.youtube.com/embed/DZHSEeFiXiY?si=BW6WLkK9MICgVyhf"
-            },
-            {
-                id: 1,
-                link: "https://www.youtube.com/embed/DZHSEeFiXiY?si=BW6WLkK9MICgVyhf"
-            }
-        ]
-    }
+    useEffect(() => {
+        dispatch(fetchProductsDetail(product_id));
+    }, [dispatch, product_id])
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
         <section className="product">
             <div className="product__title title">
-                <span>{product.title}</span>
+                <span>{productData["name_" + lang]}</span>
             </div>
             <div className="container">
                 <div className="product__main">
                     <div className="product__images">
                         {
-                            product.images.length > 0 ? <>
+                            productData?.images?.length > 0 ? <>
                                 <Swiper
                                     style={{
                                         '--swiper-navigation-color': '#fff',
@@ -106,10 +56,10 @@ const Main = () => {
                                     className="product__swiper"
                                 >
                                     {
-                                        product.images.map(el => {
-                                            return <SwiperSlide key={el.id}>
+                                        productData?.images.map(el => {
+                                            return <SwiperSlide key={el?.id}>
                                                 <div className="product__swiper-slide">
-                                                    <img src={el.image} alt='image' />
+                                                    <img src={`${BASE_URL}/${el?.src}`} alt='image' />
                                                 </div>
                                             </SwiperSlide>
                                         })
@@ -125,15 +75,15 @@ const Main = () => {
                                     className="product__thumbs"
                                 >
                                     {
-                                        product.images.map(el => {
-                                            return <SwiperSlide key={el.id} className='product__thumbs-slide'>
-                                                <img src={el.image} alt='thumb image' />
+                                        productData?.images.map(el => {
+                                            return <SwiperSlide key={el?.id} className='product__thumbs-slide'>
+                                                <img src={`${BASE_URL}/${el?.src}`} alt='thumb image' />
                                             </SwiperSlide>
                                         })
                                     }
                                 </Swiper>
                             </> : <div className="product__alternative">
-                                <img src={product?.image} />
+                                <img src={productData?.image} />
                             </div>
                         }
                     </div>
@@ -142,7 +92,7 @@ const Main = () => {
                             <span>{t('description')}</span>
                         </div>
                         <div className="product__description-text">
-                            <p>{product.description}</p>
+                            <p>{productData["description_" + lang]}</p>
                         </div>
                     </div>
                     <div className="product__description">
@@ -293,12 +243,12 @@ const Main = () => {
                         </div>
                         <div className="product__media-list">
                             {
-                                product.videos.length > 0 ? product.videos.map(el => {
-                                    return <div className="product__media-item" key={el.id}>
-                                        <iframe src={el.link} title="video" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+                                productData?.media?.length > 0 ? productData?.media?.map(el => {
+                                    return <div className="product__media-item" key={el?.id}>
+                                        <iframe src={el?.link} title="video" allow="autoplay; encrypted-media" allowFullScreen></iframe>
                                     </div>
                                 }) : <div className="product__media-video">
-                                    <img src={product?.image} />
+                                    <img src={productData?.image} />
                                 </div>
                             }
                         </div>

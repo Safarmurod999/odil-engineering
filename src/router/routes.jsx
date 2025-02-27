@@ -69,12 +69,12 @@ const landingRoutes = [
   },
   {
     id: 7,
-    path: "/catalog/:title",
+    path: "/catalog/:id",
     component: Catalog
   },
   {
     id: 8,
-    path: "/catalog/:title/:name",
+    path: "/catalog/:id/products/:product_id",
     component: Product
   }
 ];

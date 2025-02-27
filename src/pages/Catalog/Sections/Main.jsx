@@ -1,94 +1,65 @@
 import { Link, useParams } from 'react-router';
-import { categoriesArray } from '../../../data/const';
-import cornered from "../../../assets/images/products/conveyer-cornered/image.png";
-import lentochnaya from "../../../assets/images/products/conveyer-lentochnaya/image.png";
-import rounded from "../../../assets/images/products/conveyer-rounded/image.png";
-import straight from "../../../assets/images/products/conveyer-straight/image.png";
-
+// import cornered from "../../../assets/images/products/conveyer-cornered/image.png";
+// import lentochnaya from "../../../assets/images/products/conveyer-lentochnaya/image.png";
+// import rounded from "../../../assets/images/products/conveyer-rounded/image.png";
+// import straight from "../../../assets/images/products/conveyer-straight/image.png";
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { selectCategoriesData } from "store/selectors/categories";
+import { fetchCategoriesDetail } from "store/slices/categoriesSlice";
+import { selectProductsData } from "store/selectors/products";
+import { fetchProducts } from "store/slices/productsSlice";
+import { BASE_URL } from '../../../data/const';
 const Main = () => {
-    const { title } = useParams();
-    const data = categoriesArray.find(item => item.link === title);
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
+    const { categoriesData, loading } = useSelector(selectCategoriesData);
+    const products = useSelector(selectProductsData);
+    const filteredProducts = products.productsList?.data.filter(product => product.category_id == id);
+
+    useEffect(() => {
+        dispatch(fetchCategoriesDetail(id));
+        dispatch(fetchProducts({}));
+    }, [dispatch, id])
 
     return (
         <section className="catalog">
             <div className="container">
                 <div className="catalog__title title">
                     <span>
-                        {data.title}
+                        {categoriesData["name_" + lang]}
                     </span>
                 </div>
                 <p className='catalog__text'>
-                    Изготовлено более 7000 конвейеров. Для отдельных продуктов,
-                    ящиков, поддонов. Рекомендуем подходящее оборудование,
-                    технологию и схему движения, 3D моделирование для
-                    визуализации и надежности.
+                    {categoriesData["description_" + lang]}
                 </p>
                 <div className="catalog__list">
-                    <div className="catalog__item">
-                        <div className="catalog__item-img">
-                            <img src={lentochnaya} alt="lentochnaya" />
-                        </div>
+                    {
+                        !loading && filteredProducts.length ? filteredProducts.map((product, index) => {
+                            return (
+                                <div key={product?.id} className="catalog__item">
+                                    <div className="catalog__item-img">
+                                        <img src={`${BASE_URL}/${product?.image}`} alt="product image" />
+                                    </div>
 
-                        <div>
-                            <div className="catalog__item-title h6">
-                                Конвейеры прямые разные
-                            </div>
-                            <p className='catalog__item-text'>
-                                Перемещение по прямой любых продуктов для
-                                всех отраслей, различных нагрузок и любой
-                                производительности.
-                            </p>
-                            <Link to={`/catalog/${title}/cornered`} className="catalog__link">Подробнее</Link>
-                        </div>
-                    </div>
-                    <div className="catalog__item">
-                        <div className="catalog__item-img">
-                            <img src={rounded} alt="rounded" />
-                        </div>
-                        <div>
-                            <div className="catalog__item-title h6">
-                                Конвейеры прямые разные
-                            </div>
-                            <p className='catalog__item-text'>
-                                Перемещение по прямой любых продуктов для
-                                всех отраслей, различных нагрузок и любой
-                                производительности.
-                            </p>
-                            <Link to={`/catalog/${title}/cornered`} className="catalog__link">Подробнее</Link>
-                        </div>
-                    </div>
-                    <div className="catalog__item">
-                        <div className="catalog__item-img">
-                            <img src={straight} alt="straight" />
-                        </div>
-                        <div>
-                            <div className="catalog__item-title h6">
-                                Конвейеры прямые разные
-                            </div>
-                            <p className='catalog__item-text'>
-                                Перемещение по прямой любых продуктов для
-                                всех отраслей, различных нагрузок и любой
-                                производительности.
-                            </p>
-                            <Link to={`/catalog/${title}/cornered`} className="catalog__link">Подробнее</Link>
-                        </div>
-                    </div>
-                    <div className="catalog__item">
-                        <div className="catalog__item-img">
-                            <img src={cornered} alt="cornered" />
-                        </div>
-                        <div>
-                            <div className="catalog__item-title h6">
-                                Конвейеры прямые разные
-                            </div>
-                            <p className='catalog__item-text'>
-                                Перемещение по прямой любых продуктов для
-                                всех отраслей, различных нагрузок и любой
-                                производительности.
-                            </p>
-                            <Link to={`/catalog/${title}/cornered`} className="catalog__link">Подробнее</Link>
-                        </div>
-                    </div>
+                                    <div className='catalog__item-content'>
+                                        <div className="catalog__item-title h6">
+                                            {
+                                                product["name_" + lang]
+                                            }
+                                        </div>
+                                        <p className='catalog__item-text'>
+                                            {
+                                                product["description_" + lang]
+                                            }
+                                        </p>
+                                        <Link to={`/catalog/${categoriesData?.id}/products/${product?.id}`} className="catalog__link">Подробнее</Link>
+                                    </div>
+                                </div>
+                            )
+                        }) : ""
+                    }
                 </div>
             </div>
 

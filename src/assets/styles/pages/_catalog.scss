@@ -23,6 +23,7 @@
   }
   &__item {
     padding: 20px;
+    height: 290px;
     @include mixin.flex-row(stretch, space-between, 20px);
     background-color: var(--white);
     border: 1px solid var(--lightgray);
@@ -32,12 +33,30 @@
       border-color: var(--primary-color);
     }
     &-img {
-      min-width: 250px;
+      max-width: 300px;
       img {
         width: 100%;
       }
       @media screen and (max-width: 768px) {
         min-width: 100%;
+      }
+    }
+    &-content {
+      @include mixin.flex-col(flex-start, flex-start);
+      gap: 10px;
+      flex-grow: 1;
+      max-width: 300px;
+      h3 {
+        font-size: 18px;
+        margin: 0;
+        transition: 0.3s ease all;
+        &:hover {
+          color: var(--primary-color);
+        }
+      }
+      p {
+        font-size: 14px;
+        margin: 0;
       }
     }
     &-title {
