@@ -26,41 +26,45 @@ const Main = () => {
     return (
         <section className="catalog">
             <div className="container">
-                <div className="catalog__title title">
-                    <span>
-                        {categoriesData["name_" + lang]}
-                    </span>
-                </div>
-                <p className='catalog__text'>
-                    {categoriesData["description_" + lang]}
-                </p>
-                <div className="catalog__list">
-                    {
-                        !loading && filteredProducts.length ? filteredProducts.map((product, index) => {
-                            return (
-                                <div key={product?.id} className="catalog__item">
-                                    <div className="catalog__item-img">
-                                        <img src={`${BASE_URL}/${product?.image}`} alt="product image" />
-                                    </div>
+                {
+                    !loading ? <>
+                        <div className="catalog__title title">
+                            <span>
+                                {categoriesData["name_" + lang]}
+                            </span>
+                        </div>
+                        <p className='catalog__text'>
+                            {categoriesData["description_" + lang]}
+                        </p>
+                        <div className="catalog__list">
+                            {
+                                !loading && filteredProducts.length ? filteredProducts.map((product, index) => {
+                                    return (
+                                        <div key={product?.id} className="catalog__item">
+                                            <div className="catalog__item-img">
+                                                <img src={`${BASE_URL}/${product?.image}`} alt="product image" />
+                                            </div>
 
-                                    <div className='catalog__item-content'>
-                                        <div className="catalog__item-title h6">
-                                            {
-                                                product["name_" + lang]
-                                            }
+                                            <div className='catalog__item-content'>
+                                                <div className="catalog__item-title h6">
+                                                    {
+                                                        product["name_" + lang]
+                                                    }
+                                                </div>
+                                                <p className='catalog__item-text'>
+                                                    {
+                                                        product["description_" + lang]
+                                                    }
+                                                </p>
+                                                <Link to={`/catalog/${categoriesData?.id}/products/${product?.id}`} className="catalog__link">Подробнее</Link>
+                                            </div>
                                         </div>
-                                        <p className='catalog__item-text'>
-                                            {
-                                                product["description_" + lang]
-                                            }
-                                        </p>
-                                        <Link to={`/catalog/${categoriesData?.id}/products/${product?.id}`} className="catalog__link">Подробнее</Link>
-                                    </div>
-                                </div>
-                            )
-                        }) : ""
-                    }
-                </div>
+                                    )
+                                }) : ""
+                            }
+                        </div>
+                    </> : <div>Loading...</div>
+                }
             </div>
 
         </section>
