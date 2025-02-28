@@ -1,7 +1,34 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
+import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { createLead } from 'store/slices/leadsSlice';
+import { get } from 'lodash';
+import { toast } from 'sonner';
 const Main = () => {
-    const { t } = useTranslation()
+    const { t } = useTranslation();
+    const dispatch = useDispatch();
+    const onSubmit = (values) => {
+        dispatch(createLead(values)).then((res) => {
+            if (res.error) {
+                toast.error("Ma'lumotlar to'g'ri kiritilmagan")
+            } else {
+                toast.success("Muvaffaqiyatli yuborildi")
+            }
+        });
+        resetForm();
+    }
+    const { handleChange, handleSubmit, values, resetForm } = useFormik({
+        initialValues: {
+            name: "",
+            email: "",
+            phone: "",
+            message: ""
+        },
+        onSubmit,
+        enableReinitialize: true
+    });
+    console.log(values);
     return (
         <section className="contacts">
             <div className="h3 title">
@@ -14,13 +41,13 @@ const Main = () => {
                     <p className='contacts__text'>
                         {t('contacts_text')}
                     </p>
-                    <form className="contacts__form" data-aos="zoom-in">
-                        <input type="text" className='contacts__input' placeholder={t('your_name')} />
+                    <form onSubmit={handleSubmit} className="contacts__form" data-aos="zoom-in">
+                        <input type="text" className='contacts__input' name='name' value={get(values, "name", "")} onChange={handleChange} placeholder={t('your_name')} />
                         <div className="contacts__row">
-                            <input type="email" className='contacts__input' placeholder={t('your_email')} />
-                            <input type="tel" className='contacts__input' placeholder={t('your_phone')} />
+                            <input type="email" className='contacts__input' name='email' value={get(values, "email", "")} onChange={handleChange} placeholder={t('your_email')} />
+                            <input type="tel" className='contacts__input' name='phone' value={get(values, "phone", "")} onChange={handleChange} placeholder={t('your_phone')} />
                         </div>
-                        <textarea className='contacts__textarea' placeholder={t('your_message')}></textarea>
+                        <textarea className='contacts__textarea' name='message' value={get(values, "message", "")} onChange={handleChange} placeholder={t('your_message')}></textarea>
                         <button type='submit' className='contacts__btn'>{t('send')}</button>
                     </form>
                 </div>

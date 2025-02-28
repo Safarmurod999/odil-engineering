@@ -30,7 +30,10 @@ import {
   ViewLeads,
   Testimonials,
   AddTestimonials,
-  EditTestimonials
+  EditTestimonials,
+  AdminClients,
+  AddClients,
+  EditClients
 } from "../pages/index";
 import { Layout } from "../components/Layout/index"
 import ProtectedRoute from "./ProtectedRoute";
@@ -189,6 +192,21 @@ const adminRoutes = [
     id: 20,
     path: "/admin/testimonials/edit/:id",
     component: EditTestimonials
+  },
+  {
+    id: 21,
+    path: "/admin/clients",
+    component: AdminClients
+  },
+  {
+    id: 22,
+    path: "/admin/clients/create",
+    component: AddClients
+  },
+  {
+    id: 23,
+    path: "/admin/clients/edit/:id",
+    component: EditClients
   }
 ];
 const RouterApp = () => {

@@ -1,11 +1,20 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { testimonialsArray } from '../../../data/const'
 import { Navigation } from 'swiper/modules'
 import { useTranslation } from 'react-i18next'
-
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectTestimonialsData } from "store/selectors/testimonials";
+import { fetchTestimonials } from "store/slices/testimonialsSlice";
 const Testimonials = () => {
-    const { t } = useTranslation()
+    const { t } = useTranslation();
+    const dispatch = useDispatch();
+    const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
+    const testimonials = useSelector(selectTestimonialsData);
+
+    useEffect(() => {
+        dispatch(fetchTestimonials({}));
+    }, [dispatch])
     return (
         <section className="testimonials">
             <div className="container">
@@ -26,22 +35,22 @@ const Testimonials = () => {
                     }}
                     className="testimonials__slider">
                     {
-                        testimonialsArray.map((item) => {
+                        !testimonials.loading && testimonials.testimonialsList.data ? testimonials.testimonialsList.data.map((item) => {
                             return (
                                 <SwiperSlide key={item.id}>
                                     <div key={item.id} className="testimonials__item">
                                         <div className="testimonials__item-content">
                                             <div className="testimonials__item-author h6">
-                                                <span>{item.name} , {item.position}</span>
-                                                <span>{item.company}</span>
+                                                <span>{item["name_" + lang]}</span>
+
                                             </div>
-                                            <p className='h6'>{item.text}</p>
+                                            <p className='h6'>{item["message_" + lang]}</p>
                                         </div>
                                     </div>
                                 </SwiperSlide>
 
                             )
-                        })
+                        }) : testimonials.loading ? <div>Loading... </div> : ""
                     }
                 </Swiper>
             </div>

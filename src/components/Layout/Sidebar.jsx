@@ -59,6 +59,12 @@ const adminRoutes = [
     path: "/admin/testimonials",
     icon: <FaRegMessage />,
   },
+  {
+    id: 9,
+    name: "Mijozlar",
+    path: "/admin/clients",
+    icon: <IoPersonOutline />,
+  }
 ];
 
 const Sidebar = ({ toggleSidebar }) => {

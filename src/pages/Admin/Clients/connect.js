@@ -1,25 +1,25 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLeadsData, selectLeadsFilter } from "store/selectors/leads";
 import {
-  deleteLead,
-  fetchLeads,
-  updateLead,
+  selectClientsData,
+  selectClientsFilter,
+} from "store/selectors/clients";
+import {
+  deleteClients,
+  fetchClients,
+  updateClients,
   setFilter,
-} from "store/slices/leadsSlice";
-import { useNavigate } from "react-router";
+} from "store/slices/clientsSlice";
 import { toast } from "sonner";
+import { useNavigate } from "react-router";
 
 const useConnect = () => {
   const dispatch = useDispatch();
-  const leads = useSelector(selectLeadsData);
-  const filter = useSelector(selectLeadsFilter);
+  const clients = useSelector(selectClientsData);
+  const filter = useSelector(selectClientsFilter);
   const navigate = useNavigate();
-
   const handleDelete = (id) => {
-    dispatch(deleteLead({ params: {}, id })).then((res) => {
-      console.log(res);
-
+    dispatch(deleteClients({ params: {}, id })).then((res) => {
       if (res.error) {
         toast.error("Ma'lumotlarni o'chirib bo'lmadi", {
           position: "bottom-right",
@@ -36,7 +36,7 @@ const useConnect = () => {
 
   const handleUpdate = (e, id, is_active) => {
     e.preventDefault();
-    dispatch(updateLead({ params: { is_active: !is_active }, id })).then(
+    dispatch(updateClients({ params: { is_active: !is_active }, id })).then(
       (res) => {
         if (res.error) {
           toast.error("Ma'lumotlarni tahrirlab bo'lmadi", {
@@ -54,11 +54,11 @@ const useConnect = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchLeads(filter));
+    dispatch(fetchClients(filter));
   }, [filter, dispatch]);
 
   return {
-    leads,
+    clients,
     navigate,
     handleDelete,
     handleUpdate,

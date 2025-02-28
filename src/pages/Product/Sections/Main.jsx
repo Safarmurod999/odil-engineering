@@ -6,13 +6,8 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-import main from "../../../assets/images/products/conveyer-cornered/image.png";
-import view_1 from "../../../assets/images/products/conveyer-cornered/4k/view-1.png";
-import view_2 from "../../../assets/images/products/conveyer-cornered/4k/view-2.png";
 
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCategoriesData } from "store/selectors/categories";
-import { fetchCategoriesDetail } from "store/slices/categoriesSlice";
 import { selectProductsData } from "store/selectors/products";
 import { fetchProductsDetail } from "store/slices/productsSlice";
 import { useParams } from 'react-router';
@@ -23,8 +18,6 @@ const Main = () => {
     const dispatch = useDispatch();
     const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
     const { productData, loading } = useSelector(selectProductsData);
-    console.log(productData);
-
     useEffect(() => {
         dispatch(fetchProductsDetail(product_id));
     }, [dispatch, product_id])

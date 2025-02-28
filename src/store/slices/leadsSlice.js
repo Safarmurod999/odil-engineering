@@ -84,6 +84,8 @@ export const deleteLead = createAsyncThunk(
   "leads/deleteLead",
   async ({ params, id }, thunkAPI) => {
     try {
+      console.log(params, id);
+
       const request = await LeadsServices.LeadsDelete(params, id);
       if (get(request, "status") != 200) {
         return thunkAPI.rejectWithValue(get(request, "message", ""));

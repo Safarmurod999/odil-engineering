@@ -46,3 +46,7 @@ export { default as ViewLeads } from "./Admin/Leads/edit/index";
 export { default as Testimonials } from "./Admin/Testimonials/index";
 export { default as AddTestimonials } from "./Admin/Testimonials/create/index";
 export { default as EditTestimonials } from "./Admin/Testimonials/edit/index";
+
+export {default as AdminClients} from "./Admin/Clients/index";
+export {default as AddClients} from "./Admin/Clients/create/index";
+export {default as EditClients} from "./Admin/Clients/edit/index";

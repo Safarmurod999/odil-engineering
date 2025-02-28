@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useConnect from "./connect";
 import { IoAddSharp } from "react-icons/io5";
 import { MdDeleteOutline } from "react-icons/md";
@@ -8,9 +8,9 @@ import Breadcrumb from "components/ui/Breadcrumb/Breadcrumb";
 import { FormSwitch } from "components/ui/Form/Form";
 import Pagination from "components/ui/Pagination/Pagination";
 import { get } from "lodash";
-const Users = () => {
+const Clients = () => {
     const {
-        leads,
+        clients,
         navigate,
         handleDelete,
         handleUpdate,
@@ -19,52 +19,66 @@ const Users = () => {
         setFilter
     } = useConnect();
     return (
-        <section className="leads">
+        <section className="client">
             <div className="admin-container">
-                <Breadcrumb title="Murojaatlar" />
+                <Breadcrumb title="Foydalanuvchilar" />
                 <div className="data-table-container">
+                    <div className="table-search">
+                        <div className="flex">
+                            <Link
+                                to={"/admin/clients/create"}
+                                className="form-button flex items-center text-white"
+                            >
+                                <IoAddSharp />
+                                <span>add</span>
+                            </Link>
+                        </div>
+                    </div>
+
                     <div className="table-wrapper">
                         <table>
                             <thead>
                                 <tr>
                                     <th>№</th>
-                                    <th>Sarlavha</th>
-                                    <th>Link</th>
-                                    {/* <th>Status</th> */}
+                                    <th>Nomi</th>
+                                    <th>Rasm</th>
+                                    <th>Status</th>
                                     <th>Amallar</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {leads.loading ? (
+                                {clients.loading ? (
                                     <tr>
                                         <td colSpan={5}>
                                             <p className="loader"> Yuklanmoqda...</p>
                                         </td>
                                     </tr>
-                                ) : leads && leads.leadsList?.data?.length ? (
-                                    leads.leadsList.data.map((lead, index) => (
-                                        <tr key={lead.id}>
+                                ) : clients && clients.clientsList?.data?.length ? (
+                                    clients.clientsList.data.map((client, index) => (
+                                        <tr key={client.id}>
                                             <td>{index + 1}</td>
-                                            <td>{lead.name}</td>
-                                            <td>{lead.email}</td>
-                                            {/* <td>
+                                            <td>{client?.name}</td>
+                                            <td>{client?.image}</td>
+                                            <td>
                                                 <FormSwitch
                                                     onChange={(e) =>
-                                                        handleUpdate(e, lead.id, lead.is_active)
+                                                        handleUpdate(e, client.id, client?.is_active)
                                                     }
-                                                    value={lead.is_active || false}
+                                                    value={client?.is_active || false}
                                                 />
-                                            </td> */}
+                                            </td>
                                             <td>
                                                 <div className="table-actions">
-                                                    <button onClick={() => navigate(`/admin/leads/view/${lead.id}`)}
+                                                    <button onClick={() => navigate(`/admin/clients/edit/${client.id}`)}
                                                         className="action-btn"
                                                     >
                                                         <CiEdit />
                                                     </button>
                                                     <button
-                                                        onClick={() => handleDelete(lead.id)}
+                                                        onClick={() => handleDelete(client.id)}
                                                         className="action-btn"
+                                                        disabled={clients.clientsList?.data?.length === 1}
+
                                                     >
                                                         <MdDeleteOutline />
                                                     </button>
@@ -75,7 +89,7 @@ const Users = () => {
                                 ) : (
                                     <tr className="no-data">
                                         <td colSpan={5}>
-                                            <p className="text-center">No data found</p>
+                                            <p className="text-center">Ma'lumot topilmadi</p>
                                         </td>
                                     </tr>
                                 )}
@@ -83,8 +97,8 @@ const Users = () => {
                         </table>
                     </div>
                     <Pagination
-                        currentPage={get(leads, "leadsList.currentPage", 1)}
-                        totalPages={get(leads, "leadsList.totalPages", 1)}
+                        currentPage={get(clients, "clientsList.currentPage", 1)}
+                        totalPages={get(clients, "clientsList.totalPages", 1)}
                         handleLimitChange={(e) => {
                             dispatch(setFilter({ limit: Number(e.target.value), page: 1 }));
                         }}
@@ -99,4 +113,4 @@ const Users = () => {
     );
 };
 
-export default Users;
+export default Clients;

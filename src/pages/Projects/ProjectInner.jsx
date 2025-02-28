@@ -1,35 +1,48 @@
 import React from 'react'
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { projectsArray } from "../../data/const";
+import { useDispatch, useSelector } from 'react-redux';
+import { selectProjectData } from "store/selectors/project";
+import { fetchProjectDetail } from "store/slices/projectSlice";
 const ProjectInner = () => {
     const { id } = useParams();
-    const data = projectsArray.find(item => item.id == id);
+    const dispatch = useDispatch();
+    const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
+    const { projectData, loading } = useSelector(selectProjectData);
+    console.log(projectData);
+
+    useEffect(() => {
+        dispatch(fetchProjectDetail(id));
+    }, [dispatch, id])
     return (
         <section className="projects__inner">
             <div className="container">
-                <div className='projects__inner-item'>
-                    <div className="h3">
-                        {
-                            data.title
-                        }
-                    </div>
-                    <div className='projects__inner-video'>
-                        <iframe width="560" height="315"
-                            src={data.video}
-                            title="Odil Engineering"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen>
-                        </iframe>
-                    </div>
-                    <div className="projects__inner-content">
-                        <p>
+                {
+                    !loading && projectData ? <div className='projects__inner-item'>
+                        <div className="h3">
                             {
-                                data.description
+                                projectData["title_" + lang]
                             }
-                        </p>
-                    </div>
-                </div>
+                        </div>
+                        <div className='projects__inner-video'>
+                            <iframe width="560" height="315"
+                                src={projectData?.link}
+                                title="Odil Engineering"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                allowFullScreen>
+                            </iframe>
+                        </div>
+                        <div className="projects__inner-content">
+                            <p>
+                                {
+                                    projectData["description_" + lang]
+                                }
+                            </p>
+                        </div>
+                    </div> : <div>Loading...</div>
+                }
             </div>
         </section>)
 }

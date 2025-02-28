@@ -15,7 +15,6 @@ const initialState = {
   filter: {
     page: 1,
     limit: 10,
-    // search: "",
   },
 };
 
@@ -49,7 +48,7 @@ export const fetchClientsDetail = createAsyncThunk(
     }
   }
 );
-export const createClient = createAsyncThunk(
+export const createClients = createAsyncThunk(
   "clients/createClient",
   async (params, thunkAPI) => {
     try {
@@ -64,7 +63,7 @@ export const createClient = createAsyncThunk(
     }
   }
 );
-export const updateClient = createAsyncThunk(
+export const updateClients = createAsyncThunk(
   "clients/updateClient",
   async ({ params, id }, thunkAPI) => {
     try {
@@ -79,7 +78,7 @@ export const updateClient = createAsyncThunk(
     }
   }
 );
-export const deleteClient = createAsyncThunk(
+export const deleteClients = createAsyncThunk(
   "clients/deleteClient",
   async ({ params, id }, thunkAPI) => {
     try {
@@ -119,67 +118,67 @@ const clientsSlice = createSlice({
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
-    builder.addCase(fetchCategoriesDetail.pending, (state) => {
+    builder.addCase(fetchClientsDetail.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchCategoriesDetail.fulfilled, (state, action) => {
+    builder.addCase(fetchClientsDetail.fulfilled, (state, action) => {
       state.loading = false;
-      state.categoriesData = get(action, "payload.data", "");
+      state.clientsData = get(action, "payload.data", "");
     });
-    builder.addCase(fetchCategoriesDetail.rejected, (state, action) => {
+    builder.addCase(fetchClientsDetail.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
-    builder.addCase(createCategory.pending, (state) => {
+    builder.addCase(createClients.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(createCategory.fulfilled, (state, action) => {
+    builder.addCase(createClients.fulfilled, (state, action) => {
       state.loading = false;
-      state.categoriesList = {
-        ...state.categoriesList,
-        data: [...state.categoriesList.data, action.payload.data],
+      state.clientsList = {
+        ...state.clientsList,
+        data: [...state.clientsList.data, action.payload.data],
       };
     });
-    builder.addCase(createCategory.rejected, (state, action) => {
+    builder.addCase(createClients.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
-    builder.addCase(updateCategory.pending, (state) => {
+    builder.addCase(updateClients.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(updateCategory.fulfilled, (state, action) => {
+    builder.addCase(updateClients.fulfilled, (state, action) => {
       state.loading = false;
       if (action.payload && action.payload.data) {
-        state.categoriesList = {
-          ...state.categoriesList,
-          data: state.categoriesList.data.map((user) =>
+        state.clientsList = {
+          ...state.clientsList,
+          data: state.clientsList.data.map((user) =>
             user.id === action.payload.data.id ? action.payload.data : user
           ),
         };
       }
     });
-    builder.addCase(updateCategory.rejected, (state, action) => {
+    builder.addCase(updateClients.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
-    builder.addCase(deleteCategory.pending, (state) => {
+    builder.addCase(deleteClients.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(deleteCategory.fulfilled, (state, action) => {
+    builder.addCase(deleteClients.fulfilled, (state, action) => {
       state.loading = false;
-      state.categoriesList = {
-        ...state.categoriesList,
-        data: state.categoriesList.data.filter(
+      state.clientsList = {
+        ...state.clientsList,
+        data: state.clientsList.data.filter(
           (user) => user.id != action.payload.data
         ),
       };
     });
-    builder.addCase(deleteCategory.rejected, (state, action) => {
+    builder.addCase(deleteClients.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
   },
 });
 
-export const { setFilter } = categoriesSlice.actions;
-export default categoriesSlice.reducer;
+export const { setFilter } = clientsSlice.actions;
+export default clientsSlice.reducer;

@@ -8,27 +8,34 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { createLead } from 'store/slices/leadsSlice';
 import { get } from 'lodash';
+import { toast } from 'sonner';
 
 const Footer = () => {
   const { pathname } = useLocation();
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const onSubmit = (values) => {
-    console.log(values);
-
-    dispatch(createLead(values));
+    dispatch(createLead(values)).then((res) => {
+      if (res.error) {
+        toast.error("Ma'lumotlar to'g'ri kiritilmagan")
+      } else {
+        toast.success("Muvaffaqiyatli yuborildi")
+      }
+    });
+    resetForm();
   }
-  const { handleChange, handleSubmit, values } = useFormik({
+  const { handleChange, handleSubmit, values, resetForm } = useFormik({
     initialValues: {
       name: "",
       email: "",
       phone: "",
       message: ""
     },
-    onSubmit
+    onSubmit,
+    enableReinitialize: true
   });
   console.log(values);
-  
+
   return (
     <>
       <section className="forms" style={{ display: pathname == "/contacts" ? "none" : "" }}>
