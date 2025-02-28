@@ -27,7 +27,7 @@ const Main = () => {
         <section className="catalog">
             <div className="container">
                 {
-                    !loading ? <>
+                    !loading ? categoriesData ? <>
                         <div className="catalog__title title">
                             <span>
                                 {categoriesData["name_" + lang]}
@@ -63,7 +63,7 @@ const Main = () => {
                                 }) : ""
                             }
                         </div>
-                    </> : <div>Loading...</div>
+                    </> : "No data" : <div>Loading...</div>
                 }
             </div>
 
