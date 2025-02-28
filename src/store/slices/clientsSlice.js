@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import ProjectServices from "services/api/projectService";
+import ClientsServices from "services/api/clientsService";
 import { get } from "lodash";
 
 const initialState = {
-  projectData: null,
-  projectList: {
+  clientsData: null,
+  clientsList: {
     data: [],
     currentPage: 1,
     totalPages: 1,
@@ -15,14 +15,15 @@ const initialState = {
   filter: {
     page: 1,
     limit: 10,
+    // search: "",
   },
 };
 
-export const fetchProject = createAsyncThunk(
-  "media/fetchProject",
+export const fetchClients = createAsyncThunk(
+  "clients/fetchClients",
   async (params, thunkAPI) => {
     try {
-      const request = await ProjectServices.ProjectList(params);
+      const request = await ClientsServices.ClientsList(params);
       if (get(request, "status") != 200) {
         return thunkAPI.rejectWithValue(get(request, "message", ""));
       }
@@ -33,11 +34,11 @@ export const fetchProject = createAsyncThunk(
     }
   }
 );
-export const fetchProjectDetail = createAsyncThunk(
-  "media/fetchProjectDetail",
+export const fetchClientsDetail = createAsyncThunk(
+  "clients/fetchClientsDetail",
   async (id, thunkAPI) => {
     try {
-      const request = await ProjectServices.ProjectDetail(id);
+      const request = await ClientsServices.ClientsDetail(id);
       if (get(request, "status") != 200) {
         return thunkAPI.rejectWithValue(get(request, "message", ""));
       }
@@ -48,11 +49,11 @@ export const fetchProjectDetail = createAsyncThunk(
     }
   }
 );
-export const createProject = createAsyncThunk(
-  "media/createProject",
+export const createClient = createAsyncThunk(
+  "clients/createClient",
   async (params, thunkAPI) => {
     try {
-      const request = await ProjectServices.ProjectCreate(params);
+      const request = await ClientsServices.ClientsCreate(params);
       if (get(request, "status") != 201) {
         return thunkAPI.rejectWithValue(get(request, "message", ""));
       }
@@ -63,13 +64,11 @@ export const createProject = createAsyncThunk(
     }
   }
 );
-export const updateProject = createAsyncThunk(
-  "media/updateProject",
+export const updateClient = createAsyncThunk(
+  "clients/updateClient",
   async ({ params, id }, thunkAPI) => {
     try {
-      console.log(params, id);
-
-      const request = await ProjectServices.ProjectUpdate(params, id);
+      const request = await ClientsServices.ClientsUpdate(params, id);
       if (get(request, "status") != 200) {
         return thunkAPI.rejectWithValue(get(request, "message", ""));
       }
@@ -80,11 +79,11 @@ export const updateProject = createAsyncThunk(
     }
   }
 );
-export const deleteProject = createAsyncThunk(
-  "media/deleteProject",
+export const deleteClient = createAsyncThunk(
+  "clients/deleteClient",
   async ({ params, id }, thunkAPI) => {
     try {
-      const request = await ProjectServices.ProjectDelete(params, id);
+      const request = await ClientsServices.ClientsDelete(params, id);
       if (get(request, "status") != 200) {
         return thunkAPI.rejectWithValue(get(request, "message", ""));
       }
@@ -96,8 +95,8 @@ export const deleteProject = createAsyncThunk(
     }
   }
 );
-const projectSlice = createSlice({
-  name: "project",
+const clientsSlice = createSlice({
+  name: "clients",
   initialState,
   reducers: {
     setFilter: (state, action) => {
@@ -105,84 +104,82 @@ const projectSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchProject.pending, (state) => {
+    builder.addCase(fetchClients.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchProject.fulfilled, (state, action) => {
+    builder.addCase(fetchClients.fulfilled, (state, action) => {
       state.loading = false;
-      state.projectList = {
+      state.clientsList = {
         data: get(action, "payload.data", []),
         currentPage: get(action, "payload.currentPage", 1),
         totalPages: get(action, "payload.totalPages", 1),
       };
     });
-    builder.addCase(fetchProject.rejected, (state, action) => {
+    builder.addCase(fetchClients.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
-    builder.addCase(fetchProjectDetail.pending, (state) => {
+    builder.addCase(fetchCategoriesDetail.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchProjectDetail.fulfilled, (state, action) => {
+    builder.addCase(fetchCategoriesDetail.fulfilled, (state, action) => {
       state.loading = false;
-      state.projectData = get(action, "payload.data", "");
+      state.categoriesData = get(action, "payload.data", "");
     });
-    builder.addCase(fetchProjectDetail.rejected, (state, action) => {
+    builder.addCase(fetchCategoriesDetail.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
-    builder.addCase(createProject.pending, (state) => {
+    builder.addCase(createCategory.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(createProject.fulfilled, (state, action) => {
+    builder.addCase(createCategory.fulfilled, (state, action) => {
       state.loading = false;
-      state.projectList = {
-        ...state.projectList,
-        data: [...state.projectList.data, action.payload.data],
+      state.categoriesList = {
+        ...state.categoriesList,
+        data: [...state.categoriesList.data, action.payload.data],
       };
     });
-    builder.addCase(createProject.rejected, (state, action) => {
+    builder.addCase(createCategory.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
-    builder.addCase(updateProject.pending, (state) => {
+    builder.addCase(updateCategory.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(updateProject.fulfilled, (state, action) => {
+    builder.addCase(updateCategory.fulfilled, (state, action) => {
       state.loading = false;
       if (action.payload && action.payload.data) {
-        state.projectList = {
-          ...state.projectList,
-          data: state.projectList.data.map((project) =>
-            project.id === action.payload.data.id
-              ? action.payload.data
-              : project
+        state.categoriesList = {
+          ...state.categoriesList,
+          data: state.categoriesList.data.map((user) =>
+            user.id === action.payload.data.id ? action.payload.data : user
           ),
         };
       }
     });
-    builder.addCase(updateProject.rejected, (state, action) => {
+    builder.addCase(updateCategory.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
-    builder.addCase(deleteProject.pending, (state) => {
+    builder.addCase(deleteCategory.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(deleteProject.fulfilled, (state, action) => {
+    builder.addCase(deleteCategory.fulfilled, (state, action) => {
       state.loading = false;
-      state.projectList = {
-        ...state.projectList,
-        data: state.projectList.data.filter(
-          (project) => project.id != action.payload.data
+      state.categoriesList = {
+        ...state.categoriesList,
+        data: state.categoriesList.data.filter(
+          (user) => user.id != action.payload.data
         ),
       };
     });
-    builder.addCase(deleteProject.rejected, (state, action) => {
+    builder.addCase(deleteCategory.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
   },
 });
 
-export const { setFilter } = projectSlice.actions;
-export default projectSlice.reducer;
+export const { setFilter } = categoriesSlice.actions;
+export default categoriesSlice.reducer;

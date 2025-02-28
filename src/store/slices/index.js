@@ -5,3 +5,4 @@ export { default as productsSlice } from "./productsSlice";
 export { default as mediaSlice } from "./mediaSlice";
 export { default as projectSlice } from "./projectSlice";
 export { default as leadsSlice } from "./leadsSlice";
+export { default as testimonialsSlice } from "./testimonialsSlice";

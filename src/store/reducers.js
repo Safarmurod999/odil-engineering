@@ -8,6 +8,7 @@ import {
   mediaSlice,
   productsSlice,
   projectSlice,
+  testimonialsSlice,
   usersSlice,
 } from "./slices/index";
 
@@ -19,6 +20,7 @@ const reducers = combineReducers({
   media: mediaSlice,
   project: projectSlice,
   leads: leadsSlice,
+  testimonials: testimonialsSlice,
 });
 
 const persistedReducers = persistReducer(rootPersistConfig, reducers);

@@ -42,3 +42,7 @@ export { default as EditProject } from "./Admin/Project/edit/index";
 
 export { default as Leads } from "./Admin/Leads/index";
 export { default as ViewLeads } from "./Admin/Leads/edit/index";
+
+export { default as Testimonials } from "./Admin/Testimonials/index";
+export { default as AddTestimonials } from "./Admin/Testimonials/create/index";
+export { default as EditTestimonials } from "./Admin/Testimonials/edit/index";

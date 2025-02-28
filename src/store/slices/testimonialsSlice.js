@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import ProjectServices from "services/api/projectService";
+import TestimonialsServices from "services/api/testimonialsService";
 import { get } from "lodash";
 
 const initialState = {
-  projectData: null,
-  projectList: {
+  testimonialsData: null,
+  testimonialsList: {
     data: [],
     currentPage: 1,
     totalPages: 1,
@@ -18,11 +18,11 @@ const initialState = {
   },
 };
 
-export const fetchProject = createAsyncThunk(
-  "media/fetchProject",
+export const fetchTestimonials = createAsyncThunk(
+  "media/fetchTestimonials",
   async (params, thunkAPI) => {
     try {
-      const request = await ProjectServices.ProjectList(params);
+      const request = await TestimonialsServices.TestimonialsList(params);
       if (get(request, "status") != 200) {
         return thunkAPI.rejectWithValue(get(request, "message", ""));
       }
@@ -33,11 +33,11 @@ export const fetchProject = createAsyncThunk(
     }
   }
 );
-export const fetchProjectDetail = createAsyncThunk(
-  "media/fetchProjectDetail",
+export const fetchTestimonialsDetail = createAsyncThunk(
+  "media/fetchTestimonialsDetail",
   async (id, thunkAPI) => {
     try {
-      const request = await ProjectServices.ProjectDetail(id);
+      const request = await TestimonialsServices.TestimonialsDetail(id);
       if (get(request, "status") != 200) {
         return thunkAPI.rejectWithValue(get(request, "message", ""));
       }
@@ -48,11 +48,11 @@ export const fetchProjectDetail = createAsyncThunk(
     }
   }
 );
-export const createProject = createAsyncThunk(
-  "media/createProject",
+export const createTestimonials = createAsyncThunk(
+  "media/createTestimonials",
   async (params, thunkAPI) => {
     try {
-      const request = await ProjectServices.ProjectCreate(params);
+      const request = await TestimonialsServices.TestimonialsCreate(params);
       if (get(request, "status") != 201) {
         return thunkAPI.rejectWithValue(get(request, "message", ""));
       }
@@ -63,13 +63,13 @@ export const createProject = createAsyncThunk(
     }
   }
 );
-export const updateProject = createAsyncThunk(
-  "media/updateProject",
+export const updateTestimonials = createAsyncThunk(
+  "media/updateTestimonials",
   async ({ params, id }, thunkAPI) => {
     try {
       console.log(params, id);
 
-      const request = await ProjectServices.ProjectUpdate(params, id);
+      const request = await TestimonialsServices.TestimonialsUpdate(params, id);
       if (get(request, "status") != 200) {
         return thunkAPI.rejectWithValue(get(request, "message", ""));
       }
@@ -80,11 +80,11 @@ export const updateProject = createAsyncThunk(
     }
   }
 );
-export const deleteProject = createAsyncThunk(
-  "media/deleteProject",
+export const deleteTestimonials = createAsyncThunk(
+  "media/deleteTestimonials",
   async ({ params, id }, thunkAPI) => {
     try {
-      const request = await ProjectServices.ProjectDelete(params, id);
+      const request = await TestimonialsServices.TestimonialsDelete(params, id);
       if (get(request, "status") != 200) {
         return thunkAPI.rejectWithValue(get(request, "message", ""));
       }
@@ -96,8 +96,8 @@ export const deleteProject = createAsyncThunk(
     }
   }
 );
-const projectSlice = createSlice({
-  name: "project",
+const testimonialsSlice = createSlice({
+  name: "testimonials",
   initialState,
   reducers: {
     setFilter: (state, action) => {
@@ -105,84 +105,82 @@ const projectSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchProject.pending, (state) => {
+    builder.addCase(fetchTestimonials.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchProject.fulfilled, (state, action) => {
+    builder.addCase(fetchTestimonials.fulfilled, (state, action) => {
       state.loading = false;
-      state.projectList = {
+      state.testimonialsList = {
         data: get(action, "payload.data", []),
         currentPage: get(action, "payload.currentPage", 1),
         totalPages: get(action, "payload.totalPages", 1),
       };
     });
-    builder.addCase(fetchProject.rejected, (state, action) => {
+    builder.addCase(fetchTestimonials.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
-    builder.addCase(fetchProjectDetail.pending, (state) => {
+    builder.addCase(fetchTestimonialsDetail.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchProjectDetail.fulfilled, (state, action) => {
+    builder.addCase(fetchTestimonialsDetail.fulfilled, (state, action) => {
       state.loading = false;
-      state.projectData = get(action, "payload.data", "");
+      state.testimonialsData = get(action, "payload.data", "");
     });
-    builder.addCase(fetchProjectDetail.rejected, (state, action) => {
+    builder.addCase(fetchTestimonialsDetail.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
-    builder.addCase(createProject.pending, (state) => {
+    builder.addCase(createTestimonials.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(createProject.fulfilled, (state, action) => {
+    builder.addCase(createTestimonials.fulfilled, (state, action) => {
       state.loading = false;
-      state.projectList = {
-        ...state.projectList,
-        data: [...state.projectList.data, action.payload.data],
+      state.testimonialsList = {
+        ...state.testimonialsList,
+        data: [...state.testimonialsList.data, action.payload.data],
       };
     });
-    builder.addCase(createProject.rejected, (state, action) => {
+    builder.addCase(createTestimonials.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
-    builder.addCase(updateProject.pending, (state) => {
+    builder.addCase(updateTestimonials.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(updateProject.fulfilled, (state, action) => {
+    builder.addCase(updateTestimonials.fulfilled, (state, action) => {
       state.loading = false;
       if (action.payload && action.payload.data) {
-        state.projectList = {
-          ...state.projectList,
-          data: state.projectList.data.map((project) =>
-            project.id === action.payload.data.id
-              ? action.payload.data
-              : project
+        state.testimonialsList = {
+          ...state.testimonialsList,
+          data: state.testimonialsList.data.map((media) =>
+            media.id === action.payload.data.id ? action.payload.data : media
           ),
         };
       }
     });
-    builder.addCase(updateProject.rejected, (state, action) => {
+    builder.addCase(updateTestimonials.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
-    builder.addCase(deleteProject.pending, (state) => {
+    builder.addCase(deleteTestimonials.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(deleteProject.fulfilled, (state, action) => {
+    builder.addCase(deleteTestimonials.fulfilled, (state, action) => {
       state.loading = false;
-      state.projectList = {
-        ...state.projectList,
-        data: state.projectList.data.filter(
-          (project) => project.id != action.payload.data
+      state.testimonialsList = {
+        ...state.testimonialsList,
+        data: state.testimonialsList.data.filter(
+          (media) => media.id != action.payload.data
         ),
       };
     });
-    builder.addCase(deleteProject.rejected, (state, action) => {
+    builder.addCase(deleteTestimonials.rejected, (state, action) => {
       state.loading = false;
       state.error = get(action, "error.message", "");
     });
   },
 });
 
-export const { setFilter } = projectSlice.actions;
-export default projectSlice.reducer;
+export const { setFilter } = testimonialsSlice.actions;
+export default testimonialsSlice.reducer;

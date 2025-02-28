@@ -27,7 +27,10 @@ import {
   AddProject,
   EditProject,
   Leads,
-  ViewLeads
+  ViewLeads,
+  Testimonials,
+  AddTestimonials,
+  EditTestimonials
 } from "../pages/index";
 import { Layout } from "../components/Layout/index"
 import ProtectedRoute from "./ProtectedRoute";
@@ -76,7 +79,8 @@ const landingRoutes = [
     id: 8,
     path: "/catalog/:id/products/:product_id",
     component: Product
-  }
+  },
+
 ];
 
 const adminRoutes = [
@@ -170,6 +174,21 @@ const adminRoutes = [
     id: 17,
     path: "/admin/leads/view/:id",
     component: ViewLeads,
+  },
+  {
+    id: 18,
+    path: "/admin/testimonials",
+    component: Testimonials
+  },
+  {
+    id: 19,
+    path: "/admin/testimonials/create",
+    component: AddTestimonials
+  },
+  {
+    id: 20,
+    path: "/admin/testimonials/edit/:id",
+    component: EditTestimonials
   }
 ];
 const RouterApp = () => {

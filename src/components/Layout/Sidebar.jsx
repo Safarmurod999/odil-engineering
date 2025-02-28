@@ -7,7 +7,8 @@ import { BiCategory } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router";
 import logo from "assets/icons/logo.svg";
-import { FaRProject } from "react-icons/fa6";
+import { FaRegMessage, FaRProject } from "react-icons/fa6";
+import { MdOutlinePeople } from "react-icons/md";
 
 const adminRoutes = [
   // {
@@ -50,8 +51,14 @@ const adminRoutes = [
     id: 7,
     name: "Murojaatlar",
     path: "/admin/leads",
-    icon: <IoPersonOutline />,
-  }
+    icon: <MdOutlinePeople />,
+  },
+  {
+    id: 8,
+    name: "Fikrlar",
+    path: "/admin/testimonials",
+    icon: <FaRegMessage />,
+  },
 ];
 
 const Sidebar = ({ toggleSidebar }) => {

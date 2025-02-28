@@ -33,7 +33,7 @@ const useConnect = () => {
           position: "bottom-right",
           duration: 2000,
         });
-        navigate("/admin/users");
+        navigate("/admin/categories");
       }
     });
   };
