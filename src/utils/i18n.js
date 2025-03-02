@@ -22,7 +22,7 @@ i18n.use(initReactI18next).init({
         send: "Отправить",
         politics: "Политика конфиденциальности",
         our_address:
-          "Узбекистан, ТАШКЕНТ, УЧТЕПА район, ЧИЛАНЗАР-19 массив, 47",
+          "Узбекистан, ТАШКЕНТ, УЧТЕПА район, ЧИЛАНЗАР-25 массив, 47",
         our_phone: "Телефон:",
         our_email: "Эл. почта:",
         about_title:
@@ -111,7 +111,7 @@ i18n.use(initReactI18next).init({
         send: "Send",
         politics: "Privacy Policy",
         our_address:
-          "Uzbekistan, TASHKENT, UCHTEPA area, CHILANZAR-19 massif, 47",
+          "Uzbekistan, TASHKENT, UCHTEPA area, CHILANZAR-25 massif",
         our_phone: "Phone:",
         our_email: "Email:",
         about_title:
@@ -199,7 +199,7 @@ i18n.use(initReactI18next).init({
         send: "Jo'natish",
         politics: "Maxfiylik siyosati",
         our_address:
-          "Oʻzbekiston, TOSHKENT, UCHTEPA tumani,CHILONZOR-19 massivi, 47-uy",
+          "Oʻzbekiston, TOSHKENT, UCHTEPA tumani,CHILONZOR-25 massivi",
         our_phone: "Telefon:",
         our_email: "Elektron pochta:",
         about_title:

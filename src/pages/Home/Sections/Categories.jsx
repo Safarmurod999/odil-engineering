@@ -27,23 +27,28 @@ const Categories = () => {
                     {
                         !categories.loading && categories?.categoriesList?.data.length ?
                             categories?.categoriesList?.data.map((category, index) => {
-                                return (
-                                    <li key={index} className="categories__item" data-aos="fade-up">
-                                        <div className="categories__item-image">
-                                            <img src={`${BASE_URL}/${category.image}`} alt={category.title} />
-                                        </div>
-                                        <div className="categories__item-content">
-                                            <h5 className="h4">{category["name_" + lang]}</h5>
-                                            <p>
-                                                {category["description_" + lang]}
-                                            </p>
-                                            <a href={`/catalog/${category.id}`}>{t('more')} <FaArrowRightLong />
-                                            </a>
-                                        </div>
+                                if (category.is_active) {
+                                    {
+                                        return (
+                                            <li key={index} className="categories__item" data-aos="fade-up">
+                                                <div className="categories__item-image">
+                                                    <img src={`${BASE_URL}/${category.image}`} alt={category.title} />
+                                                </div>
+                                                <div className="categories__item-content">
+                                                    <h5 className="h4">{category["name_" + lang]}</h5>
+                                                    <p>
+                                                        {category["description_" + lang]}
+                                                    </p>
+                                                    <a href={`/catalog/${category.id}`}>{t('more')} <FaArrowRightLong />
+                                                    </a>
+                                                </div>
 
-                                    </li>
+                                            </li>
 
-                                )
+                                        )
+                                    }
+
+                                }
                             }) : categories.loading ? <SkeletonCategory /> : ""
                     }
                 </ul>

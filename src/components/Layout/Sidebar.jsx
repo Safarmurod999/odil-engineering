@@ -67,7 +67,7 @@ const adminRoutes = [
   }
 ];
 
-const Sidebar = ({ toggleSidebar }) => {
+const Sidebar = ({ toggleSidebar,setToggleSidebar }) => {
   const { pathname } = useLocation();
   const [activeRoute, setActiveRoute] = useState(pathname || 0);
   const dispatch = useDispatch();
@@ -86,10 +86,7 @@ const Sidebar = ({ toggleSidebar }) => {
             <img src={logo} alt="logo" />
           </Link>
         </div>
-        <IoCloseSharp
-          className="sidebar__close"
-        // onClick={() => dispatch(handleSidebar())}
-        />
+        
       </div>
 
       <div className="nav">

@@ -241,9 +241,11 @@ const Main = () => {
                                 <div className="product__media-list">
                                     {
                                         productData?.media?.length > 0 ? productData?.media?.map(el => {
-                                            return <div className="product__media-item" key={el?.id}>
-                                                <iframe src={el?.link} title="video" allow="autoplay; encrypted-media" allowFullScreen></iframe>
-                                            </div>
+                                            if (el.is_active) {
+                                                return <div className="product__media-item" key={el?.id}>
+                                                    <iframe src={el?.link} title="video" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+                                                </div>
+                                            }
                                         }) : <div className="product__media-video">
                                             <img src={productData?.image} />
                                         </div>

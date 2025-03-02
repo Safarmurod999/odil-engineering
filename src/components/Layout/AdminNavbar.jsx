@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { IoMenuSharp } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router";
 import ThemeSwitcher from "./ThemeSwitcher";
-const AdminNavbar = ({ toggleSidebar }) => {
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { authLogout } from "store/slices/authSlice";
+import { ImExit } from "react-icons/im";
+const AdminNavbar = ({ toggleSidebar, setToggleSidebar }) => {
   const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -28,9 +30,11 @@ const AdminNavbar = ({ toggleSidebar }) => {
     <div className={`admin-navbar ${toggleSidebar ? "navbar-toggle" : ""}`}>
       <div
         className="cursor-pointer admin-toggle"
-        onClick={() => dispatch(handleSidebar())}
+        onClick={() => setToggleSidebar(!toggleSidebar)}
       >
-        <IoMenuSharp />
+        {
+          !toggleSidebar ? <FaArrowLeft /> : <FaArrowRight />
+        }
       </div>
       <div className="admin-navbar--right">
         <div className="admin-navbar--theme">
@@ -48,14 +52,11 @@ const AdminNavbar = ({ toggleSidebar }) => {
             className={`admin-avatar-menu ${isOpen ? "toggle" : ""}`}
           >
             <ul>
-              <li onClick={() => setIsOpen(false)}>
-                <Link to={"/dashboard/profile"}>Profil</Link>
-              </li>
-              <li onClick={() => setIsOpen(false)}>
-                <Link to={"/dashboard/settings"}>Sozlamalar</Link>
-              </li>
-              <li onClick={() => setIsOpen(false)}>
-                <Link to={"/"}>Akkauntdan chiqish</Link>
+              <li onClick={() => {
+                setIsOpen(false);
+                dispatch(authLogout());
+              }}>
+                <Link to={"/"} style={{display:"flex",alignItems:"center", gap:"10px"}}>Akkauntdan chiqish <ImExit /></Link>
               </li>
             </ul>
           </div>

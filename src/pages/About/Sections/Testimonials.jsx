@@ -36,20 +36,22 @@ const Testimonials = () => {
                     className="testimonials__slider">
                     {
                         !testimonials.loading && testimonials.testimonialsList.data ? testimonials.testimonialsList.data.map((item) => {
-                            return (
-                                <SwiperSlide key={item.id}>
-                                    <div key={item.id} className="testimonials__item">
-                                        <div className="testimonials__item-content">
-                                            <div className="testimonials__item-author h6">
-                                                <span>{item["name_" + lang]}</span>
+                            if (item.is_active) {
+                                return (
+                                    <SwiperSlide key={item.id}>
+                                        <div key={item.id} className="testimonials__item">
+                                            <div className="testimonials__item-content">
+                                                <div className="testimonials__item-author h6">
+                                                    <span>{item["name_" + lang]}</span>
 
+                                                </div>
+                                                <p className='h6'>{item["message_" + lang]}</p>
                                             </div>
-                                            <p className='h6'>{item["message_" + lang]}</p>
                                         </div>
-                                    </div>
-                                </SwiperSlide>
+                                    </SwiperSlide>
 
-                            )
+                                )
+                            }
                         }) : testimonials.loading ? <div>Loading... </div> : ""
                     }
                 </Swiper>

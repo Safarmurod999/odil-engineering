@@ -84,13 +84,19 @@ const Main = () => {
                         </div>
                     </div>
                     <div className='contacts__map'>
-                        <iframe
-                            src="https://yandex.uz/map-widget/v1/?ll=69.182167%2C41.269665&mode=whatshere&utm_campaign=desktop&utm_medium=search&utm_source=maps&whatshere%5Bpoint%5D=69.183368%2C41.268345&whatshere%5Bzoom%5D=15.88&z=15.88"
+                        {/* <iframe
+                            src="https://yandex.uz/map-widget/v1/?ll=69.178735%2C41.270574&mode=whatshere&utm_campaign=desktop&utm_medium=search&utm_source=maps&whatshere%5Bpoint%5D=69.173360%2C41.271313&whatshere%5Bzoom%5D=15.88&z=15.88"
                             width="560"
                             height="400"
                             allowFullScreen>
+                        </iframe> */}
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2998.7245497089375!2d69.17332!3d41.271333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDE2JzE2LjgiTiA2OcKwMTAnMjQuMCJF!5e0!3m2!1sen!2s!4v1740942060637!5m2!1sen!2s"
+                            width="600"
+                            height="450"
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade">
                         </iframe>
-
                     </div>
                 </div>
             </div>

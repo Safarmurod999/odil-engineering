@@ -30,31 +30,35 @@ const Main = () => {
                 <ul className="projects__list">
                     {
                         !projects.loading && projects?.projectList?.data.length ?
-                            projects?.projectList?.data.map((item) => (
-                                <li className='projects__item' key={item.id} data-aos="fade-up"
-                                >
-                                    <div className='projects__video'>
-                                        <iframe width="560" height="315"
-                                            src={item?.link}
-                                            title="YouTube video player"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                            referrerPolicy="strict-origin-when-cross-origin"
-                                            allowFullScreen>
-                                        </iframe>
-                                    </div>
-                                    <div className="projects__content">
-                                        <div className="h6">
-                                            {item["title_" + lang]}
-                                        </div>
-                                        <p>
-                                            {item["description_" + lang]}
-                                        </p>
-                                        <Link to={`/projects/${item.id}`} className="projects__link">
-                                            {t('more')}
-                                        </Link>
-                                    </div>
-                                </li>
-                            )) : projects.loading ? <div>Loading... </div> : ""
+                            projects?.projectList?.data.map((item) => {
+                                if (item.is_active) {
+                                    return (
+                                        <li className='projects__item' key={item.id} data-aos="fade-up"
+                                        >
+                                            <div className='projects__video'>
+                                                <iframe width="560" height="315"
+                                                    src={item?.link}
+                                                    title="YouTube video player"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                    referrerPolicy="strict-origin-when-cross-origin"
+                                                    allowFullScreen>
+                                                </iframe>
+                                            </div>
+                                            <div className="projects__content">
+                                                <div className="h6">
+                                                    {item["title_" + lang]}
+                                                </div>
+                                                <p>
+                                                    {item["description_" + lang]}
+                                                </p>
+                                                <Link to={`/projects/${item.id}`} className="projects__link">
+                                                    {t('more')}
+                                                </Link>
+                                            </div>
+                                        </li>
+                                    )
+                                }
+                            }) : projects.loading ? <div>Loading... </div> : ""
                     }
 
                 </ul>

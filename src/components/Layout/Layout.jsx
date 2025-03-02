@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     const { pathname } = useLocation();
     const { lang } = useLanguage();
     // const { toggleSidebar } = useSelector((state) => state.state);
-
+    const [toggleSidebar, setToggleSidebar] = useState(false);
     useEffect(() => {
         i18n.changeLanguage(lang);
     }, [lang]);
@@ -33,13 +33,15 @@ const Layout = ({ children }) => {
                     <>
                         <div className="admin-layout">
                             <Sidebar
-                            // toggleSidebar={toggleSidebar}
+                                toggleSidebar={toggleSidebar}
+                                setToggleSidebar={setToggleSidebar}
                             />
                             <main
-                            //  className={`min-h-full ${toggleSidebar ? "admin-content" : ""}`}
+                                className={`min-h-full ${toggleSidebar ? "admin-content" : ""}`}
                             >
                                 <AdminNavbar
-                                // toggleSidebar={toggleSidebar} 
+                                    toggleSidebar={toggleSidebar}
+                                    setToggleSidebar={setToggleSidebar}
                                 />
                                 {children}
                             </main>

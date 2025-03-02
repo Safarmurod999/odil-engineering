@@ -34,13 +34,16 @@ const Clients = () => {
         >
           {
             !clients.loading && clients?.clientsList?.data.length ?
-              clients?.clientsList?.data.map(client =>
-                <SwiperSlide key={client.id} className='home__clients__slide' title={client.name}
-                >
-                  <div className="home__clients__item">
-                    <img src={`${BASE_URL}/${client.image}`} alt={client.name} />
-                  </div>
-                </SwiperSlide>
+              clients?.clientsList?.data.map(client => {
+                if (client.is_active) {
+                  return <SwiperSlide key={client.id} className='home__clients__slide' title={client.name}
+                  >
+                    <div className="home__clients__item">
+                      <img src={`${BASE_URL}/${client.image}`} alt={client.name} />
+                    </div>
+                  </SwiperSlide>
+                }
+              }
               ) : clients.loading ? <div>Loading... </div> : ""
           }
         </Swiper>
