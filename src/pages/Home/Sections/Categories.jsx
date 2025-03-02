@@ -1,18 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { BASE_URL } from "../../../data/const";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
+import { useLanguage } from 'utils/context';
 import { selectCategoriesData } from "store/selectors/categories";
 import { fetchCategories } from "store/slices/categoriesSlice";
 import { SkeletonCategory } from "components/ui/Skeletons/Skeleton";
 const Categories = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
     const categories = useSelector(selectCategoriesData);
-    console.log(categories);
-
+    const { lang } = useLanguage();
     useEffect(() => {
         dispatch(fetchCategories({}));
     }, [dispatch])

@@ -21,7 +21,7 @@ const Testimonials = () => {
     return (
         <section className="testimonial">
             <div className="admin-container">
-                <Breadcrumb title="Proyektlar" />
+                <Breadcrumb title="Fikrlar" />
                 <div className="data-table-container">
                     <div className="table-search">
                         <div className="flex">

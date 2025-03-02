@@ -34,7 +34,6 @@ const Footer = () => {
     onSubmit,
     enableReinitialize: true
   });
-  console.log(values);
 
   return (
     <>
@@ -61,7 +60,6 @@ const Footer = () => {
           <div className="footer__left" data-aos="zoom-out">
             <p> &copy; Odil Engineering  2015-2025</p>
             <p>OOO «Odil Engineering»</p>
-
             <Link to="/pravilo">
               {t('politics')}
             </Link>
@@ -69,9 +67,8 @@ const Footer = () => {
           <div className="footer__mid" data-aos="zoom-out">
             {t('our_address')}
           </div>
-
           <div className="footer__right" data-aos="zoom-out">
-            <p><a href="tel:+998712000000">{t('our_phone')} +998 71 200 00 00</a></p>
+            <p><a href="tel:+998712000000">{t('our_phone')} +998 95 150 55 27</a></p>
             <p>Email:
               <Link to="mailto:info@odil-engineering.uz">
                 info@odil-engineering.uz
@@ -95,6 +92,9 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+        </div>
+        <div className="container">
+          <span>Developed by :</span> <a target='_blank' href="https://t.me/UrinovSafarmurod">O'rinov Safarmurod</a> <span>and</span> <a target='_blank' href="https://t.me/vahhobov_sardor">Vahhobov Sardor</a>
         </div>
       </footer>
     </>

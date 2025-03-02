@@ -6,7 +6,7 @@
   * {
     color: var(--text-light-color);
   }
-  .container {
+  .container:first-child {
     @include mixin.flex-row(flex-start, space-between, 20px);
     @media screen and (max-width: 768px) {
       flex-direction: column;
@@ -14,7 +14,18 @@
       text-align: center;
     }
   }
-
+  .container:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 40px;
+    a {
+      text-decoration: underline;
+      color: #a6a6a6;
+    }
+  }
   &__left {
     a {
       display: block;

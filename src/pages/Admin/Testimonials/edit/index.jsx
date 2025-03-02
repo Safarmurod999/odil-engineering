@@ -19,7 +19,7 @@ const Page = () => {
     return (
         <section className="testimonial">
             <div className="admin-container">
-                <Breadcrumb title="Fidbek Tahrirlash" backlink="/admin/project" />
+                <Breadcrumb title="Fidbek Tahrirlash" backlink="/admin/testimonials" />
                 <Form direction="y" width="50" onSubmit={handleSubmit}>
                     <FormRow>
                         <FormControl

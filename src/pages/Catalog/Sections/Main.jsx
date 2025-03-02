@@ -1,19 +1,18 @@
 import { Link, useParams } from 'react-router';
-// import cornered from "../../../assets/images/products/conveyer-cornered/image.png";
-// import lentochnaya from "../../../assets/images/products/conveyer-lentochnaya/image.png";
-// import rounded from "../../../assets/images/products/conveyer-rounded/image.png";
-// import straight from "../../../assets/images/products/conveyer-straight/image.png";
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useLanguage } from 'utils/context';
 import { selectCategoriesData } from "store/selectors/categories";
 import { fetchCategoriesDetail } from "store/slices/categoriesSlice";
 import { selectProductsData } from "store/selectors/products";
 import { fetchProducts } from "store/slices/productsSlice";
 import { BASE_URL } from '../../../data/const';
+import { useTranslation } from 'react-i18next';
 const Main = () => {
     const { id } = useParams();
+    const { lang } = useLanguage();
+    const { t } = useTranslation();
     const dispatch = useDispatch();
-    const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
     const { categoriesData, loading } = useSelector(selectCategoriesData);
     const products = useSelector(selectProductsData);
     const filteredProducts = products.productsList?.data.filter(product => product.category_id == id);
@@ -56,7 +55,7 @@ const Main = () => {
                                                         product["description_" + lang]
                                                     }
                                                 </p>
-                                                <Link to={`/catalog/${categoriesData?.id}/products/${product?.id}`} className="catalog__link">Подробнее</Link>
+                                                <Link to={`/catalog/${categoriesData?.id}/products/${product?.id}`} className="catalog__link">{t('more')}</Link>
                                             </div>
                                         </div>
                                     )

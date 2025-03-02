@@ -5,7 +5,7 @@ import { Navigation } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation";
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectClientsData } from "store/selectors/clients";
 import { fetchClients } from "store/slices/clientsSlice";
@@ -13,15 +13,13 @@ import { fetchClients } from "store/slices/clientsSlice";
 const Clients = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
   const clients = useSelector(selectClientsData);
-  console.log(clients);
 
   useEffect(() => {
     dispatch(fetchClients({}));
   }, [dispatch])
   return (
-    <section className="clients">
+    <section className="home__clients">
       <div className="container">
         <div className="h3 title">
           <span>
@@ -29,7 +27,7 @@ const Clients = () => {
           </span>
         </div>
         <Swiper modules={[Navigation]}
-          className={'clients__wrapper'}
+          className={'home__clients__wrapper'}
           spaceBetween={30}
           slidesPerView={"auto"}
           navigation
@@ -37,9 +35,9 @@ const Clients = () => {
           {
             !clients.loading && clients?.clientsList?.data.length ?
               clients?.clientsList?.data.map(client =>
-                <SwiperSlide key={client.id} className='clients__slide' title={client.name}
+                <SwiperSlide key={client.id} className='home__clients__slide' title={client.name}
                 >
-                  <div className="clients__item">
+                  <div className="home__clients__item">
                     <img src={`${BASE_URL}/${client.image}`} alt={client.name} />
                   </div>
                 </SwiperSlide>

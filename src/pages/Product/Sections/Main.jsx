@@ -7,6 +7,8 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
+import { useLanguage } from 'utils/context';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { selectProductsData } from "store/selectors/products";
 import { fetchProductsDetail } from "store/slices/productsSlice";
@@ -16,7 +18,7 @@ const Main = () => {
     const { t } = useTranslation();
     const { product_id } = useParams();
     const dispatch = useDispatch();
-    const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
+    const { lang } = useLanguage();
     const { productData, loading } = useSelector(selectProductsData);
     useEffect(() => {
         dispatch(fetchProductsDetail(product_id));

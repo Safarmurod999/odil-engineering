@@ -50,7 +50,7 @@ const Main = () => {
                                             {item["description_" + lang]}
                                         </p>
                                         <Link to={`/projects/${item.id}`} className="projects__link">
-                                            Подробнее
+                                            {t('more')}
                                         </Link>
                                     </div>
                                 </li>

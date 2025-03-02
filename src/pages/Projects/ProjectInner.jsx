@@ -1,16 +1,16 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { projectsArray } from "../../data/const";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectProjectData } from "store/selectors/project";
 import { fetchProjectDetail } from "store/slices/projectSlice";
+import { useLanguage } from 'utils/context';
+
 const ProjectInner = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
-    const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
+    const { lang } = useLanguage();
     const { projectData, loading } = useSelector(selectProjectData);
-    console.log(projectData);
 
     useEffect(() => {
         dispatch(fetchProjectDetail(id));

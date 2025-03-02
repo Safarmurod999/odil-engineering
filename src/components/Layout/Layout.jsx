@@ -9,11 +9,12 @@ import i18n from "../../utils/i18n";
 import AdminNavbar from "./AdminNavbar";
 import { Toaster } from "sonner";
 import Sidebar from "./Sidebar";
+import { useLanguage } from 'utils/context';
 
 
 const Layout = ({ children }) => {
     const { pathname } = useLocation();
-    const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'ru');
+    const { lang } = useLanguage();
     // const { toggleSidebar } = useSelector((state) => state.state);
 
     useEffect(() => {
@@ -49,7 +50,7 @@ const Layout = ({ children }) => {
                 ) : (
                     <>
                         <main>
-                            <Header lang={lang} setLang={setLang} />
+                            <Header />
                             {children}
                             <Footer />
                         </main>

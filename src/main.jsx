@@ -9,14 +9,17 @@ import store from 'store/store.js'
 import { Toaster } from 'sonner'
 import './assets/styles/app.scss'
 import { injectStore } from './services/index.js'
+import { LanguageProvider } from './utils/context.jsx'
 injectStore(store);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <RouterApp />
-        <Toaster />
-      </BrowserRouter>
-    </Provider>
-  </StrictMode>,
+    <LanguageProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <RouterApp />
+          <Toaster />
+        </BrowserRouter>
+      </Provider>
+    </LanguageProvider>
+  </StrictMode >,
 )

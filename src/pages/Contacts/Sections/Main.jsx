@@ -59,9 +59,9 @@ const Main = () => {
                                 {t('our_phone')}
                             </span>
                             <br />
-                            <a href="tel:+998951505527">+998 95 150 55 27 (Ташкент)</a>
+                            <a href="tel:+998951505527">+998 95 150 55 27</a>
                             <br />
-                            <a href="tel:+998905008324">+998 90 500-83-24 (бесплатно)</a>
+                            <a href="tel:+998905008324">+998 90 500-83-24</a>
                         </div>
                         <div>
                             <span className="contacts__data-title">
@@ -85,11 +85,12 @@ const Main = () => {
                     </div>
                     <div className='contacts__map'>
                         <iframe
-                            src="https://yandex.uz/map-widget/v1/?display-text=odil%20engineering&from=api-maps&ll=69.178291%2C41.272867&mode=search&oid=27873495022&ol=biz&origin=jsapi_2_1_79&sll=69.178291%2C41.272867&sspn=0.031972%2C0.015023&text=odil%20engineering&z=15"
+                            src="https://yandex.uz/map-widget/v1/?ll=69.182167%2C41.269665&mode=whatshere&utm_campaign=desktop&utm_medium=search&utm_source=maps&whatshere%5Bpoint%5D=69.183368%2C41.268345&whatshere%5Bzoom%5D=15.88&z=15.88"
                             width="560"
                             height="400"
                             allowFullScreen>
                         </iframe>
+
                     </div>
                 </div>
             </div>

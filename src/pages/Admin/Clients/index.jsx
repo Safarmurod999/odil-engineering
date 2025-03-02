@@ -21,7 +21,7 @@ const Clients = () => {
     return (
         <section className="client">
             <div className="admin-container">
-                <Breadcrumb title="Foydalanuvchilar" />
+                <Breadcrumb title="Mijozlar" />
                 <div className="data-table-container">
                     <div className="table-search">
                         <div className="flex">
