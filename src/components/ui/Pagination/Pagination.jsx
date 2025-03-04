@@ -19,12 +19,14 @@ const Pagination = ({ page, limit, totalPages, handleLimitChange, handlePageChan
           Sahifa {page} dan {totalPages}
         </span>
         <button
+          aria-label="previous-page"
           onClick={() => handlePageChange(1)}
           disabled={page === 1}
         >
           &laquo;
         </button>
         <button
+
           onClick={() => handlePageChange(page - 1)}
           disabled={page === 1}
         >
@@ -32,6 +34,7 @@ const Pagination = ({ page, limit, totalPages, handleLimitChange, handlePageChan
         </button>
         {[...Array(totalPages)].map((_, index) => (
           <button
+            aria-label="page-number"
             key={index}
             onClick={() => handlePageChange(index + 1)}
             className={`${page === index + 1 ? "active" : ""}`}
@@ -41,12 +44,14 @@ const Pagination = ({ page, limit, totalPages, handleLimitChange, handlePageChan
         ))}
 
         <button
+          aria-label="next-page"
           onClick={() => handlePageChange(page + 1)}
           disabled={page === totalPages}
         >
           &rsaquo;
         </button>
         <button
+          aria-label="last-page"
           onClick={() => handlePageChange(totalPages)}
           disabled={page === totalPages}
         >

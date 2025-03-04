@@ -6,7 +6,7 @@ import {
     FormControl,
     FormSelect
 } from "components/ui/Form/Form";
-import { IoAddSharp, IoSave } from "react-icons/io5";
+import { IoSave } from "react-icons/io5";
 import useConnect from "./connect";
 import { get } from "lodash";
 
@@ -15,7 +15,6 @@ const Page = () => {
         values,
         handleChange,
         handleSubmit,
-        setFieldValue,
         productOptions
     } = useConnect();
     return (

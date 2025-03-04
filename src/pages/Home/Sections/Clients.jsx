@@ -39,7 +39,7 @@ const Clients = () => {
                   return <SwiperSlide key={client.id} className='home__clients__slide' title={client.name}
                   >
                     <div className="home__clients__item">
-                      <img src={`${BASE_URL}/${client.image}`} alt={client.name} />
+                      <img src={`${BASE_URL}/${client.image}`} alt={client.name||"client image"} />
                     </div>
                   </SwiperSlide>
                 }

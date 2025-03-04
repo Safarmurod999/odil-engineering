@@ -51,7 +51,7 @@ const Footer = () => {
               <input type="tel" className='forms__input' name='phone' value={get(values, "phone", "")} onChange={handleChange} placeholder={t('your_phone')} />
             </div>
             <textarea className='forms__textarea' name='message' value={get(values, "message", "")} onChange={handleChange} placeholder={t('your_message')}></textarea>
-            <button type='submit' className='forms__btn'>{t('send')}</button>
+            <button type='submit' aria-label='form-submit' className='forms__btn'>{t('send')}</button>
           </form>
         </div>
       </section>
@@ -60,7 +60,7 @@ const Footer = () => {
           <div className="footer__left" data-aos="zoom-out">
             <p> &copy; Odil Engineering  2015-2025</p>
             <p>OOO «Odil Engineering»</p>
-            <Link to="/pravilo">
+            <Link aria-label='pravilo' to="/pravilo">
               {t('politics')}
             </Link>
           </div>
@@ -70,23 +70,23 @@ const Footer = () => {
           <div className="footer__right" data-aos="zoom-out">
             <p><a href="tel:+998712000000">{t('our_phone')} +998 95 150 55 27</a></p>
             <p>Email:
-              <Link to="mailto:info@odil-engineering.uz">
+              <Link aria-label='email' to="mailto:info@odil-engineering.uz">
                 info@odil-engineering.uz
               </Link>
             </p>
             <ul className="social-links">
               <li>
-                <Link to="https://www.facebook.com/odilengineering">
+                <Link aria-label='facebook' to="https://www.facebook.com/odilengineering">
                   <FaFacebook />
                 </Link>
               </li>
               <li>
-                <Link to="https://www.instagram.com/odilengineering">
+                <Link aria-label='instagram' to="https://www.instagram.com/odilengineering">
                   <FaInstagram />
                 </Link>
               </li>
               <li>
-                <Link to="https://www.youtube.com/odilengineering">
+                <Link aria-label='youtube' to="https://www.youtube.com/odilengineering">
                   <FaYoutube />
                 </Link>
               </li>
@@ -94,7 +94,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="container">
-          <span>Developed by :</span> <a target='_blank' href="https://t.me/UrinovSafarmurod">O'rinov Safarmurod</a> <span>and</span> <a target='_blank' href="https://t.me/vahhobov_sardor">Vahhobov Sardor</a>
+          <span>Developed by :</span> <a aria-label='safarmurod' target='_blank' href="https://t.me/UrinovSafarmurod">O'rinov Safarmurod</a> <span>and</span> <a aria-label='sardor' target='_blank' href="https://t.me/vahhobov">Vahhobov Sardor</a>
         </div>
       </footer>
     </>

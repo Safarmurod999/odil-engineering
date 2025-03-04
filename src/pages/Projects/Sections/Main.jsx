@@ -51,7 +51,7 @@ const Main = () => {
                                                 <p>
                                                     {item["description_" + lang]}
                                                 </p>
-                                                <Link to={`/projects/${item.id}`} className="projects__link">
+                                                <Link aria-label='project-link' to={`/projects/${item.id}`} className="projects__link">
                                                     {t('more')}
                                                 </Link>
                                             </div>

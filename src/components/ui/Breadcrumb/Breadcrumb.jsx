@@ -15,7 +15,7 @@ const Breadcrumb = ({ title = "", backlink = "" }) => {
           {transformedPaths.map((path, index) => {
             return (
               <li key={index} className="breadcrumb-item">
-                <Link to={`/${path}`} className="text-prime">
+                <Link aria-label="breadcrumb" to={`/${path}`} className="text-prime">
                   {paths[index]}
                 </Link>
               </li>
@@ -26,7 +26,7 @@ const Breadcrumb = ({ title = "", backlink = "" }) => {
       <div className="breadcrumb-backlink">
         <div className="dashboard-title  mb-[20px]">{title}</div>
         {backlink && (
-          <Link className="breadcrumb-btn" to={backlink}>
+          <Link aria-label="back-btn" className="breadcrumb-btn" to={backlink}>
             <IoArrowBackOutline /> <span>Back</span>
           </Link>
         )}

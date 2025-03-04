@@ -122,6 +122,7 @@ const mediaSlice = createSlice({
     });
     builder.addCase(fetchMediaDetail.pending, (state) => {
       state.loading = true;
+      state.mediaData = null;
     });
     builder.addCase(fetchMediaDetail.fulfilled, (state, action) => {
       state.loading = false;

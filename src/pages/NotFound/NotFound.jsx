@@ -4,7 +4,7 @@ import notfound from '../../assets/videos/notfound.gif'
 import { useTranslation } from 'react-i18next';
 const NotFound = () => {
   let route = useLocation();
-  const {t} = useTranslation()
+  const { t } = useTranslation()
   return (
     <section className="not-found">
       <div className="container">
@@ -13,16 +13,18 @@ const NotFound = () => {
         </div>
         <img src={notfound} alt="animation" />
         <div className="h1">
-          
+
         </div>
         {route.pathname.startsWith("/dashboard") ? (
           <Link
+            aria-label='main-page'
             to={"/admin"}
           >
             {t('main_page')}
           </Link>
         ) : (
           <Link
+            aria-label='main-page'
             to={"/"}
           >
             {t('main_page')}

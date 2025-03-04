@@ -99,7 +99,7 @@ const FormSwitch = ({ value, onChange, name }) => {
 
 const FormBtn = ({ text, icon, onClick }) => {
   return (
-    <button className="form-button" type="submit" onClick={onClick}>
+    <button className="form-button" aria-label="form-button" type="submit" onClick={onClick}>
       {icon && icon}
       <span>{text}</span>
     </button>
@@ -177,7 +177,7 @@ const FormMultiImage = ({ setFieldValue, values, delete_images_array }) => {
           return (
             <div key={index} className="image-item">
               <img src={file instanceof File ? URL.createObjectURL(file) : `${BASE_URL}/${file.src}`} alt={`Preview ${index}`} />
-              <button type="button" className="remove-btn" onClick={() => removeImage(index)}>
+              <button type="button" className="remove-btn" aria-label="close-btn" onClick={() => removeImage(index)}>
                 ✕
               </button>
             </div>

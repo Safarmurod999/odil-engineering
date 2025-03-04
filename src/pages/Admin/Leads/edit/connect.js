@@ -13,7 +13,7 @@ const useConnect = () => {
   const { leadData } = useSelector(selectLeadsData);
   useEffect(() => {
     dispatch(fetchLeadDetail(id));
-  }, [dispatch]);
+  }, [dispatch,id]);
 
   const onSubmit = (values) => {
     dispatch(updateLead({ params: values, id })).then((res) => {
@@ -35,6 +35,7 @@ const useConnect = () => {
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues: leadData,
     onSubmit: onSubmit,
+    enableReinitialize: true,
   });
   return {
     values,

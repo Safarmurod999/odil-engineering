@@ -67,7 +67,7 @@ const adminRoutes = [
   }
 ];
 
-const Sidebar = ({ toggleSidebar,setToggleSidebar }) => {
+const Sidebar = ({ toggleSidebar, setToggleSidebar }) => {
   const { pathname } = useLocation();
   const [activeRoute, setActiveRoute] = useState(pathname || 0);
   const dispatch = useDispatch();
@@ -82,17 +82,18 @@ const Sidebar = ({ toggleSidebar,setToggleSidebar }) => {
     >
       <div className="relative">
         <div className="sidebar__logo">
-          <Link to="/" className="text-white">
+          <Link aria-label="logo" to="/" className="text-white">
             <img src={logo} alt="logo" />
           </Link>
         </div>
-        
+
       </div>
 
       <div className="nav">
         {adminRoutes.map((item) => {
           return (
             <Link
+              aria-label="sidebar-link"
               key={item.id}
               className={`nav-item ${activeRoute === item.path ? "active" : ""
                 }`}

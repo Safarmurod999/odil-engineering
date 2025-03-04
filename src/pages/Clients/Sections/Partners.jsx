@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectClientsData } from "store/selectors/clients";
 import { fetchClients } from "store/slices/clientsSlice";
@@ -9,9 +9,7 @@ import { BASE_URL } from "../../../data/const";
 const Partners = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
     const clients = useSelector(selectClientsData);
-    console.log(clients);
 
     useEffect(() => {
         dispatch(fetchClients({}));
@@ -33,7 +31,7 @@ const Partners = () => {
                             clients?.clientsList?.data.map((client) => {
                                 return (
                                     <li key={client.id} className='clients__item' data-aos="fade-up">
-                                        <img src={`${BASE_URL}/${client.image}`} alt={client.name} />
+                                        <img src={`${BASE_URL}/${client.image}`} alt={client.name ||"client image"} />
                                     </li>
                                 )
                             }) : clients.loading ? <div>Loading... </div> : ""

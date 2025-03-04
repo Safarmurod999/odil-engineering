@@ -13,9 +13,7 @@ const useConnect = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { mediaData } = useSelector(selectMediaData);
-  useEffect(() => {
-    dispatch(fetchMediaDetail(id));
-  }, [dispatch]);
+
   const products = useSelector(selectProductsData);
   const productOptions = products?.productsList?.data.map((product) => ({
     value: product.id,
@@ -41,10 +39,14 @@ const useConnect = () => {
   const { values, handleChange, setFieldValue, handleSubmit } = useFormik({
     initialValues: mediaData,
     onSubmit: onSubmit,
+    enableReinitialize: true,
   });
   useEffect(() => {
     dispatch(fetchProducts({}));
-  }, [dispatch]);
+  }, [dispatch, id]);
+  useEffect(() => {
+    dispatch(fetchMediaDetail(id));
+  }, [dispatch, id]);
   return {
     values,
     handleChange,

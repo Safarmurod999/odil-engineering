@@ -3,12 +3,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 20;
   height: 100vh;
   padding: 10px 0;
   overflow-y: auto;
   background-color: var(--bg-color);
   border-right: 1px solid var(--border-color);
+  z-index: 1000;
   &__logo {
     max-height: 63px;
     padding-top: 6px;

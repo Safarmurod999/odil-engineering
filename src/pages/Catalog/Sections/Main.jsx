@@ -56,7 +56,7 @@ const Main = () => {
                                                             product["description_" + lang]
                                                         }
                                                     </p>
-                                                    <Link to={`/catalog/${categoriesData?.id}/products/${product?.id}`} className="catalog__link">{t('more')}</Link>
+                                                    <Link aria-label='product-link' to={`/catalog/${categoriesData?.id}/products/${product?.id}`} className="catalog__link">{t('more')}</Link>
                                                 </div>
                                             </div>
                                         )

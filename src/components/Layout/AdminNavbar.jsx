@@ -56,7 +56,7 @@ const AdminNavbar = ({ toggleSidebar, setToggleSidebar }) => {
                 setIsOpen(false);
                 dispatch(authLogout());
               }}>
-                <Link to={"/"} style={{display:"flex",alignItems:"center", gap:"10px"}}>Akkauntdan chiqish <ImExit /></Link>
+                <Link aria-label="logout-btn" to={"/"} style={{display:"flex",alignItems:"center", gap:"10px"}}>Akkauntdan chiqish <ImExit /></Link>
               </li>
             </ul>
           </div>

@@ -10,7 +10,6 @@ const useConnect = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { userData } = useSelector(selectUsersData);
-  console.log();
   
   const onSubmit = (values) => {
     const formData = new FormData();

@@ -16,7 +16,7 @@ const Contact = () => {
                         {t('projecting_text')}
                     </div>
                 </div>
-                <Link to="/contacts" className='h3' data-aos="fade-left">
+                <Link aria-label='project-link' to="/contacts" className='h3' data-aos="fade-left">
                     {t('projecting_link')} <FaArrowRight />
                 </Link>
             </div>

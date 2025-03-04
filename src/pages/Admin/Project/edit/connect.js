@@ -13,7 +13,7 @@ const useConnect = () => {
   const { projectData } = useSelector(selectProjectData);
   useEffect(() => {
     dispatch(fetchProjectDetail(id));
-  }, [dispatch]);
+  }, [dispatch,id]);
 
   const onSubmit = (values) => {
     dispatch(updateProject({ params: values, id })).then((res) => {
@@ -35,6 +35,7 @@ const useConnect = () => {
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues: projectData,
     onSubmit: onSubmit,
+    enableReinitialize: true,
   });
   return {
     values,

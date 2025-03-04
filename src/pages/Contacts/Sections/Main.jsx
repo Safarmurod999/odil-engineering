@@ -48,7 +48,7 @@ const Main = () => {
                             <input type="tel" className='contacts__input' name='phone' value={get(values, "phone", "")} onChange={handleChange} placeholder={t('your_phone')} />
                         </div>
                         <textarea className='contacts__textarea' name='message' value={get(values, "message", "")} onChange={handleChange} placeholder={t('your_message')}></textarea>
-                        <button type='submit' className='contacts__btn'>{t('send')}</button>
+                        <button type='submit' aria-label='form-submit' className='contacts__btn'>{t('send')}</button>
                     </form>
                 </div>
                 <div className='contacts__right'>
@@ -59,15 +59,15 @@ const Main = () => {
                                 {t('our_phone')}
                             </span>
                             <br />
-                            <a href="tel:+998951505527">+998 95 150 55 27</a>
+                            <a aria-label='phone' href="tel:+998951505527">+998 95 150 55 27</a>
                             <br />
-                            <a href="tel:+998905008324">+998 90 500-83-24</a>
+                            <a aria-label='phone' href="tel:+998905008324">+998 90 500-83-24</a>
                         </div>
                         <div>
                             <span className="contacts__data-title">
                                 {t('our_email')}
                             </span>
-                            <a href="mailto:info@odil-engineering.uz">info@odil-engineering.uz
+                            <a aria-label='email' href="mailto:info@odil-engineering.uz">info@odil-engineering.uz
                             </a>
                         </div>
                         <div>

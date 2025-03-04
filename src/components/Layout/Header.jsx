@@ -83,14 +83,14 @@ const Header = () => {
             <div className="container">
                 <div className="navbar__top">
                     <div className="navbar__logo">
-                        <Link to={'/'} >
+                        <Link aria-label='logo' to={'/'} >
                             <img src={logo} alt="Logo" />
                         </Link>
                     </div>
                     <div className='navbar__btns'>
                         <ThemeSwitcher />
                         <div className="navbar__lang">
-                            <button className='navbar__lang-btn' onClick={() => setActiveLang(true)}>{lang}</button>
+                            <button className='navbar__lang-btn' aria-label='language' onClick={() => setActiveLang(true)}>{lang}</button>
                             <div className={`navbar__lang-list ${activeLang ? 'active' : ''}`}>
                                 <div onClick={() => { setLang('ru'); localStorage.setItem('lang', JSON.stringify('ru')); setActiveLang(false) }}>ru</div>
                                 <div onClick={() => { setLang('uz'); localStorage.setItem('lang', JSON.stringify('uz')); setActiveLang(false) }}>uz</div>
@@ -98,11 +98,11 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="navbar__contacts">
-                            <a href="tel:8 495 150 55 27">+998 95 150 55 27</a>
-                            <a href="tel:8 800 500-83-24">+998 90 500-83-24</a>
-                            <a href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
+                            <a aria-label='phone' href="tel:8 495 150 55 27">+998 95 150 55 27</a>
+                            <a aria-label='phone' href="tel:8 800 500-83-24">+998 90 500-83-24</a>
+                            <a aria-label='email' href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
                         </div>
-                        <button className="navbar__toggle" onClick={() => setToggleNav(!toggleNav)}>
+                        <button className="navbar__toggle" aria-label='navbar-toggle' onClick={() => setToggleNav(!toggleNav)}>
 
                             {
                                 toggleNav ? <RiCloseLargeFill /> : <RiMenu3Fill />
@@ -120,7 +120,7 @@ const Header = () => {
                             navLinks.map((item) => {
                                 return (
                                     <li key={item.id} className={`navbar__menu-item ${route.pathname == item.to ? 'active' : ''}`}>
-                                        <Link to={item.to}>{item["title_" + lang]}</Link>
+                                        <Link aria-label='menu' to={item.to}>{item["title_" + lang]}</Link>
                                     </li>
                                 )
                             })
@@ -128,9 +128,9 @@ const Header = () => {
                     </ul>
 
                     <div className="navbar__contacts navbar__bottom-contacts">
-                        <a href="tel:8 495 150 55 27">+998 95 150 55 27</a>
-                        <a href="tel:8 800 500-83-24">+998 90 500-83-24</a>
-                        <a href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
+                        <a aria-label='phone' href="tel:8 495 150 55 27">+998 95 150 55 27</a>
+                        <a aria-label='phone' href="tel:8 800 500-83-24">+998 90 500-83-24</a>
+                        <a aria-label='email' href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
                     </div>
                 </div>
             </div>

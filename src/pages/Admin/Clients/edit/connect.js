@@ -32,7 +32,7 @@ const useConnect = () => {
   };
   useEffect(() => {
     dispatch(fetchClientsDetail(id));
-  }, [dispatch]);
+  }, [dispatch,id]);
   const { values, handleChange, setFieldValue, handleSubmit } = useFormik({
     initialValues: clientsData,
     onSubmit: onSubmit,

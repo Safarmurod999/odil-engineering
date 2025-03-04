@@ -9,7 +9,7 @@ const Page = () => {
     <div className={"sign-in"}>
       <div className="sign-in-container sm:mx-auto sm:w-full sm:max-w-sm">
         <div className={"sign-in__logo"}>
-          <a href="/">
+          <a aria-label="logo" href="/">
             <img src={logo} alt="logo" />
           </a>
         </div>
@@ -44,7 +44,7 @@ const Page = () => {
                 >
                   Password
                 </label>
-                <a href="#" className={"sign-in__form__password-group__forgot"}>
+                <a aria-label="forgot-password" href="#" className={"sign-in__form__password-group__forgot"}>
                   Forgot password?
                 </a>
               </div>
@@ -60,7 +60,7 @@ const Page = () => {
               />
             </div>
 
-            <button type="submit" className={"sign-in__form__submit"}>
+            <button aria-label="form-submit" type="submit" className={"sign-in__form__submit"}>
               Sign in
             </button>
           </form>

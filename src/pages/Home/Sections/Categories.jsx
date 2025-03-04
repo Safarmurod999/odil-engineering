@@ -32,14 +32,14 @@ const Categories = () => {
                                         return (
                                             <li key={index} className="categories__item" data-aos="fade-up">
                                                 <div className="categories__item-image">
-                                                    <img src={`${BASE_URL}/${category.image}`} alt={category.title} />
+                                                    <img src={`${BASE_URL}/${category.image}`} loading="lazy" alt={category.title||"category image"} />
                                                 </div>
                                                 <div className="categories__item-content">
                                                     <h5 className="h4">{category["name_" + lang]}</h5>
                                                     <p>
                                                         {category["description_" + lang]}
                                                     </p>
-                                                    <a href={`/catalog/${category.id}`}>{t('more')} <FaArrowRightLong />
+                                                    <a aria-label="catalog-link" href={`/catalog/${category.id}`}>{t('more')} <FaArrowRightLong />
                                                     </a>
                                                 </div>
 

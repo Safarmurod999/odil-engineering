@@ -80,7 +80,7 @@ const Main = () => {
                                             }
                                         </Swiper>
                                     </> : <div className="product__alternative">
-                                        <img src={productData?.image} />
+                                        <img src={productData?.image} alt='alternative image'/>
                                     </div>
                                 }
                             </div>
@@ -180,7 +180,7 @@ const Main = () => {
                                         <div className="h6">
                                             {t('contact_form')}
                                         </div>
-                                        <a href='/contacts'>
+                                        <a aria-label='contacts' href='/contacts'>
                                             {t('contact_managers')}
                                         </a>
                                     </div>
@@ -212,8 +212,8 @@ const Main = () => {
                                             {t('call_us')}
                                         </div>
                                         <div>
-                                            <a href="tel:8 495 150 55 27"> +99895 150 55 27</a> <br />
-                                            <a href="tel:8 800 500-83-24"> +99890 500-83-24</a>
+                                            <a aria-label='phone' href="tel:8 495 150 55 27"> +99895 150 55 27</a> <br />
+                                            <a aria-label='phone' href="tel:8 800 500-83-24"> +99890 500-83-24</a>
                                         </div>
                                     </div>
                                     <div className="product__order-item">
@@ -228,7 +228,7 @@ const Main = () => {
                                         <div className="h6">
                                             {t('write_us')}
                                         </div>
-                                        <a href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
+                                        <a aria-label='email' href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
                                     </div>
                                 </div>
                             </div>
@@ -247,7 +247,7 @@ const Main = () => {
                                                 </div>
                                             }
                                         }) : <div className="product__media-video">
-                                            <img src={productData?.image} />
+                                            <img src={productData?.image} alt='product-image'/>
                                         </div>
                                     }
                                 </div>
