@@ -53,18 +53,19 @@
 
   &-select {
     padding: 8px 16px;
-    background-color: var(--primary-color);
-    border: 1px solid var(--border-color);
-    color: white;
-    border: none;
+    background-color: transparent;
+    // border: 1px solid var(--border-color);
+    color: var(--text-color);
+    background-color: var(--secondary-bg-color);
+    // border: none;
     border-radius: 6px;
     cursor: pointer;
     &:focus {
       outline: 2px solid var(--primary-color);
     }
-    &:hover {
-      background-color: darken(#8670ef, 10%);
-    }
+    // &:hover {
+    //   background-color: #5c49bb;
+    // }
   }
   &-switch {
     display: inline-flex;
@@ -136,7 +137,7 @@
       color: white;
     }
     &:hover {
-      background-color: darken(#8670ef, 10%);
+      background-color: #5c49bb;
     }
   }
 }

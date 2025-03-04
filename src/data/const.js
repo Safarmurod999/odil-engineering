@@ -12,6 +12,7 @@ import gazprom from "../assets/images/main/gazprom.png";
 import ntv from "../assets/images/main/ntv.png";
 
 export const BASE_URL = "https://api.odil-engineering.uz/api";
+// export const BASE_URL = "http://localhost:3000";
 
 export const categoriesArray = [
   {

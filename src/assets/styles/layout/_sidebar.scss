@@ -16,7 +16,6 @@
     padding-left: 20px;
     border-bottom: 1px solid var(--border-color);
 
-
     a {
       display: inline-block;
       color: var(--text-color);
@@ -69,12 +68,12 @@
       transition: background-color 0.3s ease, color 0.3s ease;
       border-radius: 0.375rem;
       cursor: pointer;
-      span{
+      span {
         display: flex;
         align-items: center;
       }
       &:hover {
-        background-color: lighten(#2846e6, 35%);
+        background-color: rgba(79, 105, 255, 0.35);
         * {
           color: #2846e6 !important;
         }
@@ -88,7 +87,7 @@
       }
 
       .icon {
-        color: darken(#d9d9d9, 30%);
+        color: #afafaf;
         font-size: 20px;
       }
 
@@ -96,7 +95,7 @@
         margin-left: 0.5rem;
         font-size: 1.125rem;
         font-weight: 500;
-        color: darken(#d9d9d9, 30%);
+        color: #afafaf;
       }
     }
   }

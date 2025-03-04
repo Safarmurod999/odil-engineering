@@ -71,7 +71,7 @@ const FormSelect = ({
     <div className={`form-control w-${width}`}>
       <label className="form-label">{label}</label>
       <select
-        className="form-input"
+        className="form-input form-select"
         value={value}
         onChange={onChange}
         required={required}
