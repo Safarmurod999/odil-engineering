@@ -10,7 +10,7 @@ const Pagination = ({ page, limit, totalPages, handleLimitChange, handlePageChan
         >
           <option value={10}>10</option>
           <option value={20}>20</option>
-          <option value={30}>50</option>
+          <option value={50}>50</option>
         </select>
       </div>
 

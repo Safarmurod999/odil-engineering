@@ -12,12 +12,8 @@ const Users = () => {
     const {
         users,
         navigate,
-        // handleSubmit,
-        // handleChange,
-        // handleReset,
         handleDelete,
         handleUpdate,
-        // values,
         dispatch,
         filter,
         setFilter
@@ -109,6 +105,7 @@ const Users = () => {
                         handlePageChange={(page) => {
                             dispatch(setFilter({ page }));
                         }}
+                        limit={get(filter, "limit", 10)}    
                         page={get(filter, "page", 1)}
                     />
                 </div>

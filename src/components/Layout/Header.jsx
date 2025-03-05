@@ -98,8 +98,8 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="navbar__contacts">
-                            <a aria-label='phone' href="tel:8 495 150 55 27">+998 95 150 55 27</a>
-                            <a aria-label='phone' href="tel:8 800 500-83-24">+998 90 500-83-24</a>
+                            <a aria-label='phone' href="tel:+ 998 90 955 84 48 ">+ 998 90 955 84 48 </a>
+                            <a aria-label='phone' href="tel:+ 998 77 338 84 48">+ 998 77 338 84 48</a>
                             <a aria-label='email' href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
                         </div>
                         <button className="navbar__toggle" aria-label='navbar-toggle' onClick={() => setToggleNav(!toggleNav)}>
@@ -128,8 +128,8 @@ const Header = () => {
                     </ul>
 
                     <div className="navbar__contacts navbar__bottom-contacts">
-                        <a aria-label='phone' href="tel:8 495 150 55 27">+998 95 150 55 27</a>
-                        <a aria-label='phone' href="tel:8 800 500-83-24">+998 90 500-83-24</a>
+                        <a aria-label='phone' href="tel:+ 998 90 955 84 48 ">+ 998 90 955 84 48 </a>
+                        <a aria-label='phone' href="tel:+ 998 77 338 84 48">+ 998 77 338 84 48</a>
                         <a aria-label='email' href="mailto:info@odil-engineering.uz">info@odil-engineering.uz</a>
                     </div>
                 </div>

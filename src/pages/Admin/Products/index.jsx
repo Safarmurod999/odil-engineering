@@ -103,6 +103,7 @@ const Products = () => {
                         handlePageChange={(page) => {
                             dispatch(setFilter({ page }));
                         }}
+                        limit={get(filter, "limit", 10)}
                         page={get(filter, "page", 1)}
                     />
                 </div>

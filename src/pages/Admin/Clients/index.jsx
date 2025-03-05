@@ -77,8 +77,6 @@ const Clients = () => {
                                                     <button
                                                         onClick={() => handleDelete(client.id)}
                                                         className="action-btn"
-                                                        disabled={clients.clientsList?.data?.length === 1}
-
                                                     >
                                                         <MdDeleteOutline />
                                                     </button>
@@ -105,6 +103,7 @@ const Clients = () => {
                         handlePageChange={(page) => {
                             dispatch(setFilter({ page }));
                         }}
+                        limit={get(filter, "limit", 10)}
                         page={get(filter, "page", 1)}
                     />
                 </div>

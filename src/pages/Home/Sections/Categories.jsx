@@ -13,7 +13,7 @@ const Categories = () => {
     const categories = useSelector(selectCategoriesData);
     const { lang } = useLanguage();
     useEffect(() => {
-        dispatch(fetchCategories({}));
+        dispatch(fetchCategories({ page: 1, limit: 50 }));
     }, [dispatch])
     return (
         <section className='categories'>
@@ -32,7 +32,7 @@ const Categories = () => {
                                         return (
                                             <li key={index} className="categories__item" data-aos="fade-up">
                                                 <div className="categories__item-image">
-                                                    <img src={`${BASE_URL}/${category.image}`} loading="lazy" alt={category.title||"category image"} />
+                                                    <img src={`${BASE_URL}/${category.image}`} loading="lazy" alt={category.title || "category image"} />
                                                 </div>
                                                 <div className="categories__item-content">
                                                     <h5 className="h4">{category["name_" + lang]}</h5>

@@ -16,7 +16,7 @@ const Clients = () => {
   const clients = useSelector(selectClientsData);
 
   useEffect(() => {
-    dispatch(fetchClients({}));
+    dispatch(fetchClients({ page: 1, limit: 50 }));
   }, [dispatch])
   return (
     <section className="home__clients">
@@ -30,6 +30,7 @@ const Clients = () => {
           className={'home__clients__wrapper'}
           spaceBetween={30}
           slidesPerView={"auto"}
+          loop={true}
           navigation
         >
           {
@@ -39,7 +40,7 @@ const Clients = () => {
                   return <SwiperSlide key={client.id} className='home__clients__slide' title={client.name}
                   >
                     <div className="home__clients__item">
-                      <img src={`${BASE_URL}/${client.image}`} alt={client.name||"client image"} />
+                      <img src={`${BASE_URL}/${client.image}`} alt={client.name || "client image"} />
                     </div>
                   </SwiperSlide>
                 }

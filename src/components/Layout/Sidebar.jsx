@@ -20,7 +20,7 @@ const adminRoutes = [
   {
     id: 2,
     name: "Foydalanuvchilar",
-    path: "/admin/users",
+    path: "/admin",
     icon: <IoPersonOutline />,
   },
   {

@@ -59,9 +59,9 @@ const Main = () => {
                                 {t('our_phone')}
                             </span>
                             <br />
-                            <a aria-label='phone' href="tel:+998951505527">+998 95 150 55 27</a>
+                            <a aria-label='phone' href="tel:+ 998 90 955 84 48 ">+ 998 90 955 84 48 </a>
                             <br />
-                            <a aria-label='phone' href="tel:+998905008324">+998 90 500-83-24</a>
+                            <a aria-label='phone' href="tel:+ 998 77 338 84 48">+ 998 77 338 84 48</a>
                         </div>
                         <div>
                             <span className="contacts__data-title">

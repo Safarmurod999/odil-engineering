@@ -68,7 +68,7 @@ const Footer = () => {
             {t('our_address')}
           </div>
           <div className="footer__right" data-aos="zoom-out">
-            <p><a href="tel:+998712000000">{t('our_phone')} +998 95 150 55 27</a></p>
+            <p><a href="tel:+ 998 77 338 84 48">{t('our_phone')} + 998 77 338 84 48</a></p>
             <p>Email:
               <Link aria-label='email' to="mailto:info@odil-engineering.uz">
                 info@odil-engineering.uz

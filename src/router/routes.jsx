@@ -88,13 +88,8 @@ const landingRoutes = [
 
 const adminRoutes = [
   {
-    id: 0,
-    path: "/admin/",
-    component: Users,
-  },
-  {
     id: 1,
-    path: "/admin/users",
+    path: "/admin",
     component: Users,
   },
   {
