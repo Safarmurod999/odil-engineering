@@ -6,7 +6,8 @@ import {
     FormControl,
     FormImage,
     FormSelect,
-    FormMultiImage
+    FormMultiImage,
+    FormTextarea
 } from "components/ui/Form/Form";
 import { IoSave } from "react-icons/io5";
 import useConnect from "./connect";
@@ -73,7 +74,7 @@ const Page = () => {
                             width="50"
                         />
                     </FormRow>
-                    <FormControl
+                    <FormTextarea
                         type="text"
                         placeholder="Ta'rif (O'zbekcha)"
                         label={"Ta'rif (O'zbekcha)"}
@@ -82,7 +83,7 @@ const Page = () => {
                         value={get(values, "description_uz", "")}
                         width="full"
                     />
-                    <FormControl
+                    <FormTextarea
                         type="text"
                         placeholder="Ta'rif (Ruscha)"
                         label={"Ta'rif (Ruscha)"}
@@ -92,7 +93,7 @@ const Page = () => {
                         width="full"
                     />
 
-                    <FormControl
+                    <FormTextarea
                         type="text"
                         placeholder="Ta'rif (Inglizcha)"
                         label={"Ta'rif (Inglizcha)"}

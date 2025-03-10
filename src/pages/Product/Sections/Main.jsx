@@ -14,6 +14,7 @@ import { selectProductsData } from "store/selectors/products";
 import { fetchProductsDetail } from "store/slices/productsSlice";
 import { useParams } from 'react-router';
 import { BASE_URL } from '../../../data/const';
+import { SkeletonProduct } from '../../../components/ui/Skeletons/Skeleton';
 const Main = () => {
     const { t } = useTranslation();
     const { product_id } = useParams();
@@ -27,7 +28,7 @@ const Main = () => {
     return (
         <section className="product">
             {
-                !loading ? productData ? <>
+                !loading && productData ? <>
                     <div className="product__title title">
                         <span>{productData["name_" + lang]}</span>
                     </div>
@@ -80,7 +81,7 @@ const Main = () => {
                                             }
                                         </Swiper>
                                     </> : <div className="product__alternative">
-                                        <img src={productData?.image} alt='alternative image'/>
+                                        <img src={productData?.image} alt='alternative image' />
                                     </div>
                                 }
                             </div>
@@ -98,21 +99,9 @@ const Main = () => {
                                 </div>
                                 <div className="product__description-text">
                                     <p>
-                                        Мы производим полный спектр конвейерного оборудования и систем управления.
-                                        При этом мы осуществляем полный цикл производства, начиная от индивидуального
-                                        проектирования отдельного конвейера и заканчивая установкой и запуском
-                                        технологических линий конвейеров на объекте.
-                                        <br />
-                                        Наш многолетний опыт и знание конвейерной отрасли позволяют нам предложить
-                                        опробованные и проверенные стандартные элементы или индивидуальные решения с
-                                        полноценной системой управления и программным обеспечением, управлением проектом,
-                                        установкой и технической поддержкой под конкретные требования заказчика.
-                                        <br />
-                                        Модульная архитектура обеспечивает быстрое производство, простоту сборки и
-                                        монтажных работ. В случае необходимости возможно изменение конфигурации и
-                                        размеров конвейера, а также добавление дополнительных модулей с наименьшими затратами.
-                                        <br />
-                                        Завод компании «Конвейермаш» оснащен современным производственным оборудованием с ЧПУ.
+                                        {
+                                            t('product_about')
+                                        }
                                     </p>
                                 </div>
                             </div>
@@ -152,10 +141,7 @@ const Main = () => {
                                         </g>
                                     </svg>
                                     <p>
-                                        Мы оказываем услуги по монтажу и обслуживанию конвейерного оборудования.
-                                        Наша сервисная служба обеспечит правильную установку конвейеров и их
-                                        периодическое техническое обслуживание, чтобы гарантировать долгую и
-                                        надежную работу оборудования.
+                                        {t('product_montage')}
                                     </p>
                                 </div>
                             </div>
@@ -247,14 +233,14 @@ const Main = () => {
                                                 </div>
                                             }
                                         }) : <div className="product__media-video">
-                                            <img src={productData?.image} alt='product-image'/>
+                                            Videos not found
                                         </div>
                                     }
                                 </div>
                             </div>
                         </div>
                     </div>
-                </> : "No data" : <div>Loading...</div>
+                </> : loading ? <div className="container"> <SkeletonProduct /></div> : "No data"
             }
         </section>)
 }

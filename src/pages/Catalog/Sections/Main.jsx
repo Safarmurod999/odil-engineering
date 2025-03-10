@@ -8,6 +8,7 @@ import { selectProductsData } from "store/selectors/products";
 import { fetchProducts } from "store/slices/productsSlice";
 import { BASE_URL } from '../../../data/const';
 import { useTranslation } from 'react-i18next';
+import { SkeletonCard } from '../../../components/ui/Skeletons/Skeleton';
 const Main = () => {
     const { id } = useParams();
     const { lang } = useLanguage();
@@ -61,7 +62,7 @@ const Main = () => {
                                             </div>
                                         )
                                     }
-                                }) : ""
+                                }) : loading ? <SkeletonCard /> : "No data"
                             }
                         </div>
                     </> : "No data" : <div>Loading...</div>

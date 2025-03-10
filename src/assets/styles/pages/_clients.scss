@@ -24,6 +24,9 @@
     @media screen and (max-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
     }
+    @media screen and (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
   }
   &__item {
     height: 100%;

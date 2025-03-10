@@ -149,9 +149,9 @@ const FormMultiImage = ({ setFieldValue, values, delete_images_array }) => {
     setFieldValue("images", updatedImages);
     console.log(updatedImages);
     console.log(values);
-    
+
     console.log(values[index]);
-    
+
     if ("id" in values[index]) {
       const deleteArray = delete_images_array;
       deleteArray.push(values[index]?.id);
@@ -188,4 +188,32 @@ const FormMultiImage = ({ setFieldValue, values, delete_images_array }) => {
   );
 };
 
-export { Form, FormRow, FormControl, FormSelect, FormBtn, FormSwitch, FormImage, FormMultiImage };
+const FormTextarea = ({
+  placeholder = "",
+  label = null,
+  required = false,
+  onChange,
+  value,
+  defaultValue,
+  width = "full",
+  name,
+  rows = 4
+}) => {
+  return (
+    <div className={`form-control w-${width}`}>
+      {label && <label className="form-label">{label}</label>}
+      <textarea
+        className="form-textarea"
+        placeholder={placeholder}
+        value={value || ""}
+        defaultValue={defaultValue}
+        onChange={onChange}
+        required={required}
+        name={name}
+        rows={rows}
+      />
+    </div>
+  );
+};
+
+export { Form, FormRow, FormControl, FormSelect, FormBtn, FormSwitch, FormImage, FormMultiImage, FormTextarea };

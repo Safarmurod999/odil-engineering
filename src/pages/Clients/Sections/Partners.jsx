@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectClientsData } from "store/selectors/clients";
 import { fetchClients } from "store/slices/clientsSlice";
 import { BASE_URL } from "../../../data/const";
+import { SkeletonLogos } from '../../../components/ui/Skeletons/Skeleton';
 
 const Partners = () => {
     const { t } = useTranslation();
@@ -34,7 +35,7 @@ const Partners = () => {
                                         <img src={`${BASE_URL}/${client.image}`} alt={client.name ||"client image"} />
                                     </li>
                                 )
-                            }) : clients.loading ? <div>Loading... </div> : ""
+                            }) : clients.loading ? <SkeletonLogos/> : "No data"
                     }
 
                 </ul>

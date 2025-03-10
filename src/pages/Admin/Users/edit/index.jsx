@@ -22,7 +22,7 @@ const Page = () => {
     return (
         <section className="user">
             <div className="admin-container">
-                <Breadcrumb title="Foydalanuvchini Tahrirlash" backlink="/admin/users" />
+                <Breadcrumb title="Foydalanuvchini Tahrirlash" backlink="/admin" />
                 <Form direction="y" width="50" onSubmit={handleSubmit}>
                     <FormRow>
                         <FormControl

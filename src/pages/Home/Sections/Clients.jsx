@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectClientsData } from "store/selectors/clients";
 import { fetchClients } from "store/slices/clientsSlice";
+import { SkeletonCarousel } from '../../../components/ui/Skeletons/Skeleton';
 
 const Clients = () => {
   const { t } = useTranslation();
@@ -45,7 +46,7 @@ const Clients = () => {
                   </SwiperSlide>
                 }
               }
-              ) : clients.loading ? <div>Loading... </div> : ""
+              ) : clients.loading ? <SkeletonCarousel /> : "No data"
           }
         </Swiper>
       </div>

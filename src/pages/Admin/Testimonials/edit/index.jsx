@@ -4,7 +4,7 @@ import {
     FormRow,
     FormBtn,
     FormControl,
-    FormSelect
+    FormTextarea
 } from "components/ui/Form/Form";
 import { IoAddSharp, IoSave } from "react-icons/io5";
 import useConnect from "./connect";
@@ -55,7 +55,7 @@ const Page = () => {
                             width="full"
                         />
                     </FormRow>
-                    <FormControl
+                    <FormTextarea
                         type="text"
                         placeholder="Fikr (O'zbekcha)"
                         label={"Fikr (O'zbekcha)"}
@@ -64,7 +64,7 @@ const Page = () => {
                         value={get(values, "message_uz", "")}
                         width="full"
                     />
-                    <FormControl
+                    <FormTextarea
                         type="text"
                         placeholder="Fikr (Ruscha)"
                         label={"Fikr (Ruscha)"}
@@ -73,7 +73,7 @@ const Page = () => {
                         value={get(values, "message_ru", "")}
                         width="full"
                     />
-                    <FormControl
+                    <FormTextarea
                         type="text"
                         placeholder="Fikr (Inglizcha)"
                         label={"Fikr (Inglizcha)"}

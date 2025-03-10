@@ -1,17 +1,17 @@
 import React from 'react'
-import { projectsArray } from '../../../data/const'
 import { Link, useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from "react";
+import { useLanguage } from 'utils/context';
 import { useDispatch, useSelector } from "react-redux";
 import { selectProjectData } from "store/selectors/project";
 import { fetchProject } from "store/slices/projectSlice";
+import { SkeletonCard } from '../../../components/ui/Skeletons/Skeleton';
 
 const Main = () => {
-    const navigate = useNavigate();
     const { t } = useTranslation()
     const dispatch = useDispatch();
-    const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang')) || 'uz');
+    const { lang } = useLanguage();
     const projects = useSelector(selectProjectData);
     useEffect(() => {
         dispatch(fetchProject({}));
@@ -58,7 +58,7 @@ const Main = () => {
                                         </li>
                                     )
                                 }
-                            }) : projects.loading ? <div>Loading... </div> : ""
+                            }) : projects.loading ? <SkeletonCard /> : "No data"
                     }
 
                 </ul>

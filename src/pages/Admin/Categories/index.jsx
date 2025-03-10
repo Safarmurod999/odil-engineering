@@ -57,8 +57,8 @@ const Categories = () => {
                                     categories.categoriesList.data.map((category, index) => (
                                         <tr key={category.id}>
                                             <td>{index + 1}</td>
-                                            <td>{category.name_uz}</td>
-                                            <td>{category.description_uz}</td>
+                                            <td>{category?.name_uz}</td>
+                                            <td>{category?.description_uz.slice(0, 30)}</td>
                                             <td>
                                                 <FormSwitch
                                                     onChange={(e) =>
