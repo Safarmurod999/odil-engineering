@@ -18,9 +18,6 @@ const useConnect = () => {
     formData.append("first_name", values.first_name);
     formData.append("last_name", values.last_name);
     formData.append("email", values.email);
-    // formData.append("description_uz", values.description_uz);
-    // formData.append("description_ru", values.description_ru);
-    // formData.append("description_en", values.description_en);
     formData.append("avatar", values?.avatar);
     dispatch(updateUser({ params: formData, id })).then((res) => {
       if (res.error) {

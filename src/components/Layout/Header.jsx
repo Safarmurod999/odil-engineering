@@ -43,6 +43,13 @@ const navLinks = [
         to: '/projects'
     },
     {
+        id: 5,
+        title_ru: 'Поставщики',
+        title_uz: 'Yetkazib beruvchilar',
+        title_en: 'Suppliers',
+        to: '/suppliers'
+    },
+    {
         id: 6,
         title_ru: 'Контакты',
         title_uz: 'Aloqa',

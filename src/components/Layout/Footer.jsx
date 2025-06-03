@@ -37,7 +37,7 @@ const Footer = () => {
 
   return (
     <>
-      <section className="forms" style={{ display: pathname == "/contacts" ? "none" : "" }}>
+      <section className="forms" style={{ display: pathname == "/contacts"||pathname=="/suppliers-inner" ? "none" : "" }}>
         <div className="container">
           <form className="forms__form" data-aos="zoom-in" onSubmit={handleSubmit}>
             <h2 className="forms__title title">

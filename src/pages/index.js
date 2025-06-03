@@ -8,6 +8,9 @@ export { default as Clients } from "./Clients/Clients";
 
 export { default as Service } from "./Service/Service";
 
+export { default as Suppliers } from "./Suppliers/Suppliers";
+export { default as SuppliersInner } from "./Suppliers/SuppliersInner";
+
 export { default as Projects } from "./Projects/Projects";
 
 export { default as ProjectInner } from "./Projects/ProjectInner";
@@ -50,3 +53,6 @@ export { default as EditTestimonials } from "./Admin/Testimonials/edit/index";
 export {default as AdminClients} from "./Admin/Clients/index";
 export {default as AddClients} from "./Admin/Clients/create/index";
 export {default as EditClients} from "./Admin/Clients/edit/index";
+
+export { default as AdminSuppliers } from "./Admin/Offers/index";
+export { default as EditSuppliers } from "./Admin/Offers/edit/index";

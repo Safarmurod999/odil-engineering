@@ -11,6 +11,7 @@ import {
   projectSlice,
   testimonialsSlice,
   usersSlice,
+  suppliersSlice,
 } from "./slices/index";
 
 const reducers = combineReducers({
@@ -23,6 +24,7 @@ const reducers = combineReducers({
   leads: leadsSlice,
   testimonials: testimonialsSlice,
   clients: clientsSlice,
+  suppliers: suppliersSlice,
 });
 
 const persistedReducers = persistReducer(rootPersistConfig, reducers);

@@ -30,7 +30,7 @@ const FormControl = ({
 }) => {
   return (
     <div className={`form-control w-${width}`}>
-      {label && <label className="form-label">{label}</label>}
+      {label && <label htmlFor={name} className="form-label">{label}</label>}
       {
         defaultValue ?
           <input
@@ -40,6 +40,7 @@ const FormControl = ({
             defaultValue={value || ""}
             onChange={onChange}
             required={required}
+            id={name}
             name={name}
           /> : <input
             className="form-input"
@@ -69,13 +70,14 @@ const FormSelect = ({
 }) => {
   return (
     <div className={`form-control w-${width}`}>
-      <label className="form-label">{label}</label>
+      <label htmlFor={name} className="form-label">{label}</label>
       <select
         className="form-input form-select"
         value={value}
         onChange={onChange}
         required={required}
         name={name}
+        id={name}
       >
         <option value="">{placeholder}</option>
         {options.map((option) => (
@@ -90,8 +92,8 @@ const FormSelect = ({
 
 const FormSwitch = ({ value, onChange, name }) => {
   return (
-    <label className="form-switch">
-      <input type="checkbox" checked={value} onChange={onChange} name={name} />
+    <label htmlFor={name} className="form-switch">
+      <input id={name} type="checkbox" checked={value} onChange={onChange} name={name} />
       <div className={`toggle ${value ? "checked" : ""}`}></div>
     </label>
   );
@@ -109,10 +111,11 @@ const FormBtn = ({ text, icon, onClick }) => {
 const FormImage = ({ label, onChange, width, name }) => {
   return (
     <div className={`form-control w-${width}`}>
-      <label className="form-label">{label}</label>
+      <label htmlFor={name} className="form-label">{label}</label>
       <input
         className="form-input"
         type="file"
+        id={name}
         name={name}
         accept="image/png image/jpeg image/jpg"
         onChange={onChange}
@@ -201,7 +204,7 @@ const FormTextarea = ({
 }) => {
   return (
     <div className={`form-control w-${width}`}>
-      {label && <label className="form-label">{label}</label>}
+      {label && <label htmlFor={name} className="form-label">{label}</label>}
       <textarea
         className="form-textarea"
         placeholder={placeholder}
@@ -209,6 +212,7 @@ const FormTextarea = ({
         defaultValue={defaultValue}
         onChange={onChange}
         required={required}
+        id={name}
         name={name}
         rows={rows}
       />

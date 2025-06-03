@@ -7,3 +7,4 @@ export { default as projectSlice } from "./projectSlice";
 export { default as leadsSlice } from "./leadsSlice";
 export { default as testimonialsSlice } from "./testimonialsSlice";
 export { default as clientsSlice } from "./clientsSlice";
+export {default as suppliersSlice} from "./suppliersSlice";

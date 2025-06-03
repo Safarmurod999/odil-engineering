@@ -65,7 +65,6 @@ const SkeletonCard = () => {
 const SkeletonProduct = () => {
     return (
         <div className="skeleton-product">
-            {/* Gallery */}
             <div className="skeleton-gallery">
                 <div className="skeleton-main-image"></div>
                 <div className="skeleton-thumbnails">
@@ -75,7 +74,6 @@ const SkeletonProduct = () => {
                 </div>
             </div>
 
-            {/* Description */}
             <div className="skeleton-description">
                 <div className="skeleton-title"></div>
                 <div className="skeleton-text"></div>
@@ -112,5 +110,11 @@ const SkeletonCarousel = () => {
         </div>
     );
 };
+
+const SkeletonTestimonials = () => {
+    return (
+        <div></div>
+    )
+}
 
 export { SkeletonCategory, SkeletonCard, SkeletonProduct, SkeletonLogos, SkeletonCarousel };

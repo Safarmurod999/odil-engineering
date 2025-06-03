@@ -1,14 +1,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { IoCloseSharp, IoPersonOutline } from "react-icons/io5";
+import { IoPersonOutline } from "react-icons/io5";
 import { TbMessage2Dollar } from "react-icons/tb";
 import { FaVideo } from "react-icons/fa";
 import { BiCategory } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router";
-import logo from "assets/icons/logo.svg";
 import { FaRegMessage, FaRProject } from "react-icons/fa6";
 import { MdOutlinePeople } from "react-icons/md";
+import { FaHandshake } from "react-icons/fa";
+import logo from "assets/icons/logo.svg";
 
 const adminRoutes = [
   // {
@@ -64,6 +65,12 @@ const adminRoutes = [
     name: "Mijozlar",
     path: "/admin/clients",
     icon: <IoPersonOutline />,
+  },
+  {
+    id:10,
+    name:"Hamkorlar",
+    path: "/admin/suppliers",
+    icon: <FaHandshake />,
   }
 ];
 
