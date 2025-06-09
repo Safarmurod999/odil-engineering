@@ -44,9 +44,6 @@ const Page = () => {
                 >
                   Password
                 </label>
-                <a aria-label="forgot-password" href="#" className={"sign-in__form__password-group__forgot"}>
-                  Forgot password?
-                </a>
               </div>
               <input
                 id="password"

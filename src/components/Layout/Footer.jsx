@@ -60,9 +60,9 @@ const Footer = () => {
           <div className="footer__left" data-aos="zoom-out">
             <p> &copy; Odil Engineering  2015-2025</p>
             <p>OOO «Odil Engineering»</p>
-            <Link aria-label='pravilo' to="/pravilo">
+            {/* <Link aria-label='pravilo' to="/pravilo">
               {t('politics')}
-            </Link>
+            </Link> */}
           </div>
           <div className="footer__mid" data-aos="zoom-out">
             {t('our_address')}

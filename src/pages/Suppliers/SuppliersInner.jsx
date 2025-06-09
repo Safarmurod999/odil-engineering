@@ -4,7 +4,9 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import {createSupplier} from "store/slices/suppliersSlice";
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 const SuppliersInner = () => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
 
     const onSubmit = (values) => {
@@ -36,14 +38,14 @@ const SuppliersInner = () => {
         <section className='suppliers-inner'>
             <div className="container">
                 <div className="title">
-                    <span>Стать поставщиком</span>
+                    <span>{t('be_supplier')}</span>
                 </div>
                 <Form direction='y' onSubmit={handleSubmit}>
                     <FormRow>
                         <FormControl
                             type='text'
                             placeholder=''
-                            label={'Название компании *'}
+                            label={`${t('company_name')} *`}
                             name={'company_name'}
                             value={values.company_name}
                             onChange={handleChange} />
@@ -53,21 +55,21 @@ const SuppliersInner = () => {
                             name={'partner_count'}
                             value={values.partner_count}
                             onChange={handleChange}
-                            label={'Количество сотрудников'} />
+                            label={t('partner_count')} />
                     </FormRow>
                     <FormRow>
                         <FormControl
                             type='text'
                             placeholder=''
                             name={'inn'}
-                            label={'ИНН'}
+                            label={t('inn')}
                             value={values.inn}
                             onChange={handleChange} />
                         <FormControl
                             type='text'
                             placeholder=''
                             name={'contact_person'}
-                            label={'Контактное лицо *'}
+                            label={`${t('contact_person')} *`}
                             value={values.contact_person}
                             onChange={handleChange} />
                     </FormRow>
@@ -76,7 +78,7 @@ const SuppliersInner = () => {
                             type='text'
                             placeholder=''
                             name={'phone'}
-                            label={'Телефон'}
+                            label={t('phone')}
                             
                             value={values.phone}
                             onChange={handleChange} />
@@ -84,13 +86,13 @@ const SuppliersInner = () => {
                             type='email'
                             placeholder=''
                             name={'email'}
-                            label={'Email'}
+                            label={t('email')}
                             value={values.email}
                             onChange={handleChange} />
                     </FormRow>
-                    <FormTextarea label={'Опишите вашу компанию'} name={'company_description'} value={values.company_description} onChange={handleChange} />
+                    <FormTextarea label={t('company_description')} name={'company_description'} value={values.company_description} onChange={handleChange} />
                     {/* <strong>Выберите категорию продукции или услуг</strong> */}
-                    <strong>Напишите о своем предложении</strong>
+                    <strong>{t('offer')}</strong>
                     {/* <FormSelect
                         options={[
                             { id: 0, label: 'Механические части' },

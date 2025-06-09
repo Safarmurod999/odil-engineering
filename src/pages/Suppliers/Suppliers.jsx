@@ -1,5 +1,7 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
+import { useLanguage } from 'utils/context';
 
 const partialArray = [
     {
@@ -90,35 +92,31 @@ const partialArray = [
     }
 ]
 const Service = () => {
+    const {t}= useTranslation();
+    const {lang} =useLanguage();
     return (
         <section className='suppliers'>
             <div className='container'>
                 <div className='title'>
-                    <span>ЗАКУПКИ КОМПЛЕКТУЮЩИХ И МАТЕРИАЛОВ</span>
+                    <span>{t('suppliers_title')}</span>
                 </div>
                 <p className='suppliers__text'>
-                    Наша компания ставит перед собой цель стать
-                    ведущим поставщиком оборудования и решений
-                    для автоматизации складских и производственных
-                    процессов в Узбекистане. Для достижения своей цели
-                    мы всегда ищем качественных и надежных поставщиков.
-                    Поставщики, с которыми мы работаем, являются лучшими
-                    в своих областях.
+                    {t('suppliers_text')}
                 </p>
 
                 <div className="suppliers__title">
-                    НАМ НЕОБХОДИМЫ СЛЕДУЮЩИЕ КОМПЛЕКТУЮЩИЕ И МАТЕРИАЛЫ
+                    {t('suppliers_title_2')}
                 </div>
                 <ul className='suppliers__list'>
                     {
                         partialArray.map((item) => (
                             <li key={item.id} className='suppliers__list-item'>
-                                <span>{item.title_ru}</span>
+                                <span>{item[`title_${lang}`]}</span>
                                 <ul className='suppliers__list-subitems'>
                                     {
                                         item.items.map((subItem) => (
                                             <li key={subItem.id}>
-                                                <a href={subItem.to}>{subItem.title_ru}</a>
+                                                <a href={subItem.to}>{subItem[`title_${lang}`]}</a>
                                             </li>
                                         ))
                                     }
@@ -129,16 +127,14 @@ const Service = () => {
                 </ul>
 
                 <p className='suppliers__text'>
-                    Хотите стать нашим поставщиком? Заполните анкету о своей
-                    компании о продукции, которую Ваша компания предлагает. <br />
+                    {t('suppliers_question_1')}<br />
 
                     <strong>
-                        Внимание! Не присылайте коммерческие предложения
-                        на почту, внесите Ваше предложение в форму обратной связи.
+                        {t('suppliers_question_2')}
                     </strong>
                 </p>
 
-                <Link to="/suppliers-inner" className='forms__btn suppliers__link'>Стать поставщиком</Link>
+                <Link to="/suppliers-inner" className='forms__btn suppliers__link'>{t('be_supplier')}</Link>
             </div>
         </section>
     )

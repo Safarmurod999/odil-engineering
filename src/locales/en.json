@@ -54,5 +54,19 @@
     "page_not_found": "This page does not exist.",
     "main_page": "Main page",
     "product_montage": "We provide services for the installation and maintenance of conveyor equipment. Our service department will ensure the correct installation of conveyors and their periodic technical maintenance to guarantee long and reliable operation of the equipment.",
-    "product_about": "We produce a full range of conveyor equipment and control systems. At the same time, we carry out the entire production cycle, starting from individual design of a separate conveyor and ending with the installation and commissioning of conveyor technological lines at the facility. Our many years of experience and knowledge of the conveyor industry allow us to offer proven and tested standard elements or individual solutions with a full-fledged control system and software, project management, installation and technical support tailored to the specific requirements of the customer. The modular architecture ensures fast production, ease of assembly and installation work. If necessary, it is possible to change the configuration and dimensions of the conveyor, as well as add additional modules with minimal costs."
+    "product_about": "We produce a full range of conveyor equipment and control systems. At the same time, we carry out the entire production cycle, starting from individual design of a separate conveyor and ending with the installation and commissioning of conveyor technological lines at the facility. Our many years of experience and knowledge of the conveyor industry allow us to offer proven and tested standard elements or individual solutions with a full-fledged control system and software, project management, installation and technical support tailored to the specific requirements of the customer. The modular architecture ensures fast production, ease of assembly and installation work. If necessary, it is possible to change the configuration and dimensions of the conveyor, as well as add additional modules with minimal costs.",
+    "suppliers_title": "PURCHASE OF COMPONENTS AND MATERIALS",
+    "suppliers_text":"Our company aims to become a leading supplier of equipment and solutions for automation of warehouse and production processes in Uzbekistan. To achieve our goal, we always look for high-quality and reliable suppliers. The suppliers we work with are the best in their fields.",
+    "suppliers_question_1": "Do you want to become our supplier? Fill out the questionnaire about your company and the products your company offers.",
+    "suppliers_question_2":"Attention! Do not send commercial offers by email, enter your offer in the feedback form.",
+    "suppliers_title_2":"WE NEED THE FOLLOWING COMPONENTS AND MATERIALS",
+    "be_supplier": "Become a supplier",
+    "company_name":"Company name",
+    "partner_count":"Count of partners",
+    "inn":"TIN",
+    "contact_person":"Contact person",
+    "phone":"Phone",
+    "email":"Email",
+    "company_description":"Describe your company",
+    "offer":"Write about your offer"
 }

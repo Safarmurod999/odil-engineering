@@ -53,5 +53,19 @@
     "page_not_found": "Bunday sahifa mavjud emas.",
     "main_page": "Bosh sahifa",
     "product_montage": "Biz konveyer texnikasini o'rnatish va xizmat ko'rsatish xizmatlarini taqdim etamiz. Bizning xizmat bo'limimiz konveyerlarni to'g'ri o'rnatish va ularning doimiy texnik xizmatini ta'minlash uchun ishlab chiqarishni kafolatlash uchun to'g'ri o'rnatishni ta'minlaydi.",
-    "product_about": "Biz konveyer uskunalari va boshqaruv tizimlarining to'liq spektrini ishlab chiqaramiz. Shu bilan birga, biz ishlab chiqarishning to'liq tsiklini amalga oshiramiz, alohida konveyerni individual loyihalashdan boshlab, ob'ektda texnologik konveyer liniyalarini o'rnatish va ishga tushirishgacha. Ko'p yillik tajribamiz va konveyer sohasidagi bilimlarimiz bizga sinovdan o'tgan va tasdiqlangan standart elementlarni yoki mijozning aniq talablariga mos keladigan to'liq boshqaruv tizimi va dasturiy ta'minot, loyiha boshqaruvi, o'rnatish va texnik qo'llab-quvvatlash bilan individual yechimlarni taklif qilish imkonini beradi. Modul arxitekturasi tezkor ishlab chiqarish, yig'ish va o'rnatish ishlarining soddaligini ta'minlaydi. Zarur bo'lganda, konveyer konfiguratsiyasi va o'lchamlarini o'zgartirish, shuningdek, qo'shimcha modullarni minimal xarajatlar bilan qo'shish mumkin."
+    "product_about": "Biz konveyer uskunalari va boshqaruv tizimlarining to'liq spektrini ishlab chiqaramiz. Shu bilan birga, biz ishlab chiqarishning to'liq tsiklini amalga oshiramiz, alohida konveyerni individual loyihalashdan boshlab, ob'ektda texnologik konveyer liniyalarini o'rnatish va ishga tushirishgacha. Ko'p yillik tajribamiz va konveyer sohasidagi bilimlarimiz bizga sinovdan o'tgan va tasdiqlangan standart elementlarni yoki mijozning aniq talablariga mos keladigan to'liq boshqaruv tizimi va dasturiy ta'minot, loyiha boshqaruvi, o'rnatish va texnik qo'llab-quvvatlash bilan individual yechimlarni taklif qilish imkonini beradi. Modul arxitekturasi tezkor ishlab chiqarish, yig'ish va o'rnatish ishlarining soddaligini ta'minlaydi. Zarur bo'lganda, konveyer konfiguratsiyasi va o'lchamlarini o'zgartirish, shuningdek, qo'shimcha modullarni minimal xarajatlar bilan qo'shish mumkin.",
+    "suppliers_title":"KOMPONENTLAR VA MATERIALLARNI SOTIB OLISH",
+    "suppliers_text":"Kompaniyamiz O‘zbekistonda ombor va ishlab chiqarish jarayonlarini avtomatlashtirish bo‘yicha uskunalar va yechimlarning yetakchi yetkazib beruvchisi bo‘lishni maqsad qilgan. Maqsadimizga erishish uchun biz doimo yuqori sifatli va ishonchli yetkazib beruvchilarni qidiramiz. Biz ishlayotgan yetkazib beruvchilar o'z sohalarida eng yaxshisidir.",
+    "suppliers_question_1":"Siz bizning yetkazib beruvchimiz bo'lishni xohlaysizmi? O'zingizning kompaniyangiz va kompaniyangiz taklif qiladigan mahsulotlar haqida so'rovnomani to'ldiring.",
+    "suppliers_question_2":"Diqqat! Tijoriy takliflarni elektron pochta orqali yubormang, taklifingizni fikr-mulohaza shaklida kiriting.",
+    "suppliers_title_2":"BIZGA QUYIDAGI KOMPONENTLAR VA MATERIALLAR KERAK",
+    "be_supplier": "Yetkazib beruvchimiz bo'ling",
+    "company_name":"Komaniya nomi",
+    "partner_count":"Hamkorlar soni",
+    "inn":"IIN",
+    "contact_person":"Mas'ul shaxs",
+    "phone":"Telefon",
+    "email":"Email",
+    "company_description":"Kompaniyangiz haqida",
+    "offer":"Taklifingiz haqida yozing"
 }
